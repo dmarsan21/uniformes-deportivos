@@ -1,0 +1,101 @@
+---
+// src/components/Hero.astro
+const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20quiero%20cotizar%20uniformes%20deportivos%20para%20mi%20equipo";
+---
+
+<section class="relative min-h-screen lg:h-screen lg:max-h-[1080px] flex flex-col justify-between items-center pt-20 sm:pt-24 pb-6 sm:pb-8 px-4 sm:px-6 overflow-hidden">
+  <!-- Cinematic Background Video (Nike-like High Impact Aesthetic) -->
+  <video 
+    autoplay 
+    loop 
+    muted 
+    playsinline 
+    preload="metadata"
+    class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+  >
+    <source src="/videos/hero-sports.mp4" type="video/mp4" />
+    Tu navegador no soporta video HTML5.
+  </video>
+
+  <!-- Capas de Contraste y Gradientes (Overlay) -->
+  <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/75 to-[#0a0a0c]/40 z-10 pointer-events-none"></div>
+
+  <!-- Ambient Glow -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#ccff00]/10 rounded-full blur-[140px] pointer-events-none z-10"></div>
+
+  <!-- Main Hero Body (Centered) with relative z-20 -->
+  <div class="relative z-20 max-w-5xl mx-auto text-center flex flex-col items-center justify-center my-auto w-full pt-4">
+    <!-- Top athletic badge -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 sm:py-1.5 rounded-full bg-[#0a0a0c]/80 backdrop-blur-md border border-[#ccff00]/50 shadow-[0_0_20px_rgba(204,255,0,0.25)] mb-3 sm:mb-4">
+      <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
+      <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#ccff00]">
+        Fabricantes Directos // Temporada 2026
+      </span>
+      <span class="text-neutral-500">•</span>
+      <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white">
+        Sublimación 4K Pro
+      </span>
+    </div>
+
+    <!-- Main Title with high-contrast drop-shadow -->
+    <h1 class="font-athletic text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.2rem] font-black uppercase tracking-tight text-white leading-[0.93] max-w-4xl mb-3 sm:mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
+      Uniformes Deportivos de <span class="text-[#ccff00] drop-shadow-[0_0_35px_rgba(204,255,0,0.5)]">Alto Rendimiento</span> Que Imponen Respeto
+    </h1>
+
+    <!-- Subtitle with readable backdrop -->
+    <p class="text-neutral-200 text-xs sm:text-base lg:text-lg font-normal max-w-2xl mx-auto leading-relaxed mb-5 sm:mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+      Diseñamos y confeccionamos equipaciones de fútbol y deportes de élite 100% personalizadas. Telas inteligentes <strong class="text-white font-semibold">Dry-Tech</strong>, sublimación HD indestructible y acabados para máxima durabilidad.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+      <a 
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#ccff00] text-black font-athletic text-base sm:text-lg uppercase tracking-wider px-7 py-3 sm:py-3.5 rounded-full font-bold hover:bg-white hover:shadow-[0_0_35px_rgba(204,255,0,0.7)] active:scale-95 transition-all duration-300 group shadow-2xl shadow-black/80"
+        id="hero-primary-cta"
+      >
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
+        </svg>
+        <span>Cotizar Mi Equipo por WhatsApp</span>
+      </a>
+
+      <a 
+        href="#catalogo"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0a0a0c]/80 hover:bg-[#1f1f28] text-white border border-white/20 hover:border-[#ccff00]/60 font-athletic text-base sm:text-lg uppercase tracking-wider px-6 py-3 sm:py-3.5 rounded-full transition-all duration-300 backdrop-blur-md"
+      >
+        <span>Ver Catálogo</span>
+        <svg class="w-4 h-4 text-[#ccff00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Trust Stats Grid with glassmorphic cards (Anchored at the bottom of the Hero screen) with relative z-20 -->
+  <div class="relative z-20 w-full max-w-4xl pt-4 sm:pt-5 border-t border-white/15">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 w-full">
+      <div class="flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/40 transition-colors">
+        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-[#ccff00] font-black">+50,000</span>
+        <span class="text-[10px] sm:text-xs text-neutral-300 uppercase tracking-wider font-semibold text-center">Uniformes Creados</span>
+      </div>
+
+      <div class="flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/40 transition-colors">
+        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-white font-black">10-12 Días</span>
+        <span class="text-[10px] sm:text-xs text-neutral-300 uppercase tracking-wider font-semibold text-center">Tiempos Récord</span>
+      </div>
+
+      <div class="flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/40 transition-colors">
+        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-[#ccff00] font-black">100% HD</span>
+        <span class="text-[10px] sm:text-xs text-neutral-300 uppercase tracking-wider font-semibold text-center">Sublimación Digital</span>
+      </div>
+
+      <div class="flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/40 transition-colors">
+        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-white font-black">Min. 10 Pzas</span>
+        <span class="text-[10px] sm:text-xs text-neutral-300 uppercase tracking-wider font-semibold text-center">Precios de Mayoreo</span>
+      </div>
+    </div>
+  </div>
+</section>

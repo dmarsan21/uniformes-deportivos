@@ -1,0 +1,186 @@
+---
+// src/components/BentoGrid.astro
+import { Image } from 'astro:assets';
+import baseballImg from '../assets/images/baseball.jpg';
+import basketballImg from '../assets/images/basketball.jpg';
+import footballImg from '../assets/images/football.jpg';
+import mmaImg from '../assets/images/mma.jpg';
+
+const sports = [
+  {
+    id: "beisbol",
+    title: "Béisbol & Softbol",
+    category: "Camisolas Pro & Pantalones",
+    description: "Jerseys clásicos con botonera o cuello en V, telas stretch de alta durabilidad, aplicaciones sublimadas en relieve y pantalones con refuerzo en rodillas.",
+    badge: "Popular // Diamante",
+    image: baseballImg,
+    alt: "Uniforme de béisbol profesional sublimado de alta calidad",
+    colSpan: "lg:col-span-7",
+    specs: ["Botonera reforzada", "Pantalones Heavy-Duty", "Gorras bordadas/sublimadas"],
+    waText: "Hola APEX PRO, quiero cotizar uniformes de Béisbol y Softbol"
+  },
+  {
+    id: "basquetbol",
+    title: "Básquetbol",
+    category: "Sets Pro-Motion",
+    description: "Equipaciones completas sin mangas y shorts con corte ergonómico Pro-Motion. Malla microporosa transpirable con libertad total de movimiento.",
+    badge: "Alta Transpirabilidad",
+    image: basketballImg,
+    alt: "Uniforme de básquetbol sublimado con jersey y shorts",
+    colSpan: "lg:col-span-5",
+    specs: ["Tela Cool-Breeze", "Corte Ergonómico", "Resorte ajustable antideslizante"],
+    waText: "Hola APEX PRO, quiero cotizar uniformes de Básquetbol"
+  },
+  {
+    id: "futbol-americano",
+    title: "Fútbol Americano",
+    category: "Armor Grid & Contacto",
+    description: "Jerseys de combate con paneles de malla elástica ultra pesada, hombreras anatómicas y costuras dobles de 4 hilos diseñadas para impacto rudo.",
+    badge: "Máximo Contacto",
+    image: footballImg,
+    alt: "Jersey de fútbol americano sublimado con refuerzos",
+    colSpan: "lg:col-span-5",
+    specs: ["Malla Elástica 400g", "Costura Triple de Impacto", "Ajuste Ceñido a Coraza"],
+    waText: "Hola APEX PRO, quiero cotizar uniformes de Fútbol Americano"
+  },
+  {
+    id: "mma-box",
+    title: "MMA & Combat Sports",
+    category: "Rashguards & Fight Shorts",
+    description: "Licras de compresión 4-way stretch y shorts de combate con paneles de spandex en entrepierna y aperturas laterales para patadas libres.",
+    badge: "Compresión 4-Way",
+    image: mmaImg,
+    alt: "Rashguard y shorts de MMA sublimados para entrenamiento y combate",
+    colSpan: "lg:col-span-7",
+    specs: ["Costuras Flatlock anti-roce", "Cintura Siliconada", "Impresión Indeleble"],
+    waText: "Hola APEX PRO, quiero cotizar equipamiento de MMA y Deportes de Contacto"
+  }
+];
+---
+
+<section id="disciplinas" class="py-24 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-20">
+  <!-- Section Header -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+    <div class="max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16161d] border border-[#ccff00]/30 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4">
+        <span>⚡ Catálogo de Especialidades</span>
+      </div>
+      <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-none">
+        Disciplinas Que <span class="text-[#ccff00]">Dominamos</span>
+      </h2>
+      <p class="text-neutral-400 mt-4 text-base sm:text-lg">
+        Cada deporte tiene exigencias físicas únicas. Confeccionamos patrones anatómicos específicos para cada disciplina con materiales certificados.
+      </p>
+    </div>
+
+    <div class="hidden md:flex items-center gap-3 text-neutral-400 text-sm font-semibold uppercase tracking-wider">
+      <span>Personalización 100% Completa</span>
+      <span class="text-[#ccff00]">•</span>
+      <span>Corte Láser</span>
+    </div>
+  </div>
+
+  <!-- Bento Grid Container -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    {sports.map((sport) => (
+      <article 
+        class={`group relative rounded-3xl overflow-hidden bg-[#121216] border border-white/10 hover:border-[#ccff00]/60 transition-all duration-500 flex flex-col justify-end min-h-115 sm:min-h-125 ${sport.colSpan} shadow-2xl hover:shadow-[0_0_35px_rgba(204,255,0,0.15)]`}
+      >
+        <!-- Background Image with Astro Image Optimization -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+          <Image 
+            src={sport.image} 
+            alt={sport.alt}
+            class="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out brightness-90 group-hover:brightness-100"
+            loading="lazy"
+            quality={85}
+          />
+          <!-- Multi-stage athletic dark gradient overlay -->
+          <div class="absolute inset-0 bg-linear-to-t from-[#0a0a0c] via-[#0a0a0c]/80 to-transparent"></div>
+          <div class="absolute inset-0 bg-linear-to-r from-[#0a0a0c]/80 via-transparent to-transparent"></div>
+        </div>
+
+        <!-- Top Badges -->
+        <div class="absolute top-5 left-5 right-5 z-10 flex items-center justify-between pointer-events-none">
+          <span class="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-wider">
+            {sport.badge}
+          </span>
+          <span class="w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white text-xs group-hover:bg-[#ccff00] group-hover:text-black group-hover:border-[#ccff00] transition-colors">
+            ↗
+          </span>
+        </div>
+
+        <!-- Card Content Area -->
+        <div class="relative z-10 p-6 sm:p-8 flex flex-col justify-end">
+          <span class="text-xs uppercase tracking-widest text-[#ccff00] font-bold mb-1">
+            {sport.category}
+          </span>
+          
+          <h3 class="font-athletic text-2xl sm:text-4xl uppercase text-white font-black tracking-wide mb-3 group-hover:text-[#ccff00] transition-colors">
+            {sport.title}
+          </h3>
+
+          <p class="text-neutral-300 text-sm sm:text-base leading-relaxed mb-5 max-w-xl line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+            {sport.description}
+          </p>
+
+          <!-- Specifications Tags -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            {sport.specs.map((spec) => (
+              <span class="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-neutral-300">
+                ✓ {spec}
+              </span>
+            ))}
+          </div>
+
+          <!-- Bottom Action -->
+          <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+            <a 
+              href={`https://wa.me/520000000000?text=${encodeURIComponent(sport.waText)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ccff00] hover:text-white group-hover:translate-x-1 transition-all"
+            >
+              <span>Cotizar {sport.title}</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+            <span class="text-xs text-neutral-500 uppercase tracking-widest font-mono">Desde 10 pzas</span>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <!-- Technical Feature Banners -->
+  <div id="calidad" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#121216] border border-white/10 flex items-start gap-5 hover:border-[#ccff00]/40 transition-colors">
+      <div class="w-12 h-12 rounded-2xl bg-[#ccff00]/10 border border-[#ccff00]/30 flex items-center justify-center text-[#ccff00] text-2xl shrink-0">
+        🔬
+      </div>
+      <div>
+        <h4 class="font-athletic text-xl sm:text-2xl uppercase text-white font-bold mb-2">
+          Sublimación Digital Térmica a 200°C
+        </h4>
+        <p class="text-neutral-400 text-sm leading-relaxed">
+          Las tintas penetran a nivel molecular en las fibras de poliéster deportivo. Los gráficos, nombres y dorsales nunca se cuartean, no se despegan y mantienen su viveza por temporadas completas.
+        </p>
+      </div>
+    </div>
+
+    <div class="p-6 sm:p-8 rounded-3xl bg-[#121216] border border-white/10 flex items-start gap-5 hover:border-[#ccff00]/40 transition-colors">
+      <div class="w-12 h-12 rounded-2xl bg-[#ccff00]/10 border border-[#ccff00]/30 flex items-center justify-center text-[#ccff00] text-2xl shrink-0">
+        💧
+      </div>
+      <div>
+        <h4 class="font-athletic text-xl sm:text-2xl uppercase text-white font-bold mb-2">
+          Tejidos Dry-Tech & Protección UV
+        </h4>
+        <p class="text-neutral-400 text-sm leading-relaxed">
+          Estructura microcelular de rápida expulsión del sudor y secado instantáneo. Mantén a tus atletas frescos bajo el sol con factor de protección solar UV +50 integrado en cada prenda.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

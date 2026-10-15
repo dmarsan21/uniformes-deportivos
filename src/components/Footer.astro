@@ -1,0 +1,96 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+const WHATSAPP_URL = "https://wa.me/520000000000";
+---
+
+<footer class="bg-[#070709] border-t border-white/10 pt-16 pb-12 px-4 sm:px-6 text-neutral-400">
+  <div class="max-w-7xl mx-auto">
+    <!-- Top Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
+      <!-- Col 1 & 2: Brand Description -->
+      <div class="lg:col-span-2">
+        <a href="#" class="flex items-center gap-2 mb-4 group" aria-label="APEX PRO Inicio">
+          <div class="w-8 h-8 rounded-lg bg-[#ccff00] flex items-center justify-center font-athletic text-black text-xl font-black group-hover:scale-105 transition-transform">
+            ⚡
+          </div>
+          <div class="flex items-baseline gap-1.5">
+            <span class="font-athletic text-2xl tracking-wider text-white font-black uppercase">APEX</span>
+            <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#ccff00] text-black tracking-widest">PRO</span>
+          </div>
+        </a>
+        <p class="text-sm text-neutral-400 leading-relaxed max-w-sm mb-6">
+          Fabricantes especializados en uniformes deportivos de alto rendimiento. Sublimación digital HD indeleble, patronaje anatómico y confección industrial para atletas y ligas de élite.
+        </p>
+        <div class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-neutral-300">
+          <span class="w-2 h-2 rounded-full bg-[#ccff00]"></span>
+          <span>Taller Activo • Envíos Nacionales e Internacionales</span>
+        </div>
+      </div>
+
+      <!-- Col 3: Disciplinas -->
+      <div>
+        <h4 class="font-athletic text-base uppercase text-white font-bold tracking-wider mb-4">
+          Disciplinas
+        </h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#disciplinas" class="hover:text-[#ccff00] transition-colors">Béisbol & Sóftbol</a></li>
+          <li><a href="#disciplinas" class="hover:text-[#ccff00] transition-colors">Básquetbol Pro-Motion</a></li>
+          <li><a href="#disciplinas" class="hover:text-[#ccff00] transition-colors">Fútbol Americano Impact</a></li>
+          <li><a href="#disciplinas" class="hover:text-[#ccff00] transition-colors">MMA & Rashguards</a></li>
+          <li><a href="#disciplinas" class="hover:text-[#ccff00] transition-colors">Gorras & Accesorios</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Proceso y Calidad -->
+      <div>
+        <h4 class="font-athletic text-base uppercase text-white font-bold tracking-wider mb-4">
+          Navegación
+        </h4>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#proceso" class="hover:text-[#ccff00] transition-colors">Proceso de Trabajo (3 Pasos)</a></li>
+          <li><a href="#calidad" class="hover:text-[#ccff00] transition-colors">Tecnología Dry-Tech</a></li>
+          <li><a href="#calidad" class="hover:text-[#ccff00] transition-colors">Sublimación Térmica 4K</a></li>
+          <li><a href="#contacto" class="hover:text-[#ccff00] transition-colors">Cotización Mayoreo</a></li>
+          <li><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="hover:text-[#ccff00] transition-colors">Atención Inmediata</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 5: Contacto Directo -->
+      <div>
+        <h4 class="font-athletic text-base uppercase text-white font-bold tracking-wider mb-4">
+          Contacto Directo
+        </h4>
+        <div class="space-y-3 text-sm">
+          <div>
+            <span class="block text-xs uppercase tracking-wider text-neutral-500 font-mono">WhatsApp Ventas</span>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#ccff00] font-semibold transition-colors">
+              +52 (000) 000-0000
+            </a>
+          </div>
+          <div>
+            <span class="block text-xs uppercase tracking-wider text-neutral-500 font-mono">Horario de Taller</span>
+            <span class="text-neutral-300">Lun - Sáb: 8:00 AM - 8:00 PM</span>
+          </div>
+          <div>
+            <span class="block text-xs uppercase tracking-wider text-neutral-500 font-mono">Tiempo de Respuesta</span>
+            <span class="text-[#ccff00] font-medium">Menos de 15 minutos en WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar: Legal & Credits -->
+    <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
+      <p>© {currentYear} APEX PRO Sportswear. Confección de uniformes de alto rendimiento. Todos los derechos reservados.</p>
+      
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-neutral-300 transition-colors">Aviso de Privacidad</a>
+        <span>•</span>
+        <a href="#" class="hover:text-neutral-300 transition-colors">Términos de Confección</a>
+        <span>•</span>
+        <a href="#" class="hover:text-neutral-300 transition-colors">Garantía de Fábrica</a>
+      </div>
+    </div>
+  </div>
+</footer>

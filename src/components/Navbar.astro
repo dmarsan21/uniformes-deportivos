@@ -1,0 +1,114 @@
+---
+// src/components/Navbar.astro
+const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20quiero%20cotizar%20uniformes%20deportivos%20para%20mi%20equipo";
+---
+
+<header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#0a0a0c]/85 backdrop-blur-xl border-b border-white/10 shadow-xl shadow-black/50 transition-all duration-300">
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2 group" aria-label="APEX PRO Inicio">
+      <div class="w-8 h-8 rounded-lg bg-[#ccff00] flex items-center justify-center font-athletic text-black text-xl font-black group-hover:scale-105 group-hover:shadow-[0_0_15px_#ccff00] transition-transform">
+        ⚡
+      </div>
+      <div class="flex items-baseline gap-1.5">
+        <span class="font-athletic text-2xl tracking-wider text-white font-black uppercase">APEX</span>
+        <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#ccff00] text-black tracking-widest">PRO</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center gap-7 text-xs lg:text-sm font-semibold tracking-wider uppercase text-neutral-300" aria-label="Navegación principal">
+      <a href="#catalogo" class="hover:text-[#ccff00] transition-colors py-1 relative group">
+        Catálogo
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
+      </a>
+      <a href="#disciplinas" class="hover:text-[#ccff00] transition-colors py-1 relative group">
+        Disciplinas
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
+      </a>
+      <a href="#proceso" class="hover:text-[#ccff00] transition-colors py-1 relative group">
+        Proceso
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
+      </a>
+      <a href="#calidad" class="hover:text-[#ccff00] transition-colors py-1 relative group">
+        Tecnología HD
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
+      </a>
+      <a href="#contacto" class="hover:text-[#ccff00] transition-colors py-1 relative group">
+        Contacto
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
+      </a>
+    </nav>
+
+    <!-- CTA & Mobile Button -->
+    <div class="flex items-center gap-3">
+      <a 
+        href={WHATSAPP_URL}
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-[#ccff00] text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider px-5 py-2.5 rounded-full hover:bg-white hover:text-black hover:shadow-[0_0_25px_rgba(204,255,0,0.6)] active:scale-95 transition-all duration-200"
+        id="nav-cta-btn"
+      >
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
+        </svg>
+        <span>Cotizar</span>
+      </a>
+
+      <!-- Mobile Toggle Button -->
+      <button 
+        id="mobile-menu-toggle"
+        class="md:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-[#ccff00] hover:border-[#ccff00]/40 transition-colors"
+        aria-label="Abrir menú móvil"
+        aria-expanded="false"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div 
+    id="mobile-menu"
+    class="hidden md:hidden w-full border-t border-white/10 bg-[#0a0a0c]/98 backdrop-blur-2xl px-6 py-6"
+  >
+    <div class="flex flex-col gap-4 text-center">
+      <a href="#catalogo" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Catálogo & Precios</a>
+      <a href="#disciplinas" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Disciplinas</a>
+      <a href="#proceso" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Proceso de Trabajo</a>
+      <a href="#calidad" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Tecnología Dry-Tech</a>
+      <a href="#contacto" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 mobile-link">Contacto Directo</a>
+      <a 
+        href={WHATSAPP_URL} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="w-full bg-[#ccff00] text-black font-extrabold uppercase py-3 rounded-xl tracking-wider text-sm flex items-center justify-center gap-2 mt-2"
+      >
+        <span>Hablar con un Asesor</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  if (toggleBtn && mobileMenu) {
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>

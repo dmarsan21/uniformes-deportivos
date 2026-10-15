@@ -1,0 +1,119 @@
+---
+// src/components/Process.astro
+const steps = [
+  {
+    step: "01",
+    title: "Idea & Asesoría Gráfica",
+    subtitle: "Cotización en minutos",
+    description: "Compártenos por WhatsApp tu escudo, boceto o referencias visuales. Nuestro equipo de diseñadores deportivos profesionales crea tu propuesta gráfica inicial sin costo.",
+    icon: "✏️",
+    badge: "100% Sin Costo"
+  },
+  {
+    step: "02",
+    title: "Render 3D & Aprobación",
+    subtitle: "Visualización fotorrealista",
+    description: "Te presentamos una simulación digital 3D 360° con tus colores institucionales, patrocinadores y tipografías exactas. Ajustamos los detalles hasta que estés completamente conforme.",
+    icon: "🖥️",
+    badge: "Ajustes Ilimitados"
+  },
+  {
+    step: "03",
+    title: "Confección & Entrega Express",
+    subtitle: "Directo a tu puerta",
+    description: "Sublimamos con calor industrial, cortamos por láser y armamos cada prenda con costuras reforzadas. Recibe tu pedido garantizado en 10 a 12 días con paquetería express asegurada.",
+    icon: "📦",
+    badge: "10-12 Días"
+  }
+];
+---
+
+<section id="proceso" class="py-24 px-4 sm:px-6 max-w-7xl mx-auto relative scroll-mt-20">
+  <!-- Ambient background glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-[#ccff00]/5 blur-[160px] pointer-events-none rounded-full"></div>
+
+  <!-- Header -->
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16161d] border border-[#ccff00]/30 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4">
+      <span>⚡ Cómo Trabajamos</span>
+    </div>
+    <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-none">
+      De Tu Idea a la Cancha en <span class="text-[#ccff00]">3 Pasos</span>
+    </h2>
+    <p class="text-neutral-400 mt-4 text-base sm:text-lg">
+      Un proceso ágil, transparente y sin complicaciones. Te acompañamos desde el primer trazo hasta la entrega de los uniformes a tus jugadores.
+    </p>
+  </div>
+
+  <!-- Process Steps Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+    {steps.map((item, index) => (
+      <div class="group relative rounded-3xl bg-[#121216] border border-white/10 hover:border-[#ccff00]/60 p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 shadow-xl hover:shadow-[0_0_30px_rgba(204,255,0,0.12)]">
+        <!-- Number watermark background -->
+        <span class="absolute top-4 right-6 font-athletic text-7xl font-black text-white/[0.04] select-none group-hover:text-[#ccff00]/10 transition-colors pointer-events-none">
+          {item.step}
+        </span>
+
+        <div>
+          <!-- Header of card -->
+          <div class="flex items-center justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl group-hover:border-[#ccff00]/50 group-hover:bg-[#ccff00]/10 transition-colors">
+              {item.icon}
+            </div>
+            <span class="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#ccff00]/10 border border-[#ccff00]/30 text-[#ccff00]">
+              {item.badge}
+            </span>
+          </div>
+
+          <!-- Step Label -->
+          <span class="font-mono text-xs text-neutral-500 uppercase tracking-widest block mb-1">
+            Paso {item.step} // {item.subtitle}
+          </span>
+
+          <!-- Title -->
+          <h3 class="font-athletic text-2xl uppercase font-bold text-white mb-4 group-hover:text-[#ccff00] transition-colors">
+            {item.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-neutral-400 text-sm sm:text-base leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+
+        <!-- Step Indicator Footer -->
+        <div class="pt-6 mt-8 border-t border-white/5 flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <div class={`w-2.5 h-2.5 rounded-full ${index === 0 ? 'bg-[#ccff00]' : 'bg-white/20'}`}></div>
+            <div class={`w-2.5 h-2.5 rounded-full ${index === 1 ? 'bg-[#ccff00]' : 'bg-white/20'}`}></div>
+            <div class={`w-2.5 h-2.5 rounded-full ${index === 2 ? 'bg-[#ccff00]' : 'bg-white/20'}`}></div>
+          </div>
+          <span class="text-xs font-semibold text-neutral-500 uppercase tracking-wider">
+            Fase {item.step} de 03
+          </span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Trust strip below process -->
+  <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-[#16161d] via-[#121216] to-[#16161d] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+    <div class="flex items-center gap-4">
+      <div class="w-10 h-10 rounded-xl bg-[#ccff00] text-black font-bold flex items-center justify-center shrink-0">
+        🛡️
+      </div>
+      <div>
+        <h4 class="font-bold text-sm uppercase tracking-wide text-white">Garantía Total de Satisfacción</h4>
+        <p class="text-xs text-neutral-400">Si el render 3D no te convence, no pagas anticipo. Fabricamos únicamente tras tu visto bueno digital.</p>
+      </div>
+    </div>
+    <a 
+      href="https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20quiero%20iniciar%20un%20dise%C3%B1o%203D%20para%20mi%20equipo" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="shrink-0 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full bg-white/10 hover:bg-[#ccff00] hover:text-black transition-all border border-white/10"
+    >
+      Comenzar Mi Diseño Gratis
+    </a>
+  </div>
+</section>

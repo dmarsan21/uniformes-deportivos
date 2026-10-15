@@ -1,0 +1,215 @@
+---
+// src/components/SportsCatalog.astro
+
+interface SportCard {
+  id: string;
+  name: string;
+  icon: string;
+  garment: string;
+  includes: string;
+  price: string;
+  image: string;
+  badge: string;
+  waQuery: string;
+}
+
+const catalogItems: SportCard[] = [
+  {
+    id: "beisbol",
+    name: "Béisbol & Sóftbol",
+    icon: "⚾",
+    garment: "Jersey botonera tradicional sublimado en degradados oscuros.",
+    includes: "Jersey pro + pantalón reforzado",
+    price: "$285.00",
+    image: "/images/catalog/baseball.jpg",
+    badge: "Kit Pro Diamante",
+    waQuery: "Béisbol & Sóftbol"
+  },
+  {
+    id: "basquetbol",
+    name: "Básquetbol",
+    icon: "🏀",
+    garment: "Conjunto sleeveless con cortes dinámicos y dorsales geométricos.",
+    includes: "Jersey sin mangas + short reversible",
+    price: "$265.00",
+    image: "/images/catalog/basketball.jpg",
+    badge: "Pro-Motion",
+    waQuery: "Básquetbol"
+  },
+  {
+    id: "futbol-americano",
+    name: "Fútbol Americano",
+    icon: "🏈",
+    garment: "Jersey elástico de alto contacto con paneles de ventilación.",
+    includes: "Jersey de juego + funda de compresión",
+    price: "$340.00",
+    image: "/images/catalog/football.jpg",
+    badge: "Armor Contact",
+    waQuery: "Fútbol Americano"
+  },
+  {
+    id: "mma-boxeo",
+    name: "MMA & Boxeo",
+    icon: "🥊",
+    garment: "Rashguard de compresión ajustada y shorts kickboxing con refuerzo.",
+    includes: "Rashguard 4-way stretch + short de combate",
+    price: "$295.00",
+    image: "/images/catalog/mma.jpg",
+    badge: "Combat Performance",
+    waQuery: "MMA & Boxeo"
+  },
+  {
+    id: "futbol-soccer",
+    name: "Fútbol Soccer",
+    icon: "⚽",
+    garment: "Kit completo sublimado con patrones geométricos modernos.",
+    includes: "Playera dry-fit + short + calcetas profesionales",
+    price: "$245.00",
+    image: "/images/catalog/soccer.jpg",
+    badge: "Kit Completo 3 Pzas",
+    waQuery: "Fútbol Soccer"
+  },
+  {
+    id: "ciclismo-running",
+    name: "Ciclismo & Running",
+    icon: "🚴",
+    garment: "Jersey aerodinámico con cierre completo y bolsas traseras.",
+    includes: "Jersey térmico / respirable con tiras reflectivas",
+    price: "$225.00",
+    image: "/images/catalog/cycling.jpg",
+    badge: "Aero Speed",
+    waQuery: "Ciclismo & Running"
+  }
+];
+---
+
+<section id="catalogo" class="py-20 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-20">
+  <!-- Section Header -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+    <div class="max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16161d] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4">
+        <span>⚡ Catálogo de Uniformes & Paquetes</span>
+      </div>
+      <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-tight">
+        Equipaciones Completas <span class="text-[#ccff00]">// Listas Para Competir</span>
+      </h2>
+      <p class="text-neutral-400 mt-4 text-sm sm:text-base lg:text-lg leading-relaxed">
+        Precios directos de fábrica por paquete completo. Personalización total con nombres, números y logotipos de patrocinadores sin costo adicional en pedidos desde 10 piezas.
+      </p>
+    </div>
+
+    <!-- Right Side Badges / Info -->
+    <div class="hidden md:flex flex-col items-end gap-2 text-right">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-neutral-300">
+        <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
+        <span>Muestra Virtual 3D Incluida Gratis</span>
+      </div>
+      <span class="text-xs text-neutral-500 font-mono">Tallas Infantiles, Juveniles y Adultos</span>
+    </div>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+    {catalogItems.map((item) => (
+      <a
+        href={`https://wa.me/520000000000?text=${encodeURIComponent(`Hola, quiero cotizar uniformes de ${item.waQuery} para un equipo.`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="h-[480px] relative overflow-hidden group rounded-3xl border border-white/10 hover:border-[#ccff00]/60 transition-all duration-500 shadow-2xl hover:shadow-[0_0_35px_rgba(204,255,0,0.2)] flex flex-col justify-between p-6 bg-[#0e0e12]"
+        aria-label={`Cotizar uniformes de ${item.name} por WhatsApp`}
+      >
+        <!-- Background Photography -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+          <img 
+            src={item.image} 
+            alt={`Uniforme deportivo de ${item.name}`}
+            class="w-full h-full object-cover object-[center_12%] group-hover:scale-108 transition-transform duration-700 ease-out filter contrast-110 brightness-95 group-hover:brightness-105"
+            loading="lazy"
+            decoding="async"
+          />
+          <!-- Multi-stop Dark Gradient Overlay for Maximum Readability -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20 pointer-events-none"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20 pointer-events-none"></div>
+        </div>
+
+        <!-- Top Row: Badge + Circular Arrow Button -->
+        <div class="relative z-10 flex items-center justify-between w-full">
+          <span class="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-neutral-200 group-hover:border-[#ccff00]/50 group-hover:text-[#ccff00] transition-colors">
+            {item.badge}
+          </span>
+
+          <div 
+            class="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/15 flex items-center justify-center text-white text-base group-hover:bg-[#ccff00] group-hover:text-black group-hover:border-[#ccff00] group-hover:scale-110 transition-all duration-300 shadow-lg"
+          >
+            ↗
+          </div>
+        </div>
+
+        <!-- Bottom Content -->
+        <div class="relative z-10 flex flex-col justify-end pt-8">
+          <!-- Thematic Icon & Garment Note -->
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xl" role="img" aria-label={item.name}>{item.icon}</span>
+            <span class="text-[11px] uppercase tracking-widest text-[#ccff00] font-bold">
+              Sublimación Pro
+            </span>
+          </div>
+
+          <!-- Discipline Name in Ultra-Condensed Uppercase -->
+          <h3 class="font-athletic text-3xl sm:text-4xl font-black uppercase tracking-tight text-white group-hover:text-[#ccff00] transition-colors leading-none mb-2">
+            {item.name}
+          </h3>
+
+          <!-- Garment Brief Description -->
+          <p class="text-xs text-neutral-300 font-medium line-clamp-1 mb-2">
+            {item.garment}
+          </p>
+
+          <!-- Included Garments Pill -->
+          <div class="inline-flex items-center gap-1.5 text-xs text-neutral-300 bg-white/10 backdrop-blur-md border border-white/10 rounded-lg px-2.5 py-1.5 mb-4 w-fit">
+            <span class="text-[#ccff00] font-bold">Incluye:</span>
+            <span>{item.includes}</span>
+          </div>
+
+          <!-- Price & WhatsApp Action Row -->
+          <div class="pt-3 border-t border-white/15 flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="text-[10px] text-neutral-400 uppercase tracking-wider font-semibold">Mayoreo garantizado</span>
+              <span class="text-sm sm:text-base text-neutral-200 font-medium">
+                Desde <strong class="text-[#ccff00] font-athletic text-xl sm:text-2xl font-black">{item.price}</strong> <span class="text-xs text-neutral-400">/ pza</span>
+              </span>
+            </div>
+
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black bg-[#ccff00] group-hover:bg-white px-3 py-1.5 rounded-full transition-colors">
+              <span>Cotizar</span>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <!-- Wholesale Callout Strip -->
+  <div class="mt-12 p-6 rounded-2xl bg-[#121216] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+    <div class="flex items-center gap-4">
+      <div class="w-11 h-11 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/40 flex items-center justify-center text-[#ccff00] text-xl shrink-0 font-bold">
+        🏷️
+      </div>
+      <div>
+        <h4 class="font-bold text-sm sm:text-base uppercase tracking-wide text-white">¿Precios especiales para ligas completas o torneos?</h4>
+        <p class="text-xs sm:text-sm text-neutral-400">Ofrecemos escalonamiento de precio a partir de 25, 50 y más de 100 uniformes con envío prioritario.</p>
+      </div>
+    </div>
+    <a 
+      href="https://wa.me/520000000000?text=Hola,%20quiero%20cotizar%20un%20pedido%20grande%20para%20un%20torneo%20o%20liga%20completa." 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="shrink-0 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-full bg-[#ccff00] text-black hover:bg-white transition-all shadow-[0_0_20px_rgba(204,255,0,0.3)]"
+    >
+      Cotizar Ligas y Torneos
+    </a>
+  </div>
+</section>
