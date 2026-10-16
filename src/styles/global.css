@@ -74,9 +74,9 @@ html.lenis, html.lenis body {
 /* Scroll Reveal Utility Defaults */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(16px) scale(0.99);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(22px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
@@ -102,8 +102,8 @@ html.lenis, html.lenis body {
     border-color: rgba(255, 255, 255, 0.1);
   }
   45% {
-    border-color: rgba(204, 255, 0, 0.45);
-    box-shadow: 0 10px 25px -8px rgba(204, 255, 0, 0.2);
+    border-color: rgba(204, 255, 0, 0.4);
+    box-shadow: 0 10px 25px -8px rgba(204, 255, 0, 0.18);
   }
   100% {
     border-color: rgba(255, 255, 255, 0.1);
@@ -112,11 +112,12 @@ html.lenis, html.lenis body {
 }
 
 @media (max-width: 768px) {
-  /* On mobile: ultra-subtle 6px vertical travel with 0.75s fluid ease-out eliminates any sudden jump or pop-in */
+  /* On mobile: subtle 16px vertical travel + 0.98 scale-in with 0.75s fluid ease.
+     Clearly visible as you scroll down, but soft and elegant—never popping in abruptly */
   .reveal-on-scroll {
-    transform: translateY(6px) scale(0.994);
-    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(16px) scale(0.98);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .reveal-on-scroll.is-revealed,
@@ -130,7 +131,7 @@ html.lenis, html.lenis body {
   .process-card.is-revealed,
   .bento-card.is-revealed,
   .step-card.is-revealed {
-    animation: cardSubtleGleam 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s 1 normal forwards;
+    animation: cardSubtleGleam 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.1s 1 normal forwards;
   }
 
   /* Tactile spring feedback for mobile touch presses */

@@ -256,29 +256,16 @@ const sports360: SportModel360[] = [
             </div>
           </div>
 
-          <!-- Interactive Manual View Toggle Buttons -->
-          <div class="flex items-center gap-2.5 mt-5">
+          <!-- Interactive Manual View Single Turn Control -->
+          <div class="flex items-center justify-center mt-5">
             <button
               type="button"
-              class="btn-rotate-front px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold bg-[#ccff00] text-black shadow-md cursor-pointer transition-all hover:scale-105 active:scale-95"
-              data-target-card={`turnaround-card-${sport.id}`}
-            >
-              👕 Vista Frente
-            </button>
-            <button
-              type="button"
-              class="btn-rotate-back px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold bg-[#181822] text-neutral-300 hover:text-white border border-white/15 hover:border-[#ccff00]/50 cursor-pointer transition-all hover:scale-105 active:scale-95"
-              data-target-card={`turnaround-card-${sport.id}`}
-            >
-              🔄 Vista Espalda (360°)
-            </button>
-            <button
-              type="button"
-              class="btn-rotate-toggle p-2 rounded-xl text-xs bg-white/5 border border-white/10 hover:border-[#ccff00] text-[#ccff00] cursor-pointer transition-all hover:scale-105"
+              class="btn-rotate-toggle group/btn flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl text-xs sm:text-sm font-athletic uppercase tracking-wider font-bold bg-[#14141c] hover:bg-[#ccff00] text-neutral-200 hover:text-black border border-white/15 hover:border-[#ccff00] shadow-lg cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95"
               title="Girar Uniforme"
               data-target-card={`turnaround-card-${sport.id}`}
             >
-              ⟳ Girar
+              <span class="text-base text-[#ccff00] group-hover/btn:text-black group-hover/btn:rotate-180 transition-transform duration-500">⟳</span>
+              <span>Girar Uniforme</span>
             </button>
           </div>
         </div>
@@ -417,27 +404,7 @@ const sports360: SportModel360[] = [
       });
     });
 
-    // 3. Manual Button Controls
-    document.querySelectorAll('.btn-rotate-front').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const cardId = btn.getAttribute('data-target-card');
-        const card = document.getElementById(cardId);
-        if (card) {
-          card.classList.remove('is-flipped');
-        }
-      });
-    });
-
-    document.querySelectorAll('.btn-rotate-back').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const cardId = btn.getAttribute('data-target-card');
-        const card = document.getElementById(cardId);
-        if (card) {
-          card.classList.add('is-flipped');
-        }
-      });
-    });
-
+    // 3. Manual Button Control (Single Girar Button)
     document.querySelectorAll('.btn-rotate-toggle').forEach((btn) => {
       btn.addEventListener('click', () => {
         const cardId = btn.getAttribute('data-target-card');
