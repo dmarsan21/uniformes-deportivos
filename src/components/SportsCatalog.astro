@@ -85,7 +85,7 @@ const catalogItems: SportCard[] = [
 
 <section id="catalogo" class="py-20 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-20">
   <!-- Section Header with Scroll Reveal -->
-  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+  <div class="reveal-on-scroll flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
     <div class="max-w-2xl">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16161d] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4">
         <span>⚡ Catálogo de Uniformes & Paquetes</span>
@@ -109,7 +109,7 @@ const catalogItems: SportCard[] = [
   </div>
 
   <!-- Interactive Discipline Filter Tabs -->
-  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-wrap gap-2.5 mb-10" id="catalog-filter-bar">
+  <div class="reveal-on-scroll flex flex-wrap gap-2.5 mb-10" id="catalog-filter-bar">
     <button 
       type="button" 
       data-filter="all" 
@@ -170,7 +170,7 @@ const catalogItems: SportCard[] = [
         rel="noopener noreferrer"
         data-category={item.id}
         data-tilt
-        class="catalog-card reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out h-[480px] relative overflow-hidden group rounded-3xl border border-white/10 hover:border-[#ccff00]/80 shadow-2xl flex flex-col justify-between p-6 bg-[#0e0e12]"
+        class="catalog-card reveal-on-scroll h-[480px] relative overflow-hidden group rounded-3xl border border-white/10 hover:border-[#ccff00]/80 shadow-2xl flex flex-col justify-between p-6 bg-[#0e0e12]"
         data-reveal-delay={String(index * 100)}
         aria-label={`Cotizar uniformes de ${item.name} por WhatsApp`}
       >
@@ -258,7 +258,7 @@ const catalogItems: SportCard[] = [
   </div>
 
   <!-- Interactive Dynamic Wholesale Calculator Strip -->
-  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#14141c] via-[#0f0f15] to-[#14141c] border border-white/10 shadow-2xl relative overflow-hidden" data-tilt>
+  <div class="reveal-on-scroll mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#14141c] via-[#0f0f15] to-[#14141c] border border-white/10 shadow-2xl relative overflow-hidden" data-tilt>
     <div class="absolute -top-20 -right-20 w-60 h-60 bg-[#ccff00]/10 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">

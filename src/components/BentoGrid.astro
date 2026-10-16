@@ -60,7 +60,7 @@ const sports = [
 
 <section id="disciplinas" class="py-24 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-20">
   <!-- Section Header with Scroll Reveal -->
-  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+  <div class="reveal-on-scroll flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
     <div class="max-w-2xl">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16161d] border border-[#ccff00]/30 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4">
         <span>⚡ Catálogo de Especialidades</span>
@@ -84,7 +84,7 @@ const sports = [
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
     {sports.map((sport, index) => (
       <article 
-        class={`reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out group relative rounded-3xl overflow-hidden bg-[#121216] border border-white/10 hover:border-[#ccff00]/60 transition-all duration-500 flex flex-col justify-end min-h-115 sm:min-h-125 ${sport.colSpan} shadow-2xl hover:shadow-[0_0_35px_rgba(204,255,0,0.15)]`}
+        class={`bento-card reveal-on-scroll group relative rounded-3xl overflow-hidden bg-[#121216] border border-white/10 hover:border-[#ccff00]/60 transition-all duration-500 flex flex-col justify-end min-h-115 sm:min-h-125 ${sport.colSpan} shadow-2xl hover:shadow-[0_0_35px_rgba(204,255,0,0.15)]`}
         data-reveal-delay={String(index * 120)}
         data-tilt
       >
@@ -160,7 +160,7 @@ const sports = [
 
   <!-- Technical Feature Banners with Scroll Reveal -->
   <div id="calidad" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-    <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out p-6 sm:p-8 rounded-3xl bg-[#121216] border border-white/10 flex items-start gap-5 hover:border-[#ccff00]/40 transition-colors" data-reveal-delay="0">
+    <div class="reveal-on-scroll p-6 sm:p-8 rounded-3xl bg-[#121216] border border-white/10 flex items-start gap-5 hover:border-[#ccff00]/40 transition-colors" data-reveal-delay="0">
       <div class="w-12 h-12 rounded-2xl bg-[#ccff00]/10 border border-[#ccff00]/30 flex items-center justify-center text-[#ccff00] text-2xl shrink-0">
         🔬
       </div>
@@ -174,7 +174,7 @@ const sports = [
       </div>
     </div>
 
-    <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out p-6 sm:p-8 rounded-3xl bg-[#121216] border border-white/10 flex items-start gap-5 hover:border-[#ccff00]/40 transition-colors" data-reveal-delay="150">
+    <div class="reveal-on-scroll p-6 sm:p-8 rounded-3xl bg-[#121216] border border-white/10 flex items-start gap-5 hover:border-[#ccff00]/40 transition-colors" data-reveal-delay="150">
       <div class="w-12 h-12 rounded-2xl bg-[#ccff00]/10 border border-[#ccff00]/30 flex items-center justify-center text-[#ccff00] text-2xl shrink-0">
         💧
       </div>

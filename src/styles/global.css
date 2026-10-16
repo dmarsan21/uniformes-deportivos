@@ -73,7 +73,74 @@ html.lenis, html.lenis body {
 
 /* Scroll Reveal Utility Defaults */
 .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(16px) scale(0.99);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed,
+.reveal-on-scroll.opacity-100 {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* Card-specific smooth hardware acceleration */
+.catalog-card,
+.process-card,
+.bento-card,
+.step-card,
+.stat-card {
+  will-change: transform, opacity;
+  transform-origin: center bottom;
+}
+
+/* Subtle mobile entrance neon glow pulse */
+@keyframes cardSubtleGleam {
+  0% {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  45% {
+    border-color: rgba(204, 255, 0, 0.45);
+    box-shadow: 0 10px 25px -8px rgba(204, 255, 0, 0.2);
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: 768px) {
+  /* On mobile: ultra-subtle 6px vertical travel with 0.75s fluid ease-out eliminates any sudden jump or pop-in */
+  .reveal-on-scroll {
+    transform: translateY(6px) scale(0.994);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-on-scroll.is-revealed,
+  .reveal-on-scroll.opacity-100 {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+  }
+
+  /* Gentle accent gleam when a card appears on mobile */
+  .catalog-card.is-revealed,
+  .process-card.is-revealed,
+  .bento-card.is-revealed,
+  .step-card.is-revealed {
+    animation: cardSubtleGleam 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s 1 normal forwards;
+  }
+
+  /* Tactile spring feedback for mobile touch presses */
+  .catalog-card:active,
+  .process-card:active,
+  .bento-card:active,
+  .step-card:active {
+    transform: scale(0.982) !important;
+    transition: transform 0.12s ease-out !important;
+  }
 }
 
 /* 3D Interactive Tilt Card */

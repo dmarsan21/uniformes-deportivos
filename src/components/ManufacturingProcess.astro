@@ -78,7 +78,7 @@ const manufacturingSteps: ProcessStep[] = [
   <div class="absolute bottom-10 right-1/4 w-[500px] h-[280px] bg-[#ccff00]/5 rounded-full blur-[140px] pointer-events-none"></div>
 
   <!-- Header Block with Scroll Reveal -->
-  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 relative z-10">
+  <div class="reveal-on-scroll flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 relative z-10">
     <div class="max-w-2xl">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16161d] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(204,255,0,0.15)]">
         <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
@@ -106,7 +106,7 @@ const manufacturingSteps: ProcessStep[] = [
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
     {manufacturingSteps.map((step, idx) => (
       <article 
-        class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out group relative rounded-3xl bg-[#0e0e14]/90 backdrop-blur-xl border border-white/10 hover:border-[#ccff00]/70 p-6 sm:p-7 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_0_35px_rgba(204,255,0,0.2)] cursor-default"
+        class="process-card reveal-on-scroll group relative rounded-3xl bg-[#0e0e14]/90 backdrop-blur-xl border border-white/10 hover:border-[#ccff00]/70 p-6 sm:p-7 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_0_35px_rgba(204,255,0,0.2)] cursor-default"
         data-reveal-delay={String(idx * 120)}
         data-tilt
       >
@@ -181,7 +181,7 @@ const manufacturingSteps: ProcessStep[] = [
   </div>
 
   <!-- Technical Guarantee Strip -->
-  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out mt-12 p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-[#14141c] via-[#0e0e14] to-[#14141c] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10 shadow-2xl">
+  <div class="reveal-on-scroll mt-12 p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-[#14141c] via-[#0e0e14] to-[#14141c] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10 shadow-2xl">
     <div class="flex items-center gap-4 text-left">
       <div class="w-12 h-12 rounded-2xl bg-[#ccff00]/10 border border-[#ccff00]/40 flex items-center justify-center text-[#ccff00] text-2xl shrink-0 font-bold shadow-[0_0_20px_rgba(204,255,0,0.2)]">
         🔬
