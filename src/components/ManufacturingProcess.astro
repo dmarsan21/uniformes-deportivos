@@ -1,0 +1,211 @@
+---
+// src/components/ManufacturingProcess.astro
+
+interface ProcessStep {
+  step: string;
+  phase: string;
+  title: string;
+  highlight: string;
+  description: string;
+  points: string[];
+  metric: string;
+  icon: string;
+}
+
+const manufacturingSteps: ProcessStep[] = [
+  {
+    step: "01",
+    phase: "FASE 01 // PRE-PRENSA CAD",
+    title: "Modelado & Diseño Asistido",
+    highlight: "Digitalización de cortes y patrones personalizados.",
+    description: "Cada deporte exige una dinámica anatómica distinta. Digitalizamos los cortes por computadora y adaptamos escudos, tipografías y patrocinadores con máxima precisión vectorial.",
+    points: [
+      "Patronaje anatómico específico por posición",
+      "Vectorización y separación cromática HD",
+      "Previsualización 3D 360° para visto bueno"
+    ],
+    metric: "Precisión CAD < 0.5mm",
+    icon: "📐"
+  },
+  {
+    step: "02",
+    phase: "FASE 02 // TERMOTRANSFERENCIA",
+    title: "Sublimación Térmica HD",
+    highlight: "Tinta infusionada a nivel molecular sin pérdida de color con el sudor ni lavadas.",
+    description: "Operamos calandras industriales continuas a 205°C con tintas fluorescentes italianas. El pigmento se gasifica integrándose directamente en la fibra de la tela sin plastificar ni tapar los poros.",
+    points: [
+      "Fusión molecular a 205°C de calor continuo",
+      "Tintas italianas Ultra-Chrome de alto contraste",
+      "Transpiración 100% libre sin parches plásticos"
+    ],
+    metric: "Cero Deslavado // 205°C",
+    icon: "🔥"
+  },
+  {
+    step: "03",
+    phase: "FASE 03 // MATERIA PRIMA INTELIGENTE",
+    title: "Tejidos de Alto Desempeño",
+    highlight: "Microfibra Dry-Fit y mallas elásticas transpirables de 4 vías.",
+    description: "Seleccionamos microfibras ultraligeras con tecnología de transporte capilar del sudor y mallas elastano Spandex 4-Way Stretch que acompañan la máxima explosión muscular del deportista.",
+    points: [
+      "Secado ultrarrápido con tecnología Dry-Tech",
+      "Malla elástica 4-Way de elongación controlada",
+      "Filtro solar UV+50 y tratamiento antimicrobiano"
+    ],
+    metric: "Spandex 4-Way // UV+50",
+    icon: "⚡"
+  },
+  {
+    step: "04",
+    phase: "FASE 04 // ENSAMBLE ESTRUCTURAL",
+    title: "Confección & Refuerzo",
+    highlight: "Costuras dobles de grado competitivo listas para alto impacto.",
+    description: "Armamos las prendas en máquinas de 4 y 5 hilos con hilo de filamento continuo de poliéster de máxima tenacidad. Pespuntes planos tipo Flatlock que eliminan el roce en la piel y resisten agarres violentos.",
+    points: [
+      "Costura plana Flatlock antiroce de 4 agujas",
+      "Hilos de poliéster continuo de grado militar",
+      "Puntos de tensión reforzados en cuello y mangas"
+    ],
+    metric: "4 Agujas // Grado Colisión",
+    icon: "🛡️"
+  }
+];
+---
+
+<section id="fabricacion" class="py-24 px-4 sm:px-6 max-w-7xl mx-auto relative scroll-mt-20 overflow-hidden">
+  <!-- Glowing Neon Backdrop Ambient Lights -->
+  <div class="absolute top-1/3 left-1/4 -translate-x-1/2 w-[600px] h-[320px] bg-[#ccff00]/5 rounded-full blur-[160px] pointer-events-none"></div>
+  <div class="absolute bottom-10 right-1/4 w-[500px] h-[280px] bg-[#ccff00]/5 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <!-- Header Block with Scroll Reveal -->
+  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 relative z-10">
+    <div class="max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16161d] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_15px_rgba(204,255,0,0.15)]">
+        <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
+        <span>Ingeniería Textil & Manufactura Directa</span>
+      </div>
+      <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-tight">
+        Tecnología & Proceso <span class="text-[#ccff00]">// De Fabricación</span>
+      </h2>
+      <p class="text-neutral-400 mt-4 text-sm sm:text-base lg:text-lg leading-relaxed">
+        Control total desde los vectores en computadora hasta el pespunte final en taller. Cuatro fases de precisión técnica para confeccionar armaduras deportivas de competencia élite.
+      </p>
+    </div>
+
+    <!-- Tech specs status tags -->
+    <div class="hidden lg:flex flex-col items-end gap-2 text-right">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-neutral-300 backdrop-blur-md">
+        <span class="text-[#ccff00]">✓</span>
+        <span>Fusión Molecular Permanente a 205°C</span>
+      </div>
+      <span class="text-xs text-neutral-500 font-mono">Taller Mecanizado • Cero Deslavado Garantizado</span>
+    </div>
+  </div>
+
+  <!-- 4-Steps Modern Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+    {manufacturingSteps.map((step, idx) => (
+      <article 
+        class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out group relative rounded-3xl bg-[#0e0e14]/90 backdrop-blur-xl border border-white/10 hover:border-[#ccff00]/70 p-6 sm:p-7 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_0_35px_rgba(204,255,0,0.2)] cursor-default"
+        data-reveal-delay={String(idx * 120)}
+        data-tilt
+      >
+        <!-- Dynamic Cursor Specular Shine Overlay -->
+        <div class="specular-shine absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+        <!-- Subtle Animated Border Gleam -->
+        <div class="absolute inset-0 rounded-3xl p-[1px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-b from-[#ccff00]/60 via-[#ccff00]/15 to-transparent z-15"></div>
+
+        <!-- Ambient inner glow corner -->
+        <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-[#ccff00]/10 rounded-full blur-2xl group-hover:bg-[#ccff00]/25 transition-all duration-500 pointer-events-none"></div>
+
+        <!-- Card Upper Part -->
+        <div class="relative z-10">
+          <!-- Step Top Header: Gradient Numeric Badge & Icon -->
+          <div class="flex items-center justify-between mb-6">
+            <!-- Neon Gradient Numeric Badge -->
+            <div class="w-13 h-13 rounded-2xl bg-gradient-to-br from-[#ccff00] via-[#a3ff00] to-[#60e000] text-black font-athletic text-2xl font-black flex items-center justify-center shadow-[0_0_25px_rgba(204,255,0,0.4)] group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300">
+              {step.step}
+            </div>
+
+            <!-- Discipline / Phase Icon Container -->
+            <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl text-white group-hover:border-[#ccff00]/50 group-hover:bg-[#ccff00]/10 transition-colors">
+              <span>{step.icon}</span>
+            </div>
+          </div>
+
+          <!-- Phase Label -->
+          <span class="block text-[10px] font-mono font-bold tracking-widest text-[#ccff00] uppercase mb-1.5">
+            {step.phase}
+          </span>
+
+          <!-- Step Title -->
+          <h3 class="font-athletic text-2xl sm:text-3xl uppercase font-black tracking-tight text-white group-hover:text-[#ccff00] transition-colors leading-tight mb-3">
+            {step.title}
+          </h3>
+
+          <!-- Highlight requirement sentence -->
+          <p class="text-xs sm:text-sm font-semibold text-neutral-200 mb-3 leading-relaxed border-l-2 border-[#ccff00] pl-3 py-0.5">
+            {step.highlight}
+          </p>
+
+          <!-- Extended Technical Description -->
+          <p class="text-xs text-neutral-400 leading-relaxed mb-5">
+            {step.description}
+          </p>
+
+          <!-- Technical Bullets -->
+          <ul class="space-y-2 mb-6">
+            {step.points.map((pt) => (
+              <li class="flex items-start gap-2 text-xs text-neutral-300">
+                <span class="text-[#ccff00] font-bold shrink-0 mt-0.5">›</span>
+                <span>{pt}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Card Bottom Part: Technical Metric Pill -->
+        <div class="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between">
+          <div class="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-neutral-300 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg group-hover:border-[#ccff00]/40 group-hover:text-white transition-colors">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#ccff00]"></span>
+            <span>{step.metric}</span>
+          </div>
+
+          <span class="text-xs font-athletic uppercase tracking-wider text-neutral-500 group-hover:text-[#ccff00] transition-colors">
+            Paso {step.step}/04
+          </span>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <!-- Technical Guarantee Strip -->
+  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out mt-12 p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-[#14141c] via-[#0e0e14] to-[#14141c] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10 shadow-2xl">
+    <div class="flex items-center gap-4 text-left">
+      <div class="w-12 h-12 rounded-2xl bg-[#ccff00]/10 border border-[#ccff00]/40 flex items-center justify-center text-[#ccff00] text-2xl shrink-0 font-bold shadow-[0_0_20px_rgba(204,255,0,0.2)]">
+        🔬
+      </div>
+      <div>
+        <h4 class="font-athletic text-lg sm:text-xl uppercase tracking-wide text-white font-black">
+          Garantía de Fijación Molecular Vitalicia
+        </h4>
+        <p class="text-xs sm:text-sm text-neutral-400 mt-0.5">
+          Tinta fundida directamente en el poliéster. Cero desprendimientos, cero cuarteaduras y colores intensos partido tras partido.
+        </p>
+      </div>
+    </div>
+
+    <a 
+      href="https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20su%20proceso%20de%20fabricaci%C3%B3n%20y%20cotizar%20un%20pedido." 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="shrink-0 inline-flex items-center gap-2 text-xs sm:text-sm font-athletic font-bold uppercase tracking-wider px-6 py-3.5 rounded-full bg-[#ccff00] text-black hover:bg-white hover:shadow-[0_0_25px_rgba(204,255,0,0.6)] active:scale-95 transition-all duration-300"
+    >
+      <span>Cotizar Confección Directa</span>
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+        <path d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+      </svg>
+    </a>
+  </div>
+</section>

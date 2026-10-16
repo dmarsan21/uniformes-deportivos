@@ -32,8 +32,8 @@ const steps = [
   <!-- Ambient background glow -->
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-[#ccff00]/5 blur-[160px] pointer-events-none rounded-full"></div>
 
-  <!-- Header -->
-  <div class="text-center max-w-3xl mx-auto mb-16">
+  <!-- Header with Scroll Reveal -->
+  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out text-center max-w-3xl mx-auto mb-16">
     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16161d] border border-[#ccff00]/30 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4">
       <span>⚡ Cómo Trabajamos</span>
     </div>
@@ -45,10 +45,13 @@ const steps = [
     </p>
   </div>
 
-  <!-- Process Steps Cards -->
+  <!-- Process Steps Cards with Staggered Scroll Reveal -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
     {steps.map((item, index) => (
-      <div class="group relative rounded-3xl bg-[#121216] border border-white/10 hover:border-[#ccff00]/60 p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 shadow-xl hover:shadow-[0_0_30px_rgba(204,255,0,0.12)]">
+      <div 
+        class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out group relative rounded-3xl bg-[#121216] border border-white/10 hover:border-[#ccff00]/60 p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 shadow-xl hover:shadow-[0_0_30px_rgba(204,255,0,0.12)]"
+        data-reveal-delay={String(index * 150)}
+      >
         <!-- Number watermark background -->
         <span class="absolute top-4 right-6 font-athletic text-7xl font-black text-white/[0.04] select-none group-hover:text-[#ccff00]/10 transition-colors pointer-events-none">
           {item.step}
@@ -96,8 +99,8 @@ const steps = [
     ))}
   </div>
 
-  <!-- Trust strip below process -->
-  <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-[#16161d] via-[#121216] to-[#16161d] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+  <!-- Trust strip below process with Scroll Reveal -->
+  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out mt-12 p-6 rounded-2xl bg-gradient-to-r from-[#16161d] via-[#121216] to-[#16161d] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
     <div class="flex items-center gap-4">
       <div class="w-10 h-10 rounded-xl bg-[#ccff00] text-black font-bold flex items-center justify-center shrink-0">
         🛡️

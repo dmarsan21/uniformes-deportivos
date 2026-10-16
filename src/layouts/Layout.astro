@@ -14,7 +14,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,7 +44,235 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
   </head>
-  <body class="bg-[#0a0a0c] text-white antialiased min-h-screen">
+  <body class="bg-[#0a0a0c] text-white antialiased min-h-screen relative selection:bg-[#ccff00] selection:text-black">
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress-bar" aria-hidden="true"></div>
+
+    <!-- Ambient Neon Cursor Follower (Desktop Only) -->
+    <div id="ambient-glow-follower" class="hidden lg:block pointer-events-none" aria-hidden="true"></div>
+
     <slot />
+
+    <!-- Floating Interactive Quick WhatsApp Widget -->
+    <aside class="fixed bottom-6 right-6 z-40 flex items-center gap-3">
+      <a 
+        href="https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20quiero%20cotizar%20uniformes%20deportivos%20para%20un%20equipo." 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="group relative flex items-center gap-3 px-4 py-3 rounded-full bg-[#121216]/90 backdrop-blur-xl border border-[#ccff00]/50 hover:border-[#ccff00] shadow-[0_0_25px_rgba(204,255,0,0.3)] hover:shadow-[0_0_35px_rgba(204,255,0,0.6)] transition-all duration-300 hover:scale-105 active:scale-95"
+        aria-label="Contactar a un asesor por WhatsApp"
+      >
+        <span class="relative flex h-3.5 w-3.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ccff00] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#ccff00]"></span>
+        </span>
+        <span class="font-athletic text-xs uppercase tracking-wider text-white group-hover:text-[#ccff00] transition-colors font-bold hidden sm:inline">
+          Cotización Rápida
+        </span>
+        <div class="w-8 h-8 rounded-full bg-[#ccff00] text-black flex items-center justify-center font-bold text-sm shadow-md">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
+          </svg>
+        </div>
+      </a>
+    </aside>
+
+    <!-- Lenis Smooth Scroll Library CDN -->
+    <script is:inline src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+
+    <!-- Interactive Experience Script: Lenis, Scroll Progress, Cursor Follower, 3D Tilt, Counters, Reveal -->
+    <script is:inline>
+      (function initInteractiveEngine() {
+        const setup = () => {
+          // 1. Lenis Smooth Scroll & Progress Bar
+          const progressBar = document.getElementById('scroll-progress-bar');
+          let lenis = null;
+
+          if (typeof window.Lenis !== 'undefined') {
+            lenis = new window.Lenis({
+              duration: 1.15,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              orientation: 'vertical',
+              gestureOrientation: 'vertical',
+              smoothWheel: true,
+              wheelMultiplier: 1.05,
+              touchMultiplier: 1.8,
+            });
+
+            window.__lenisInstance = lenis;
+
+            lenis.on('scroll', (e) => {
+              if (progressBar) {
+                const max = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = max > 0 ? (e.animatedScroll / max) * 100 : 0;
+                progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+              }
+            });
+
+            function raf(time) {
+              lenis.raf(time);
+              requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // Anchor links navigation
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+              anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#' && targetId.length > 1) {
+                  const targetEl = document.querySelector(targetId);
+                  if (targetEl) {
+                    e.preventDefault();
+                    lenis.scrollTo(targetEl, {
+                      offset: -75,
+                      duration: 1.2,
+                    });
+                  }
+                }
+              });
+            });
+          }
+
+          // Fallback scroll progress if Lenis not loaded
+          window.addEventListener('scroll', () => {
+            if (!lenis && progressBar) {
+              const max = document.documentElement.scrollHeight - window.innerHeight;
+              const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
+              progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+            }
+          }, { passive: true });
+
+          // 2. Ambient Glowing Follower on Desktop
+          const follower = document.getElementById('ambient-glow-follower');
+          if (follower && window.matchMedia('(pointer: fine)').matches) {
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let currentX = mouseX;
+            let currentY = mouseY;
+
+            window.addEventListener('pointermove', (e) => {
+              mouseX = e.clientX;
+              mouseY = e.clientY;
+            }, { passive: true });
+
+            function renderFollower() {
+              currentX += (mouseX - currentX) * 0.12;
+              currentY += (mouseY - currentY) * 0.12;
+              follower.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+              requestAnimationFrame(renderFollower);
+            }
+            requestAnimationFrame(renderFollower);
+          }
+
+          // 3. 3D Tilt Card Interaction with Specular Glow
+          const tiltCards = document.querySelectorAll('[data-tilt]');
+          tiltCards.forEach((card) => {
+            card.classList.add('tilt-card');
+
+            card.addEventListener('pointermove', (e) => {
+              const rect = card.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+
+              const rotateX = ((y - centerY) / centerY) * -7;
+              const rotateY = ((x - centerX) / centerX) * 7;
+
+              card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+
+              const percentX = (x / rect.width) * 100;
+              const percentY = (y / rect.height) * 100;
+              card.style.setProperty('--mouse-x', `${percentX.toFixed(1)}%`);
+              card.style.setProperty('--mouse-y', `${percentY.toFixed(1)}%`);
+            });
+
+            card.addEventListener('pointerleave', () => {
+              card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+          });
+
+          // 4. Animated Number Counters
+          const counters = document.querySelectorAll('[data-counter-target]');
+          if ('IntersectionObserver' in window && counters.length > 0) {
+            const counterObserver = new IntersectionObserver((entries, obs) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const el = entry.target;
+                  const targetNum = parseInt(el.getAttribute('data-counter-target'), 10);
+                  const prefix = el.getAttribute('data-counter-prefix') || '';
+                  const suffix = el.getAttribute('data-counter-suffix') || '';
+                  const duration = parseInt(el.getAttribute('data-counter-duration') || '1800', 10);
+                  const startTime = performance.now();
+
+                  function updateCounter(now) {
+                    const elapsed = now - startTime;
+                    const progress = Math.min(1, elapsed / duration);
+                    // Quintic ease out
+                    const easeProgress = 1 - Math.pow(1 - progress, 4);
+                    const currentVal = Math.floor(easeProgress * targetNum);
+
+                    el.textContent = `${prefix}${currentVal.toLocaleString()}${suffix}`;
+
+                    if (progress < 1) {
+                      requestAnimationFrame(updateCounter);
+                    } else {
+                      el.textContent = `${prefix}${targetNum.toLocaleString()}${suffix}`;
+                    }
+                  }
+
+                  requestAnimationFrame(updateCounter);
+                  obs.unobserve(el);
+                }
+              });
+            }, { threshold: 0.3 });
+
+            counters.forEach((c) => counterObserver.observe(c));
+          }
+
+          // 5. Scroll Reveal with Intersection Observer
+          const revealElements = document.querySelectorAll('.reveal-on-scroll');
+          if (revealElements.length) {
+            if ('IntersectionObserver' in window) {
+              const revealObserver = new IntersectionObserver(
+                (entries, obs) => {
+                  entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                      const el = entry.target;
+                      const delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+
+                      setTimeout(() => {
+                        el.classList.remove('opacity-0', 'translate-y-8');
+                        el.classList.add('opacity-100', 'translate-y-0');
+                      }, delay);
+
+                      obs.unobserve(el);
+                    }
+                  });
+                },
+                {
+                  root: null,
+                  rootMargin: '0px 0px -40px 0px',
+                  threshold: 0.12,
+                }
+              );
+
+              revealElements.forEach((el) => revealObserver.observe(el));
+            } else {
+              revealElements.forEach((el) => {
+                el.classList.remove('opacity-0', 'translate-y-8');
+                el.classList.add('opacity-100', 'translate-y-0');
+              });
+            }
+          }
+        };
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', setup);
+        } else {
+          setup();
+        }
+      })();
+    </script>
   </body>
 </html>

@@ -17,9 +17,18 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden md:flex items-center gap-7 text-xs lg:text-sm font-semibold tracking-wider uppercase text-neutral-300" aria-label="Navegación principal">
+    <nav class="hidden md:flex items-center gap-6 lg:gap-7 text-xs lg:text-sm font-semibold tracking-wider uppercase text-neutral-300" aria-label="Navegación principal">
       <a href="#catalogo" class="hover:text-[#ccff00] transition-colors py-1 relative group">
         Catálogo
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
+      </a>
+      <a href="#fabricacion" class="hover:text-[#ccff00] transition-colors py-1 relative group">
+        Fabricación
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
+      </a>
+      <a href="#laboratorio-ia" class="hover:text-[#ccff00] transition-colors py-1 relative group flex items-center gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#ccff00] animate-pulse"></span>
+        <span>Lab AI 3D</span>
         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
       </a>
       <a href="#disciplinas" class="hover:text-[#ccff00] transition-colors py-1 relative group">
@@ -28,10 +37,6 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
       </a>
       <a href="#proceso" class="hover:text-[#ccff00] transition-colors py-1 relative group">
         Proceso
-        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
-      </a>
-      <a href="#calidad" class="hover:text-[#ccff00] transition-colors py-1 relative group">
-        Tecnología HD
         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
       </a>
       <a href="#contacto" class="hover:text-[#ccff00] transition-colors py-1 relative group">
@@ -76,9 +81,13 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
   >
     <div class="flex flex-col gap-4 text-center">
       <a href="#catalogo" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Catálogo & Precios</a>
+      <a href="#fabricacion" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Fabricación & Tecnología</a>
+      <a href="#laboratorio-ia" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link flex items-center justify-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#ccff00]"></span>
+        <span>Laboratorio AI & 3D</span>
+      </a>
       <a href="#disciplinas" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Disciplinas</a>
       <a href="#proceso" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Proceso de Trabajo</a>
-      <a href="#calidad" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Tecnología Dry-Tech</a>
       <a href="#contacto" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 mobile-link">Contacto Directo</a>
       <a 
         href={WHATSAPP_URL} 

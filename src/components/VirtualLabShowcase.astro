@@ -1,0 +1,451 @@
+---
+// src/components/VirtualLabShowcase.astro
+
+interface SportModel360 {
+  id: string;
+  tabLabel: string;
+  sportName: string;
+  kitName: string;
+  frontImage: string;
+  backImage: string;
+  altFront: string;
+  altBack: string;
+  badge: string;
+  frontHighlights: string[];
+  backHighlights: string[];
+  description: string;
+  specs: { label: string; value: string }[];
+  waQuery: string;
+}
+
+const sports360: SportModel360[] = [
+  {
+    id: "soccer",
+    tabLabel: "⚽ Fútbol Soccer",
+    sportName: "Fútbol Soccer Profesional",
+    kitName: "Kit Pro Volt Striker (Playera + Short + Calcetas)",
+    frontImage: "/images/models360/soccer_front.jpg",
+    backImage: "/images/models360/soccer_back.jpg",
+    altFront: "Jugador de fútbol profesional vistiendo uniforme de fútbol completo vista frontal",
+    altBack: "Jugador de fútbol profesional vistiendo uniforme de fútbol completo vista dorsal con número 7 APEX PRO",
+    badge: "Fútbol 11 & Rápido",
+    frontHighlights: [
+      "Escudo del club sublimado en alta definición 4K",
+      "Patrón geométrico Volt Active continuo en torso y mangas",
+      "Cuello en V anatómico antiroce con cinta elástica"
+    ],
+    backHighlights: [
+      "Dorsal grande indeleble (Número 7) visible a larga distancia",
+      "Nombre de jugador personalizado (APEX PRO) incluido sin costo",
+      "Panel microporoso Dry-Tech en columna para rápida expulsión de sudor"
+    ],
+    description: "Equipación completa de alto rendimiento. Tejido ultra-liviano de 145g con microceldas de evaporación que mantienen al jugador seco los 90 minutos de juego.",
+    specs: [
+      { label: "Tela", value: "Dry-Tech Pro 100% Poliéster" },
+      { label: "Personalización", value: "Escudo + Nombre + Número Ilimitado" },
+      { label: "Garantía", value: "Cero Deslavado // Fusión 205°C" },
+      { label: "Tiempos", value: "Entrega Express en 10-12 días" }
+    ],
+    waQuery: "Fútbol Soccer"
+  },
+  {
+    id: "basketball",
+    tabLabel: "🏀 Básquetbol",
+    sportName: "Básquetbol Élite",
+    kitName: "Set Pro-Motion Reversible (Jersey Sleeveless + Short Largo)",
+    frontImage: "/images/models360/basketball_front.jpg",
+    backImage: "/images/models360/basketball_back.jpg",
+    altFront: "Jugador de básquetbol vistiendo uniforme de básquetbol sin mangas vista frontal",
+    altBack: "Jugador de básquetbol vistiendo uniforme de básquetbol sin mangas vista dorsal con número 23 JORDAN",
+    badge: "Alta Transpirabilidad",
+    frontHighlights: [
+      "Corte ergonómico sin mangas con sisa amplia para tiro libre",
+      "Tipografía atlética condensada APEX con número 23 en pecho",
+      "Short de tiro largo con apertura lateral para máxima zancada"
+    ],
+    backHighlights: [
+      "Apellido de jugador (JORDAN) y dorsal 23 en contraste neón",
+      "Malla mesh pesada respirable que no se transparenta",
+      "Pretina reforzada con cordón interior y silicona antideslizante"
+    ],
+    description: "Diseñado para velocidad, salto y cambios de dirección bruscos. Malla elástica Cool-Breeze con ventilación omnidireccional.",
+    specs: [
+      { label: "Tela", value: "Malla Microperforada Cool-Breeze" },
+      { label: "Corte", value: "Sleeveless Pro-Motion ergonómico" },
+      { label: "Dorsales", value: "Sublimación térmica anti-desprendimiento" },
+      { label: "Tallas", value: "Infantil hasta 4XL Adulto" }
+    ],
+    waQuery: "Básquetbol"
+  },
+  {
+    id: "football",
+    tabLabel: "🏈 Fútbol Americano",
+    sportName: "Fútbol Americano de Contacto",
+    kitName: "Armor Grid Combat Jersey (Jersey Reforzado + Funda)",
+    frontImage: "/images/models360/football_front.jpg",
+    backImage: "/images/models360/football_back.jpg",
+    altFront: "Jugador de fútbol americano vistiendo uniforme completo con hombreras y casco vista frontal",
+    altBack: "Jugador de fútbol americano vistiendo uniforme completo vista dorsal con número 99 TITAN",
+    badge: "Máximo Contacto",
+    frontHighlights: [
+      "Ajuste ceñido de alta compresión sobre coraza y hombreras",
+      "Número 99 de impacto en pecho con contorno doble",
+      "Paneles laterales en malla elastano 400g resistente a tirones"
+    ],
+    backHighlights: [
+      "Placa de nombre (TITAN) cosida y sublimada en alta tenacidad",
+      "Número 99 dorsal gigante para visibilidad de árbitros y tribuna",
+      "Costura Flatlock cuádruple en hombros y cuello reforzado"
+    ],
+    description: "Construido para soportar colisiones, agarres y tirones violentos. Tela pesada spandex 4-Way combinada con hilos de filamento continuo de máxima tenacidad.",
+    specs: [
+      { label: "Estructura", value: "Malla Elástica Heavy 400g / Spandex" },
+      { label: "Costuras", value: "Cuádruple Hilo Grado Militar" },
+      { label: "Ajuste", value: "Patrón anatómico ceñido a coraza" },
+      { label: "Muestra", value: "Render 3D con colores exactos gratis" }
+    ],
+    waQuery: "Fútbol Americano"
+  },
+  {
+    id: "mma",
+    tabLabel: "🥊 MMA & Artes Marciales",
+    sportName: "MMA & Deportes de Contacto",
+    kitName: "Combat Pro Armor (Rashguard Compresión + Fight Shorts)",
+    frontImage: "/images/models360/mma_front.jpg",
+    backImage: "/images/models360/mma_back.jpg",
+    altFront: "Peleador de MMA vistiendo rashguard y shorts de combate en el octágono vista frontal",
+    altBack: "Peleador de MMA vistiendo rashguard de compresión vista dorsal con texto WARRIOR",
+    badge: "Compresión 4-Way",
+    frontHighlights: [
+      "Licra de compresión segunda piel con soporte muscular activo",
+      "Emblema APEX FIGHT termofijado sin bordes ásperos",
+      "Short con apertura lateral alta y panel de licra en entrepierna"
+    ],
+    backHighlights: [
+      "Dorsal muscular WARRIOR con diseño anatómico en espalda",
+      "Cintura con banda de silicona interna antideslizante",
+      "Costuras planas Flatlock anti-fricción para Jiu-Jitsu y Grappling"
+    ],
+    description: "Equipamiento de combate profesional para MMA, Muay Thai, Boxeo y BJJ. Soporta el roce constante en lona y agarres intensos sin deformarse ni deslavarse.",
+    specs: [
+      { label: "Material", value: "Spandex 4-Way Stretch 220g" },
+      { label: "Confort", value: "Costura plana Flatlock antiroce" },
+      { label: "Fijación", value: "Cintura siliconada antideslizante" },
+      { label: "Resistencia", value: "Testado en sparrings de alto impacto" }
+    ],
+    waQuery: "MMA & Artes Marciales"
+  }
+];
+---
+
+<section id="laboratorio-ia" class="py-24 px-4 sm:px-6 max-w-7xl mx-auto relative scroll-mt-20 overflow-hidden">
+  <!-- Glowing Background Orbs -->
+  <div class="absolute top-1/3 left-1/4 -translate-y-1/2 w-[700px] h-[350px] bg-[#ccff00]/5 rounded-full blur-[180px] pointer-events-none"></div>
+  <div class="absolute bottom-10 right-10 w-[500px] h-[280px] bg-cyan-500/5 rounded-full blur-[160px] pointer-events-none"></div>
+
+  <!-- Header Block with Scroll Reveal -->
+  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 relative z-10">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16161d] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_20px_rgba(204,255,0,0.15)]">
+        <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
+        <span>Simulador Interactivo // Modelos En Vivo 360°</span>
+      </div>
+      <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-tight">
+        Visualización 360° <span class="text-[#ccff00] drop-shadow-[0_0_30px_rgba(204,255,0,0.4)]">// Frente & Espalda</span>
+      </h2>
+      <p class="text-neutral-300 mt-4 text-sm sm:text-base lg:text-lg leading-relaxed">
+        Pasa el cursor sobre la imagen o usa los controles para girar al atleta 360°. Revisa cómo luce cada equipación de frente (escudo y pecho) y de espalda (nombre, número oficial y paneles de ventilación).
+      </p>
+    </div>
+
+    <!-- Active Indicator Pill -->
+    <div class="hidden lg:flex items-center gap-2 text-xs font-mono text-neutral-400 bg-white/5 border border-white/10 px-4 py-2.5 rounded-2xl backdrop-blur-md">
+      <span class="w-2.5 h-2.5 rounded-full bg-[#ccff00] animate-ping"></span>
+      <span class="text-white font-bold uppercase tracking-wider">Interactividad 360° Activa</span>
+    </div>
+  </div>
+
+  <!-- Sport Selection Tabs -->
+  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-wrap gap-3 mb-8 relative z-10" id="sports360-tab-buttons">
+    {sports360.map((sport, index) => (
+      <button
+        type="button"
+        data-sport-target={sport.id}
+        class={`sport360-tab-btn px-5 py-3 rounded-2xl text-xs sm:text-sm font-athletic uppercase tracking-wider font-bold transition-all duration-300 flex items-center gap-2.5 cursor-pointer ${
+          index === 0
+            ? "bg-[#ccff00] text-black shadow-[0_0_25px_rgba(204,255,0,0.4)] scale-102"
+            : "bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50"
+        }`}
+      >
+        <span>{sport.tabLabel}</span>
+      </button>
+    ))}
+  </div>
+
+  <!-- Main 360 Showcase Container -->
+  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out relative rounded-3xl overflow-hidden bg-[#0e0e14] border border-white/10 p-4 sm:p-8 lg:p-10 shadow-2xl z-10">
+    <!-- Glowing Border Accent -->
+    <div class="absolute inset-0 rounded-3xl p-[1px] pointer-events-none bg-gradient-to-br from-[#ccff00]/40 via-cyan-500/10 to-transparent"></div>
+
+    {sports360.map((sport, index) => (
+      <div 
+        id={`sport-panel-${sport.id}`} 
+        class={`sport-panel grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center ${index === 0 ? 'block' : 'hidden'}`}
+      >
+        <!-- Left: Interactive 360° Turnaround Stage -->
+        <div class="lg:col-span-6 flex flex-col items-center">
+          <!-- 3D Perspective Card Container -->
+          <div 
+            class="turnaround-perspective relative w-full max-w-[420px] aspect-[3/4] rounded-3xl overflow-hidden cursor-pointer group shadow-[0_15px_40px_rgba(0,0,0,0.8)] border border-white/15 hover:border-[#ccff00]/60 transition-colors"
+            id={`turnaround-stage-${sport.id}`}
+            title="Pasa el cursor o haz clic para girar 360°"
+          >
+            <!-- Card that rotates 180 degrees in 3D space -->
+            <div class="turnaround-card w-full h-full" id={`turnaround-card-${sport.id}`}>
+              <!-- FRONT FACE -->
+              <div class="turnaround-front bg-[#0a0a0e]">
+                <img 
+                  src={sport.frontImage} 
+                  alt={sport.altFront}
+                  class="w-full h-full object-cover object-center filter contrast-105"
+                  loading="lazy"
+                />
+                <!-- Gradient Shadows for Readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none"></div>
+
+                <!-- View Badge: Front -->
+                <div class="absolute top-4 left-4 z-10 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-[#ccff00]/60 text-[#ccff00] text-xs font-mono font-bold uppercase tracking-wider shadow-lg">
+                  <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
+                  <span>VISTA FRENTE // Escudo & Pecho</span>
+                </div>
+
+                <!-- Hover hint callout -->
+                <div class="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between text-xs font-mono px-4 py-2 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 text-neutral-300 pointer-events-none">
+                  <span class="text-[#ccff00] font-bold flex items-center gap-1.5">
+                    <span class="animate-spin text-sm">⟳</span> Pasa el cursor para girar
+                  </span>
+                  <span class="text-neutral-400">Ver Espalda 360° ➔</span>
+                </div>
+              </div>
+
+              <!-- BACK FACE (180deg) -->
+              <div class="turnaround-back bg-[#0a0a0e]">
+                <img 
+                  src={sport.backImage} 
+                  alt={sport.altBack}
+                  class="w-full h-full object-cover object-center filter contrast-105"
+                  loading="lazy"
+                />
+                <!-- Gradient Shadows for Readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none"></div>
+
+                <!-- View Badge: Back -->
+                <div class="absolute top-4 left-4 z-10 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-cyan-400/60 text-cyan-300 text-xs font-mono font-bold uppercase tracking-wider shadow-lg">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                  <span>VISTA ESPALDA // Dorsal & Número</span>
+                </div>
+
+                <!-- Return hint callout -->
+                <div class="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between text-xs font-mono px-4 py-2 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 text-neutral-300 pointer-events-none">
+                  <span class="text-cyan-300 font-bold flex items-center gap-1.5">
+                    <span>✓</span> Nombre & Número Personalizado
+                  </span>
+                  <span class="text-neutral-400">Ver Frente ➔</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Manual View Toggle Buttons -->
+          <div class="flex items-center gap-2.5 mt-5">
+            <button
+              type="button"
+              class="btn-rotate-front px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold bg-[#ccff00] text-black shadow-md cursor-pointer transition-all hover:scale-105 active:scale-95"
+              data-target-card={`turnaround-card-${sport.id}`}
+            >
+              👕 Vista Frente
+            </button>
+            <button
+              type="button"
+              class="btn-rotate-back px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold bg-[#181822] text-neutral-300 hover:text-white border border-white/15 hover:border-[#ccff00]/50 cursor-pointer transition-all hover:scale-105 active:scale-95"
+              data-target-card={`turnaround-card-${sport.id}`}
+            >
+              🔄 Vista Espalda (360°)
+            </button>
+            <button
+              type="button"
+              class="btn-rotate-toggle p-2 rounded-xl text-xs bg-white/5 border border-white/10 hover:border-[#ccff00] text-[#ccff00] cursor-pointer transition-all hover:scale-105"
+              title="Girar Uniforme"
+              data-target-card={`turnaround-card-${sport.id}`}
+            >
+              ⟳ Girar
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Technical Breakdown & Uniform Details -->
+        <div class="lg:col-span-6 flex flex-col justify-between py-2">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-mono text-[#ccff00] uppercase tracking-widest mb-2 font-bold">
+              <span>// EQUIPACIÓN MODELADA EN VIVO</span>
+            </div>
+
+            <h3 class="font-athletic text-3xl sm:text-4xl lg:text-5xl uppercase text-white font-black tracking-tight leading-none mb-3">
+              {sport.sportName}
+            </h3>
+
+            <p class="text-xs sm:text-sm font-semibold text-[#ccff00] mb-4 font-mono">
+              › {sport.kitName}
+            </p>
+
+            <p class="text-sm sm:text-base text-neutral-300 leading-relaxed mb-6">
+              {sport.description}
+            </p>
+
+            <!-- Front vs Back Customization Comparison Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <!-- Front highlights -->
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                <span class="text-xs font-athletic uppercase text-[#ccff00] font-bold block mb-2">
+                  👕 Vista Frontal (Pecho)
+                </span>
+                <ul class="space-y-1.5 text-xs text-neutral-300">
+                  {sport.frontHighlights.map((fh) => (
+                    <li class="flex items-start gap-1.5">
+                      <span class="text-[#ccff00] font-bold mt-0.5">›</span>
+                      <span>{fh}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Back highlights -->
+              <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                <span class="text-xs font-athletic uppercase text-cyan-400 font-bold block mb-2">
+                  🔄 Vista Dorsal (Espalda)
+                </span>
+                <ul class="space-y-1.5 text-xs text-neutral-300">
+                  {sport.backHighlights.map((bh) => (
+                    <li class="flex items-start gap-1.5">
+                      <span class="text-cyan-400 font-bold mt-0.5">›</span>
+                      <span>{bh}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <!-- Technical Specs Grid -->
+            <div class="grid grid-cols-2 gap-2.5 mb-8">
+              {sport.specs.map((sp) => (
+                <div class="p-3 rounded-xl bg-black/40 border border-white/5">
+                  <span class="text-[10px] uppercase font-mono text-neutral-500 block">{sp.label}</span>
+                  <span class="text-xs font-bold text-neutral-200">{sp.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- WhatsApp Customization Action -->
+          <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center gap-4">
+            <a 
+              href={`https://wa.me/520000000000?text=${encodeURIComponent(`Hola APEX PRO, vi el modelo interactivo 360° de ${sport.waQuery} y quiero cotizar uniformes con diseño 3D personalizado.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center gap-2.5 bg-[#ccff00] text-black font-athletic text-sm sm:text-base uppercase tracking-wider px-7 py-4 rounded-full font-bold hover:bg-white hover:shadow-[0_0_30px_rgba(204,255,0,0.7)] transition-all duration-300 active:scale-95 shadow-xl"
+            >
+              <span>Cotizar {sport.sportName} con Render 3D</span>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- Interactive 360 Turnaround Script -->
+<script is:inline>
+  (function initTurnaround360() {
+    // 1. Sport Tabs Navigation
+    const tabButtons = document.querySelectorAll('.sport360-tab-btn');
+    const panels = document.querySelectorAll('.sport-panel');
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-sport-target');
+
+        tabButtons.forEach((b) => {
+          b.classList.remove('bg-[#ccff00]', 'text-black', 'shadow-[0_0_25px_rgba(204,255,0,0.4)]', 'scale-102');
+          b.classList.add('bg-[#14141a]', 'text-neutral-300', 'border', 'border-white/10');
+        });
+
+        btn.classList.add('bg-[#ccff00]', 'text-black', 'shadow-[0_0_25px_rgba(204,255,0,0.4)]', 'scale-102');
+        btn.classList.remove('bg-[#14141a]', 'text-neutral-300', 'border', 'border-white/10');
+
+        panels.forEach((p) => p.classList.add('hidden'));
+
+        const targetPanel = document.getElementById(`sport-panel-${targetId}`);
+        if (targetPanel) {
+          targetPanel.classList.remove('hidden');
+        }
+      });
+    });
+
+    // 2. 360° Hover Flip & Click Toggle Logic
+    const stages = document.querySelectorAll('.turnaround-perspective');
+
+    stages.forEach((stage) => {
+      const card = stage.querySelector('.turnaround-card');
+      if (!card) return;
+
+      // On mouse enter / hover -> flip to back view
+      stage.addEventListener('pointerenter', () => {
+        card.classList.add('is-flipped');
+      });
+
+      // On mouse leave -> flip back to front view
+      stage.addEventListener('pointerleave', () => {
+        card.classList.remove('is-flipped');
+      });
+
+      // On click/tap -> toggle flip (perfect for mobile & touchscreens)
+      stage.addEventListener('click', () => {
+        card.classList.toggle('is-flipped');
+      });
+    });
+
+    // 3. Manual Button Controls
+    document.querySelectorAll('.btn-rotate-front').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cardId = btn.getAttribute('data-target-card');
+        const card = document.getElementById(cardId);
+        if (card) {
+          card.classList.remove('is-flipped');
+        }
+      });
+    });
+
+    document.querySelectorAll('.btn-rotate-back').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cardId = btn.getAttribute('data-target-card');
+        const card = document.getElementById(cardId);
+        if (card) {
+          card.classList.add('is-flipped');
+        }
+      });
+    });
+
+    document.querySelectorAll('.btn-rotate-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cardId = btn.getAttribute('data-target-card');
+        const card = document.getElementById(cardId);
+        if (card) {
+          card.classList.toggle('is-flipped');
+        }
+      });
+    });
+  })();
+</script>

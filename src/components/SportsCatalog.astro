@@ -84,8 +84,8 @@ const catalogItems: SportCard[] = [
 ---
 
 <section id="catalogo" class="py-20 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-20">
-  <!-- Section Header -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+  <!-- Section Header with Scroll Reveal -->
+  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
     <div class="max-w-2xl">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16161d] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4">
         <span>⚡ Catálogo de Uniformes & Paquetes</span>
@@ -108,22 +108,87 @@ const catalogItems: SportCard[] = [
     </div>
   </div>
 
-  <!-- Cards Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-    {catalogItems.map((item) => (
+  <!-- Interactive Discipline Filter Tabs -->
+  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-wrap gap-2.5 mb-10" id="catalog-filter-bar">
+    <button 
+      type="button" 
+      data-filter="all" 
+      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#ccff00] text-black shadow-[0_0_20px_rgba(204,255,0,0.35)] cursor-pointer"
+    >
+      Todas las Disciplinas (6)
+    </button>
+    <button 
+      type="button" 
+      data-filter="beisbol" 
+      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+    >
+      ⚾ Béisbol & Sóftbol
+    </button>
+    <button 
+      type="button" 
+      data-filter="basquetbol" 
+      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+    >
+      🏀 Básquetbol
+    </button>
+    <button 
+      type="button" 
+      data-filter="futbol-americano" 
+      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+    >
+      🏈 Fútbol Americano
+    </button>
+    <button 
+      type="button" 
+      data-filter="mma-boxeo" 
+      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+    >
+      🥊 MMA & Boxeo
+    </button>
+    <button 
+      type="button" 
+      data-filter="futbol-soccer" 
+      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+    >
+      ⚽ Fútbol Soccer
+    </button>
+    <button 
+      type="button" 
+      data-filter="ciclismo-running" 
+      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+    >
+      🚴 Ciclismo & Running
+    </button>
+  </div>
+
+  <!-- Cards Grid with Staggered Scroll Reveal, 3D Tilt & Subtle Hover Gleam -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="catalog-cards-container">
+    {catalogItems.map((item, index) => (
       <a
         href={`https://wa.me/520000000000?text=${encodeURIComponent(`Hola, quiero cotizar uniformes de ${item.waQuery} para un equipo.`)}`}
         target="_blank"
         rel="noopener noreferrer"
-        class="h-[480px] relative overflow-hidden group rounded-3xl border border-white/10 hover:border-[#ccff00]/60 transition-all duration-500 shadow-2xl hover:shadow-[0_0_35px_rgba(204,255,0,0.2)] flex flex-col justify-between p-6 bg-[#0e0e12]"
+        data-category={item.id}
+        data-tilt
+        class="catalog-card reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out h-[480px] relative overflow-hidden group rounded-3xl border border-white/10 hover:border-[#ccff00]/80 shadow-2xl flex flex-col justify-between p-6 bg-[#0e0e12]"
+        data-reveal-delay={String(index * 100)}
         aria-label={`Cotizar uniformes de ${item.name} por WhatsApp`}
       >
-        <!-- Background Photography -->
+        <!-- Dynamic Cursor Specular Shine Overlay -->
+        <div class="specular-shine absolute inset-0 z-25 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+        <!-- Subtle Animated Border Gleam (Destello sutil en el borde al hacer hover) -->
+        <div class="absolute inset-0 rounded-3xl p-[1.5px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#ccff00]/70 via-[#ccff00]/20 to-white/30 z-20"></div>
+
+        <!-- Subtle Diagonal Shimmer Sweep -->
+        <div class="absolute -inset-full top-0 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none z-15"></div>
+
+        <!-- Background Photography with smooth group-hover:scale-105 transition -->
         <div class="absolute inset-0 z-0 overflow-hidden">
           <img 
             src={item.image} 
             alt={`Uniforme deportivo de ${item.name}`}
-            class="w-full h-full object-cover object-[center_12%] group-hover:scale-108 transition-transform duration-700 ease-out filter contrast-110 brightness-95 group-hover:brightness-105"
+            class="w-full h-full object-cover object-[center_12%] group-hover:scale-105 transition-transform duration-500 ease-out filter contrast-110 brightness-95 group-hover:brightness-105"
             loading="lazy"
             decoding="async"
           />
@@ -192,24 +257,144 @@ const catalogItems: SportCard[] = [
     ))}
   </div>
 
-  <!-- Wholesale Callout Strip -->
-  <div class="mt-12 p-6 rounded-2xl bg-[#121216] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-    <div class="flex items-center gap-4">
-      <div class="w-11 h-11 rounded-xl bg-[#ccff00]/10 border border-[#ccff00]/40 flex items-center justify-center text-[#ccff00] text-xl shrink-0 font-bold">
-        🏷️
+  <!-- Interactive Dynamic Wholesale Calculator Strip -->
+  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#14141c] via-[#0f0f15] to-[#14141c] border border-white/10 shadow-2xl relative overflow-hidden" data-tilt>
+    <div class="absolute -top-20 -right-20 w-60 h-60 bg-[#ccff00]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+      <!-- Calculator Controls -->
+      <div class="w-full lg:max-w-xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ccff00]/10 border border-[#ccff00]/30 text-[#ccff00] text-xs font-bold uppercase tracking-wider mb-3">
+          <span>⚡ Calculador Dinámico de Mayoreo</span>
+        </div>
+        <h4 class="font-athletic text-2xl sm:text-3xl uppercase tracking-tight text-white font-black mb-2">
+          ¿Cuántos uniformes necesita tu equipo o liga?
+        </h4>
+        <p class="text-xs sm:text-sm text-neutral-400 mb-6">
+          Desliza para calcular la escala de descuento por volumen con garantía directa de fábrica.
+        </p>
+
+        <!-- Slider Control -->
+        <div class="space-y-3">
+          <div class="flex justify-between items-center text-xs font-mono">
+            <span class="text-neutral-400">Cantidad Seleccionada:</span>
+            <span class="text-[#ccff00] font-athletic text-xl font-black" id="calc-qty-display">25 Uniformes</span>
+          </div>
+          <input 
+            type="range" 
+            id="calc-slider" 
+            min="10" 
+            max="120" 
+            step="5" 
+            value="25"
+            class="w-full accent-[#ccff00] cursor-pointer h-2 bg-white/10 rounded-lg appearance-none"
+          />
+          <div class="flex justify-between text-[10px] text-neutral-500 font-mono">
+            <span>Min. 10 pzas</span>
+            <span>25 pzas (Club)</span>
+            <span>50 pzas (Torneo)</span>
+            <span>100+ pzas (Liga)</span>
+          </div>
+        </div>
       </div>
-      <div>
-        <h4 class="font-bold text-sm sm:text-base uppercase tracking-wide text-white">¿Precios especiales para ligas completas o torneos?</h4>
-        <p class="text-xs sm:text-sm text-neutral-400">Ofrecemos escalonamiento de precio a partir de 25, 50 y más de 100 uniformes con envío prioritario.</p>
+
+      <!-- Live Calculation Result Card -->
+      <div class="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row items-center gap-6 p-6 rounded-2xl bg-black/60 border border-white/10 backdrop-blur-md">
+        <div class="text-center sm:text-left">
+          <span class="text-[10px] uppercase font-mono tracking-widest text-[#ccff00] block mb-1" id="calc-tier-badge">
+            Nivel: Escala Club (-8%)
+          </span>
+          <div class="text-neutral-300 text-xs font-medium">Beneficios incluidos:</div>
+          <div class="text-white font-bold text-sm" id="calc-benefit-text">Render 3D + Nombres y Números Gratis</div>
+        </div>
+
+        <a 
+          href="https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20quiero%20cotizar%20un%20pedido%20de%2025%20uniformes%20con%20descuento%20de%20mayoreo."
+          id="calc-whatsapp-btn"
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto shrink-0 text-xs sm:text-sm font-athletic font-bold uppercase tracking-wider px-7 py-3.5 rounded-full bg-[#ccff00] text-black hover:bg-white transition-all shadow-[0_0_25px_rgba(204,255,0,0.4)] text-center"
+        >
+          Cotizar Este Pedido
+        </a>
       </div>
     </div>
-    <a 
-      href="https://wa.me/520000000000?text=Hola,%20quiero%20cotizar%20un%20pedido%20grande%20para%20un%20torneo%20o%20liga%20completa." 
-      target="_blank" 
-      rel="noopener noreferrer"
-      class="shrink-0 text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-full bg-[#ccff00] text-black hover:bg-white transition-all shadow-[0_0_20px_rgba(204,255,0,0.3)]"
-    >
-      Cotizar Ligas y Torneos
-    </a>
   </div>
 </section>
+
+<!-- Filter and Calculator Logic -->
+<script is:inline>
+  (function initCatalogInteractivity() {
+    // 1. Category Filtering
+    const filterButtons = document.querySelectorAll('.catalog-filter-btn');
+    const cards = document.querySelectorAll('.catalog-card');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Reset button states
+        filterButtons.forEach((b) => {
+          b.classList.remove('bg-[#ccff00]', 'text-black', 'shadow-[0_0_20px_rgba(204,255,0,0.35)]');
+          b.classList.add('bg-[#14141a]', 'text-neutral-300', 'border', 'border-white/10');
+        });
+
+        // Activate button
+        btn.classList.add('bg-[#ccff00]', 'text-black', 'shadow-[0_0_20px_rgba(204,255,0,0.35)]');
+        btn.classList.remove('bg-[#14141a]', 'text-neutral-300', 'border', 'border-white/10');
+
+        // Filter cards with smooth opacity/scale
+        cards.forEach((card) => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0) scale(1)';
+            }, 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(15px) scale(0.96)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 250);
+          }
+        });
+      });
+    });
+
+    // 2. Interactive Calculator
+    const slider = document.getElementById('calc-slider');
+    const qtyDisplay = document.getElementById('calc-qty-display');
+    const tierBadge = document.getElementById('calc-tier-badge');
+    const benefitText = document.getElementById('calc-benefit-text');
+    const waBtn = document.getElementById('calc-whatsapp-btn');
+
+    if (slider && qtyDisplay && tierBadge && benefitText && waBtn) {
+      slider.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value, 10);
+        qtyDisplay.textContent = `${val} Uniformes`;
+
+        let tier = "Nivel Base de Taller";
+        let benefit = "Render 3D + Nombres y Números Gratis";
+
+        if (val >= 100) {
+          tier = "Nivel Liga Profesional (-22%)";
+          benefit = "Envío Express Gratis + Muestra Física + Render 3D";
+        } else if (val >= 50) {
+          tier = "Nivel Torneo Mayor (-15%)";
+          benefit = "Envío Prioritario Gratis + Render 3D 360°";
+        } else if (val >= 25) {
+          tier = "Nivel Escala Club (-8%)";
+          benefit = "Render 3D + Escudos y Nombres Ilimitados";
+        }
+
+        tierBadge.textContent = tier;
+        benefitText.textContent = benefit;
+        waBtn.href = `https://wa.me/520000000000?text=${encodeURIComponent(
+          `Hola APEX PRO, utilicé su calculador dinámico y deseo cotizar ${val} uniformes con beneficios de ${tier}.`
+        )}`;
+      });
+    }
+  })();
+</script>

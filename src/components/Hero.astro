@@ -24,7 +24,7 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
   <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#ccff00]/10 rounded-full blur-[140px] pointer-events-none z-10"></div>
 
   <!-- Main Hero Body (Centered) with relative z-20 -->
-  <div class="relative z-20 max-w-5xl mx-auto text-center flex flex-col items-center justify-center my-auto w-full pt-4">
+  <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out relative z-20 max-w-5xl mx-auto text-center flex flex-col items-center justify-center my-auto w-full pt-4">
     <!-- Top athletic badge -->
     <div class="inline-flex items-center gap-2 px-3.5 py-1 sm:py-1.5 rounded-full bg-[#0a0a0c]/80 backdrop-blur-md border border-[#ccff00]/50 shadow-[0_0_20px_rgba(204,255,0,0.25)] mb-3 sm:mb-4">
       <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
@@ -77,23 +77,39 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
   <!-- Trust Stats Grid with glassmorphic cards (Anchored at the bottom of the Hero screen) with relative z-20 -->
   <div class="relative z-20 w-full max-w-4xl pt-4 sm:pt-5 border-t border-white/15">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 w-full">
-      <div class="flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/40 transition-colors">
-        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-[#ccff00] font-black">+50,000</span>
+      <div 
+        class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/60 transition-all cursor-default"
+        data-reveal-delay="0"
+        data-tilt
+      >
+        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-[#ccff00] font-black" data-counter-target="50000" data-counter-prefix="+">+50,000</span>
         <span class="text-[10px] sm:text-xs text-neutral-300 uppercase tracking-wider font-semibold text-center">Uniformes Creados</span>
       </div>
 
-      <div class="flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/40 transition-colors">
+      <div 
+        class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/60 transition-all cursor-default"
+        data-reveal-delay="100"
+        data-tilt
+      >
         <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-white font-black">10-12 Días</span>
         <span class="text-[10px] sm:text-xs text-neutral-300 uppercase tracking-wider font-semibold text-center">Tiempos Récord</span>
       </div>
 
-      <div class="flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/40 transition-colors">
-        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-[#ccff00] font-black">100% HD</span>
+      <div 
+        class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/60 transition-all cursor-default"
+        data-reveal-delay="200"
+        data-tilt
+      >
+        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-[#ccff00] font-black" data-counter-target="100" data-counter-suffix="%">100% HD</span>
         <span class="text-[10px] sm:text-xs text-neutral-300 uppercase tracking-wider font-semibold text-center">Sublimación Digital</span>
       </div>
 
-      <div class="flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/40 transition-colors">
-        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-white font-black">Min. 10 Pzas</span>
+      <div 
+        class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/60 transition-all cursor-default"
+        data-reveal-delay="300"
+        data-tilt
+      >
+        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-white font-black" data-counter-target="10" data-counter-prefix="Min. " data-counter-suffix=" Pzas">Min. 10 Pzas</span>
         <span class="text-[10px] sm:text-xs text-neutral-300 uppercase tracking-wider font-semibold text-center">Precios de Mayoreo</span>
       </div>
     </div>
