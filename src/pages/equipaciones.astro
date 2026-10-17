@@ -63,21 +63,15 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
       <div class="parallax-element absolute top-1/4 -left-32 w-96 h-96 bg-[#ccff00]/5 rounded-full blur-[140px] pointer-events-none" data-parallax-y="0.15"></div>
 
       <!-- Header de Disciplina -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 relative z-10">
-        <div>
-          <div class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ccff00] mb-2">
-            <span>DISCIPLINA // 01</span>
-            <span>•</span>
-            <span>90 MINUTOS DE ALTO RENDIMIENTO</span>
-          </div>
-          <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white">
-            Equipación Pro <span class="text-[#ccff00]">// Fútbol Soccer</span>
-          </h2>
+      <div class="mb-12 relative z-10">
+        <div class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#ccff00] mb-2">
+          <span>DISCIPLINA // 01</span>
+          <span>•</span>
+          <span>90 MINUTOS DE ALTO RENDIMIENTO</span>
         </div>
-        <div class="text-neutral-400 text-xs sm:text-sm font-mono flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl backdrop-blur-md">
-          <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-ping"></span>
-          <span>Video Autoplay con Scroll Activo</span>
-        </div>
+        <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white">
+          Equipación Pro <span class="text-[#ccff00]">// Fútbol Soccer</span>
+        </h2>
       </div>
 
       <!-- Grid Principal: Video Scroll + Fichas Técnicas -->
@@ -101,26 +95,21 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
               Tu navegador no soporta video HTML5.
             </video>
 
-            <!-- Gradient overlay for readability and cinematic atmosphere -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
+            <!-- Gradient overlay for readability and cinematic atmosphere (only at bottom to leave faces completely clear) -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
 
             <!-- Animated scanline accent -->
             <div class="scanline-bar"></div>
 
-            <!-- Top HUD Badge -->
-            <div class="absolute top-4 left-4 z-20 flex items-center gap-2">
-              <span class="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-[#ccff00]/60 text-[#ccff00] text-xs font-mono font-bold uppercase tracking-wider shadow-lg flex items-center gap-1.5">
+            <!-- Bottom Floating Glassmorphism HUD Bar: Compact, clean, never covers model face -->
+            <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-20 flex items-center justify-between gap-2 text-[11px] sm:text-xs font-mono px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-black/85 backdrop-blur-md border border-white/10 text-neutral-300 shadow-xl">
+              <div class="flex items-center gap-2">
                 <span class="video-indicator w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
-                <span>MATCHDAY RUN // SOCCER PRO</span>
-              </span>
-            </div>
-
-            <!-- Bottom Floating HUD Badge: Status -->
-            <div class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between text-xs font-mono px-4 py-2.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 text-neutral-300">
-              <span class="flex items-center gap-2 text-[#ccff00] font-bold">
-                <span class="video-status-text">Reproduciendo al scroll</span>
-              </span>
-              <span class="text-neutral-400">APEX DRY-TECH SYSTEM</span>
+                <span class="text-white font-bold tracking-wider uppercase">Fútbol Pro</span>
+                <span class="text-neutral-500 hidden sm:inline">•</span>
+                <span class="video-status-text text-[#ccff00] font-semibold hidden sm:inline">En vivo</span>
+              </div>
+              <span class="text-[10px] sm:text-[11px] font-mono font-bold text-neutral-400 bg-white/10 px-2 py-0.5 rounded">DRY-TECH // 145G</span>
             </div>
           </div>
 
@@ -250,21 +239,15 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
       <div class="parallax-element absolute bottom-1/4 -right-32 w-96 h-96 bg-cyan-500/5 rounded-full blur-[150px] pointer-events-none" data-parallax-y="-0.15"></div>
 
       <!-- Header de Disciplina -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 relative z-10">
-        <div>
-          <div class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 mb-2">
-            <span>DISCIPLINA // 02</span>
-            <span>•</span>
-            <span>MÁXIMO CONTACTO & COLISIÓN</span>
-          </div>
-          <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white">
-            Equipación Pro <span class="text-cyan-400">// Fútbol Americano</span>
-          </h2>
+      <div class="mb-12 relative z-10">
+        <div class="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 mb-2">
+          <span>DISCIPLINA // 02</span>
+          <span>•</span>
+          <span>MÁXIMO CONTACTO & COLISIÓN</span>
         </div>
-        <div class="text-neutral-400 text-xs sm:text-sm font-mono flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl backdrop-blur-md">
-          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-          <span>Video Autoplay con Scroll Activo</span>
-        </div>
+        <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white">
+          Equipación Pro <span class="text-cyan-400">// Fútbol Americano</span>
+        </h2>
       </div>
 
       <!-- Grid Principal: Video Scroll + Fichas Técnicas (Invertido en Desktop para dinamismo) -->
@@ -388,26 +371,21 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
               Tu navegador no soporta video HTML5.
             </video>
 
-            <!-- Gradient overlay for readability and cinematic atmosphere -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
+            <!-- Gradient overlay for readability and cinematic atmosphere (only at bottom to leave faces completely clear) -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
 
             <!-- Animated scanline accent -->
             <div class="scanline-bar"></div>
 
-            <!-- Top HUD Badge -->
-            <div class="absolute top-4 left-4 z-20 flex items-center gap-2">
-              <span class="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-cyan-400/60 text-cyan-300 text-xs font-mono font-bold uppercase tracking-wider shadow-lg flex items-center gap-1.5">
+            <!-- Bottom Floating Glassmorphism HUD Bar: Compact, clean, never covers model face -->
+            <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-20 flex items-center justify-between gap-2 text-[11px] sm:text-xs font-mono px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-black/85 backdrop-blur-md border border-white/10 text-neutral-300 shadow-xl">
+              <div class="flex items-center gap-2">
                 <span class="video-indicator w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span>COMBAT COLLISION // FOOTBALL ARMOR</span>
-              </span>
-            </div>
-
-            <!-- Bottom Floating HUD Badge: Status -->
-            <div class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between text-xs font-mono px-4 py-2.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 text-neutral-300">
-              <span class="flex items-center gap-2 text-cyan-400 font-bold">
-                <span class="video-status-text">Reproduciendo al scroll</span>
-              </span>
-              <span class="text-neutral-400">APEX ARMOR GRID 400G</span>
+                <span class="text-white font-bold tracking-wider uppercase">Americano Pro</span>
+                <span class="text-neutral-500 hidden sm:inline">•</span>
+                <span class="video-status-text text-cyan-400 font-semibold hidden sm:inline">En vivo</span>
+              </div>
+              <span class="text-[10px] sm:text-[11px] font-mono font-bold text-cyan-300 bg-cyan-400/10 px-2 py-0.5 rounded border border-cyan-400/30">ARMOR 400G</span>
             </div>
           </div>
 
@@ -484,7 +462,7 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
               const playPromise = video.play();
               if (playPromise !== undefined) {
                 playPromise.then(() => {
-                  if (statusText) statusText.textContent = 'En vivo // Scroll activo';
+                  if (statusText) statusText.textContent = 'En reproducción';
                   if (indicator) indicator.classList.add('animate-pulse');
                 }).catch(() => {
                   // Fallback si el navegador bloquea autoplay
@@ -495,7 +473,7 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
             } else {
               // Fuera de pantalla: pausar para ahorrar batería y recursos
               video.pause();
-              if (statusText) statusText.textContent = 'Pausado (Fuera de vista)';
+              if (statusText) statusText.textContent = 'Pausado';
               if (indicator) indicator.classList.remove('animate-pulse');
             }
           });
