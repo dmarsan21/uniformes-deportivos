@@ -259,6 +259,118 @@ html.lenis, html.lenis body {
   transform: rotateY(180deg);
 }
 
+/* Parallax Hardware Acceleration & Smoothing */
+.parallax-element {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.1s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+/* Kinetic Athletic Outline Text Stroke */
+.text-stroke-volt {
+  -webkit-text-stroke: 1.5px rgba(204, 255, 0, 0.45);
+  color: transparent;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.2);
+  color: transparent;
+}
+
+.text-stroke-thick {
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15);
+  color: transparent;
+}
+
+/* Hologram AI Laser Scanline Effect */
+@keyframes scanlineAnim {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(400%);
+    opacity: 0.3;
+  }
+}
+
+.scanline-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #ccff00 50%, transparent 100%);
+  box-shadow: 0 0 18px #ccff00;
+  animation: scanlineAnim 3.5s linear infinite;
+  pointer-events: none;
+  z-index: 25;
+}
+
+/* Side HUD Navigation Dots */
+.side-hud-nav {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.side-hud-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.side-hud-label {
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.side-hud-item:hover .side-hud-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.side-hud-item.is-active .side-hud-dot {
+  background-color: #ccff00;
+  box-shadow: 0 0 16px #ccff00;
+  transform: scale(1.4);
+}
+
+.side-hud-item.is-active .side-hud-label {
+  color: #ccff00;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Interactive Hotspot Beacon Pulse */
+@keyframes hotspotRipple {
+  0% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.hotspot-beacon {
+  animation: hotspotRipple 2s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-on-scroll {
     opacity: 1 !important;
@@ -269,6 +381,12 @@ html.lenis, html.lenis body {
     transform: none !important;
   }
   .animate-float-slow {
+    animation: none !important;
+  }
+  .parallax-element {
+    transform: none !important;
+  }
+  .scanline-bar {
     animation: none !important;
   }
 }

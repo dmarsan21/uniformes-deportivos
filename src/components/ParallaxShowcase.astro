@@ -1,0 +1,349 @@
+---
+// src/components/ParallaxShowcase.astro
+const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20quiero%20cotizar%20uniformes%20con%20propuesta%20visual%203D%20y%20dise%C3%B1o%20IA";
+---
+
+<section id="parallax-lab" class="relative py-28 sm:py-36 px-4 sm:px-6 overflow-hidden bg-[#070709] border-y border-white/10 scroll-mt-16">
+  <!-- 1. Ambient Background Glowing Nebula & Light Shafts -->
+  <div class="parallax-element absolute -top-40 -left-40 w-[600px] h-[600px] bg-[#ccff00]/10 rounded-full blur-[170px] pointer-events-none z-0" data-parallax-y="0.35" data-parallax-rotate="0.05"></div>
+  <div class="parallax-element absolute -bottom-40 -right-40 w-[650px] h-[650px] bg-cyan-500/10 rounded-full blur-[180px] pointer-events-none z-0" data-parallax-y="-0.3" data-parallax-rotate="-0.04"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[450px] bg-[#ccff00]/5 rounded-full blur-[200px] pointer-events-none z-0"></div>
+
+  <!-- 2. Dual Kinetic Athletic Parallax Watermark Text Banners (Streaming opposite directions on scroll) -->
+  <div class="absolute top-12 left-0 w-full overflow-hidden pointer-events-none select-none z-0 opacity-15">
+    <div class="parallax-element whitespace-nowrap font-athletic text-6xl sm:text-8xl lg:text-9xl uppercase tracking-wider text-stroke-volt" data-parallax-x="0.32">
+      SPEED // AERODYNAMICS // 205°C MOLECULAR INFUSION // DRY-TECH // ULTRA RESISTANCE //
+    </div>
+  </div>
+  <div class="absolute bottom-12 left-0 w-full overflow-hidden pointer-events-none select-none z-0 opacity-15">
+    <div class="parallax-element whitespace-nowrap font-athletic text-6xl sm:text-8xl lg:text-9xl uppercase tracking-wider text-stroke-white" data-parallax-x="-0.32">
+      APEX SPEED LAB // AI ASSISTED PATTERNS // ZERO FADE // 100% BREATHABLE //
+    </div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto z-10">
+    <!-- Header with Scroll Reveal -->
+    <div class="reveal-on-scroll text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#121218] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-5 shadow-[0_0_20px_rgba(204,255,0,0.2)]">
+        <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-ping"></span>
+        <span>Producción Publicitaria & Tecnología IA</span>
+      </div>
+
+      <h2 class="font-athletic text-4xl sm:text-6xl lg:text-7xl uppercase tracking-tight text-white leading-none mb-5">
+        Experiencia Visual <span class="text-[#ccff00] drop-shadow-[0_0_35px_rgba(204,255,0,0.4)]">// En Movimiento Parallax</span>
+      </h2>
+
+      <p class="text-neutral-300 text-sm sm:text-base lg:text-lg leading-relaxed">
+        Más allá de una tienda tradicional: integramos simulación por computadora y producciones de alta fidelidad para mostrar la anatomía de tu uniforme antes de confeccionarlo.
+      </p>
+
+      <!-- View Selector Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8" id="ai-lab-mode-toggles">
+        <button
+          type="button"
+          data-ai-mode="hologram"
+          class="ai-mode-btn is-active px-5 py-2.5 rounded-full text-xs sm:text-sm font-athletic uppercase tracking-wider font-black transition-all duration-300 flex items-center gap-2 cursor-pointer bg-[#ccff00] text-black shadow-[0_0_25px_rgba(204,255,0,0.5)] scale-105"
+        >
+          <span class="text-black font-black">📐 Holo-Scan 3D</span>
+          <span class="ai-badge text-[10px] bg-black/25 text-black font-mono font-bold px-1.5 py-0.5 rounded-full">CAD</span>
+        </button>
+
+        <button
+          type="button"
+          data-ai-mode="macro"
+          class="ai-mode-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-athletic uppercase tracking-wider font-bold transition-all duration-300 flex items-center gap-2 cursor-pointer bg-[#14141c] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50"
+        >
+          <span class="font-bold">🔬 Microfibra Dry-Tech</span>
+          <span class="ai-badge text-[10px] bg-white/10 text-neutral-300 font-mono font-bold px-1.5 py-0.5 rounded-full">Zoom 500x</span>
+        </button>
+
+        <button
+          type="button"
+          data-ai-mode="speed"
+          class="ai-mode-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-athletic uppercase tracking-wider font-bold transition-all duration-300 flex items-center gap-2 cursor-pointer bg-[#14141c] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50"
+        >
+          <span class="font-bold">⚡ Rendimiento en Carrera</span>
+          <span class="ai-badge text-[10px] bg-white/10 text-neutral-300 font-mono font-bold px-1.5 py-0.5 rounded-full">Sprint</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Parallax Stage Showcase Container -->
+    <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+      <!-- LEFT: Floating Telemetry HUD Card (Parallax Speed: -0.15) -->
+      <div class="lg:col-span-3 order-2 lg:order-1 flex flex-col gap-4">
+        <!-- Telemetry 1 -->
+        <div 
+          class="parallax-element reveal-on-scroll p-5 rounded-2xl bg-[#0f0f15]/85 backdrop-blur-xl border border-white/10 hover:border-[#ccff00]/60 transition-all shadow-xl group"
+          data-parallax-y="-0.16"
+          data-tilt
+        >
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono font-bold text-[#ccff00] uppercase tracking-wider">Flujo Térmico</span>
+            <span class="text-lg">🔥</span>
+          </div>
+          <div class="font-athletic text-2xl font-black text-white group-hover:text-[#ccff00] transition-colors">205°C FUSIÓN</div>
+          <p class="text-xs text-neutral-400 mt-1 leading-relaxed">
+            El color se integra molecularmente a la tela. Ni el sudor ni 100 lavadas logran desprender el diseño.
+          </p>
+          <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-neutral-300">
+            <span>Pigmento:</span>
+            <span class="text-[#ccff00] font-bold">Ultra-Chrome HD</span>
+          </div>
+        </div>
+
+        <!-- Telemetry 2 -->
+        <div 
+          class="parallax-element reveal-on-scroll p-5 rounded-2xl bg-[#0f0f15]/85 backdrop-blur-xl border border-white/10 hover:border-[#00f5ff]/60 transition-all shadow-xl group"
+          data-parallax-y="0.14"
+          data-tilt
+        >
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono font-bold text-[#00f5ff] uppercase tracking-wider">Evaporación</span>
+            <span class="text-lg">💧</span>
+          </div>
+          <div class="font-athletic text-2xl font-black text-white group-hover:text-[#00f5ff] transition-colors">0.4 SEG / DRY-TECH</div>
+          <p class="text-xs text-neutral-400 mt-1 leading-relaxed">
+            Celdas hexagonales activas que expulsan la humedad al exterior sin acumular peso ni enfriar los músculos.
+          </p>
+          <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-neutral-300">
+            <span>Secado:</span>
+            <span class="text-[#00f5ff] font-bold">Capilar Instantáneo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CENTER: Interactive High-Tech Showcase Stage with Parallax Depth -->
+      <div class="lg:col-span-6 order-1 lg:order-2 flex justify-center">
+        <div 
+          class="parallax-element relative w-full max-w-[540px] aspect-[16/10] sm:aspect-[4/3] rounded-3xl overflow-hidden border border-white/20 bg-[#0d0d12] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] group"
+          data-parallax-y="0.08"
+          id="ai-showcase-screen"
+        >
+          <!-- Animated Laser Scanline Effect -->
+          <div class="scanline-bar" id="ai-scanline"></div>
+
+          <!-- Top Status HUD Bar -->
+          <div class="absolute top-4 left-4 right-4 z-30 flex items-center justify-between pointer-events-none">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-[#ccff00]/40 text-[#ccff00] text-[11px] font-mono font-bold tracking-wider">
+              <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
+              <span id="ai-screen-label">HOLO-CAD // WIREFRAME 3D</span>
+            </div>
+
+            <div class="text-[10px] font-mono text-neutral-400 bg-black/70 px-2.5 py-1 rounded-lg border border-white/10">
+              FPS: 60 • SIMULACIÓN IA
+            </div>
+          </div>
+
+          <!-- IMAGE 1: Hologram Wireframe (Active Default) -->
+          <div id="ai-view-hologram" class="ai-view-pane absolute inset-0 transition-opacity duration-700 opacity-100 z-10">
+            <img 
+              src="/images/ai/jersey-3d-hologram.jpg" 
+              alt="Modelo 3D holográfico de jersey deportivo de alta ingeniería generado con IA"
+              class="w-full h-full object-cover object-center filter contrast-110"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
+
+            <!-- Interactive Hotspot 1 (Pecho) -->
+            <div class="absolute top-[48%] left-[48%] z-20 group/spot cursor-pointer">
+              <div class="relative flex items-center justify-center w-8 h-8">
+                <span class="hotspot-beacon absolute w-7 h-7 rounded-full bg-[#ccff00]/40 pointer-events-none"></span>
+                <span class="relative w-4 h-4 rounded-full bg-[#ccff00] text-black text-[10px] font-black flex items-center justify-center shadow-[0_0_15px_#ccff00] group-hover/spot:scale-125 transition-transform">+</span>
+              </div>
+              <!-- Tooltip on hover/click -->
+              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 rounded-xl bg-black/95 backdrop-blur-xl border border-[#ccff00]/70 text-left opacity-0 group-hover/spot:opacity-100 transition-all duration-300 pointer-events-none shadow-2xl z-30">
+                <div class="text-[10px] font-mono text-[#ccff00] font-bold">PECHO // VECTORIAL</div>
+                <div class="text-xs text-white font-semibold mt-0.5">Escudo Termofijado HD</div>
+                <div class="text-[10px] text-neutral-400 mt-0.5">Detalle nítido a 300 DPI sin borde plástico.</div>
+              </div>
+            </div>
+
+            <!-- Interactive Hotspot 2 (Costado) -->
+            <div class="absolute top-[62%] left-[28%] z-20 group/spot cursor-pointer">
+              <div class="relative flex items-center justify-center w-8 h-8">
+                <span class="hotspot-beacon absolute w-7 h-7 rounded-full bg-cyan-400/40 pointer-events-none"></span>
+                <span class="relative w-4 h-4 rounded-full bg-cyan-400 text-black text-[10px] font-black flex items-center justify-center shadow-[0_0_15px_#00f5ff] group-hover/spot:scale-125 transition-transform">+</span>
+              </div>
+              <!-- Tooltip on hover/click -->
+              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 rounded-xl bg-black/95 backdrop-blur-xl border border-cyan-400/70 text-left opacity-0 group-hover/spot:opacity-100 transition-all duration-300 pointer-events-none shadow-2xl z-30">
+                <div class="text-[10px] font-mono text-cyan-400 font-bold">VENTILACIÓN // LATERAL</div>
+                <div class="text-xs text-white font-semibold mt-0.5">Malla Spandex 4-Way</div>
+                <div class="text-[10px] text-neutral-400 mt-0.5">Micro-orificios para disipar sudor en carrera.</div>
+              </div>
+            </div>
+
+            <!-- Interactive Hotspot 3 (Cuello & Hombros) -->
+            <div class="absolute top-[28%] right-[32%] z-20 group/spot cursor-pointer">
+              <div class="relative flex items-center justify-center w-8 h-8">
+                <span class="hotspot-beacon absolute w-7 h-7 rounded-full bg-white/40 pointer-events-none"></span>
+                <span class="relative w-4 h-4 rounded-full bg-white text-black text-[10px] font-black flex items-center justify-center shadow-[0_0_15px_#ffffff] group-hover/spot:scale-125 transition-transform">+</span>
+              </div>
+              <!-- Tooltip on hover/click -->
+              <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 rounded-xl bg-black/95 backdrop-blur-xl border border-white/70 text-left opacity-0 group-hover/spot:opacity-100 transition-all duration-300 pointer-events-none shadow-2xl z-30">
+                <div class="text-[10px] font-mono text-white font-bold">COSTURA // FLATLOCK</div>
+                <div class="text-xs text-white font-semibold mt-0.5">Refuerzo 4 Agujas</div>
+                <div class="text-[10px] text-neutral-400 mt-0.5">Cero rozaduras en la piel durante 90 minutos.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- IMAGE 2: Macro Fabric Structure -->
+          <div id="ai-view-macro" class="ai-view-pane absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none z-10">
+            <img 
+              src="/images/ai/fabric-macro.jpg" 
+              alt="Microfotografía hiperrealista de microfibra de tela deportiva Dry-Tech repeliendo agua"
+              class="w-full h-full object-cover object-center filter contrast-110"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
+
+            <div class="absolute bottom-4 left-4 right-4 z-20 p-3.5 rounded-2xl bg-black/85 backdrop-blur-xl border border-white/10 text-xs">
+              <div class="font-bold text-[#ccff00] uppercase tracking-wide">🔬 Malla Hexagonal Dry-Tech</div>
+              <p class="text-neutral-300 text-[11px] mt-1">El tejido repele líquidos externos mientras extrae el sudor por capilaridad.</p>
+            </div>
+          </div>
+
+          <!-- IMAGE 3: Speed Athlete Sprint -->
+          <div id="ai-view-speed" class="ai-view-pane absolute inset-0 transition-opacity duration-700 opacity-0 pointer-events-none z-10">
+            <img 
+              src="/images/ai/athlete-speed.jpg" 
+              alt="Atleta velocista corriendo en pista olímpica con estela de velocidad y uniforme APEX PRO"
+              class="w-full h-full object-cover object-center filter contrast-110"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
+
+            <div class="absolute bottom-4 left-4 right-4 z-20 p-3.5 rounded-2xl bg-black/85 backdrop-blur-xl border border-white/10 text-xs">
+              <div class="font-bold text-[#ccff00] uppercase tracking-wide">⚡ Dinámica de Competición Élite</div>
+              <p class="text-neutral-300 text-[11px] mt-1">Acompaña la elongación muscular sin oprimir ni frenar tu aceleración.</p>
+            </div>
+          </div>
+
+          <!-- Bottom hint overlay -->
+          <div class="absolute bottom-3 left-4 right-4 z-20 flex items-center justify-between text-[10px] font-mono text-neutral-400 pointer-events-none">
+            <span class="flex items-center gap-1.5 text-[#ccff00]">
+              <span>✦</span> Haz clic en los puntos (+) para inspeccionar detalles
+            </span>
+            <span>APEX AI TEXTILE // 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Floating Telemetry HUD Card (Parallax Speed: 0.22) -->
+      <div class="lg:col-span-3 order-3 flex flex-col gap-4">
+        <!-- Telemetry 3 -->
+        <div 
+          class="parallax-element reveal-on-scroll p-5 rounded-2xl bg-[#0f0f15]/85 backdrop-blur-xl border border-white/10 hover:border-[#ccff00]/60 transition-all shadow-xl group"
+          data-parallax-y="-0.2"
+          data-tilt
+        >
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono font-bold text-[#ccff00] uppercase tracking-wider">Ergonomía</span>
+            <span class="text-lg">🛡️</span>
+          </div>
+          <div class="font-athletic text-2xl font-black text-white group-hover:text-[#ccff00] transition-colors">-14.2% RESISTENCIA</div>
+          <p class="text-xs text-neutral-400 mt-1 leading-relaxed">
+            Corte anatómico modelado por software que reduce el arrastre aerodinámico en deportes de alta velocidad.
+          </p>
+          <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-neutral-300">
+            <span>Patronaje:</span>
+            <span class="text-[#ccff00] font-bold">CAD Grado Pro</span>
+          </div>
+        </div>
+
+        <!-- Telemetry 4: Callout Button -->
+        <div 
+          class="parallax-element reveal-on-scroll p-5 rounded-2xl bg-gradient-to-b from-[#14141d] to-[#0d0d12] border border-[#ccff00]/40 shadow-[0_0_30px_rgba(204,255,0,0.15)] flex flex-col justify-between"
+          data-parallax-y="0.16"
+        >
+          <div>
+            <div class="text-[10px] font-mono font-bold uppercase tracking-widest text-[#ccff00] mb-1">Muestra 3D Sin Costo</div>
+            <div class="font-athletic text-xl font-black text-white leading-tight">¿Quieres ver el uniforme de tu equipo así?</div>
+            <p class="text-xs text-neutral-300 mt-2 leading-relaxed">
+              Mándanos tu escudo e idea y creamos el render 3D con colores reales para tu aprobación antes de cortar.
+            </p>
+          </div>
+
+          <a 
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 w-full inline-flex items-center justify-center gap-2 bg-[#ccff00] text-black font-athletic text-xs uppercase tracking-wider py-2.5 px-4 rounded-xl font-black hover:bg-white transition-all shadow-md active:scale-95"
+          >
+            <span>Solicitar Render 3D Gratis</span>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Script for the Parallax Showcase AI Mode Switcher -->
+  <script is:inline>
+    (function initParallaxAiLab() {
+      const modeButtons = document.querySelectorAll('.ai-mode-btn');
+      const views = {
+        hologram: document.getElementById('ai-view-hologram'),
+        macro: document.getElementById('ai-view-macro'),
+        speed: document.getElementById('ai-view-speed')
+      };
+      const label = document.getElementById('ai-screen-label');
+      const labels = {
+        hologram: 'HOLO-CAD // WIREFRAME 3D',
+        macro: 'MICRO-ESTRUCTURA // DRY-TECH 500X',
+        speed: 'DINÁMICA CINEMÁTICA // VELOCIDAD PRO'
+      };
+
+      if (!modeButtons.length) return;
+
+      modeButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const mode = btn.getAttribute('data-ai-mode');
+          if (!mode) return;
+
+          // Switch active button styles
+          modeButtons.forEach((b) => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+
+          // Switch views
+          Object.keys(views).forEach((k) => {
+            const el = views[k];
+            if (el) {
+              if (k === mode) {
+                el.classList.remove('opacity-0', 'pointer-events-none');
+                el.classList.add('opacity-100');
+              } else {
+                el.classList.add('opacity-0', 'pointer-events-none');
+                el.classList.remove('opacity-100');
+              }
+            }
+          });
+
+          // Update HUD label
+          if (label && labels[mode]) {
+            label.textContent = labels[mode];
+          }
+        });
+      });
+    })();
+  </script>
+
+  <style>
+    .ai-mode-btn.is-active {
+      background-color: #ccff00 !important;
+      color: #000000 !important;
+      box-shadow: 0 0 25px rgba(204, 255, 0, 0.55) !important;
+      transform: scale(1.05) !important;
+      border-color: #ccff00 !important;
+    }
+    .ai-mode-btn.is-active span {
+      color: #000000 !important;
+    }
+    .ai-mode-btn.is-active .ai-badge {
+      background-color: rgba(0, 0, 0, 0.25) !important;
+      color: #000000 !important;
+    }
+  </style>
+</section>

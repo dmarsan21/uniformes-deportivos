@@ -25,19 +25,29 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
         Platícanos cuántas piezas necesitas y los deportes de tu club. Te respondemos de inmediato con precios directos de taller y propuesta digital personalizada.
       </p>
 
-      <!-- Main CTA Button -->
-      <a 
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-3 bg-[#ccff00] text-black font-athletic text-lg sm:text-xl uppercase tracking-wider px-8 sm:px-12 py-4 sm:py-5 rounded-full font-black hover:bg-white hover:text-black hover:shadow-[0_0_40px_rgba(204,255,0,0.8)] active:scale-95 transition-all duration-300 group"
-        id="cta-banner-whatsapp-btn"
-      >
-        <svg class="w-6 h-6 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
-          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
-        </svg>
-        <span>Cotizar Mi Pedido Por WhatsApp</span>
-      </a>
+      <!-- CTA Buttons Group -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+        <a 
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#ccff00] text-black font-athletic text-base sm:text-xl uppercase tracking-wider px-8 sm:px-10 py-4 rounded-full font-black hover:bg-white hover:text-black hover:shadow-[0_0_40px_rgba(204,255,0,0.8)] active:scale-95 transition-all duration-300 group"
+          id="cta-banner-whatsapp-btn"
+        >
+          <svg class="w-5 h-5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
+          </svg>
+          <span>Cotizar por WhatsApp</span>
+        </a>
+
+        <a 
+          href="/equipaciones"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-[#1f1f28] text-white border border-white/20 hover:border-[#ccff00]/60 font-athletic text-base sm:text-lg uppercase tracking-wider px-7 py-4 rounded-full transition-all duration-300 backdrop-blur-md group"
+        >
+          <span>🎬 Ver Videos de Equipaciones</span>
+          <span class="text-[#ccff00] group-hover:translate-x-1 transition-transform">➔</span>
+        </a>
+      </div>
 
       <!-- Guarantees list -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 pt-8 border-t border-white/10 w-full text-xs sm:text-sm text-neutral-400 font-medium">

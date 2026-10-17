@@ -102,14 +102,23 @@ const manufacturingSteps: ProcessStep[] = [
     </div>
   </div>
 
-  <!-- 4-Steps Modern Grid -->
+  <!-- 4-Steps Modern Grid with Staggered Parallax Motion -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
     {manufacturingSteps.map((step, idx) => (
       <article 
-        class="process-card reveal-on-scroll group relative rounded-3xl bg-[#0e0e14]/90 backdrop-blur-xl border border-white/10 hover:border-[#ccff00]/70 p-6 sm:p-7 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_0_35px_rgba(204,255,0,0.2)] cursor-default"
+        class="process-card reveal-on-scroll parallax-element group relative rounded-3xl bg-[#0e0e14]/90 backdrop-blur-xl border border-white/10 hover:border-[#ccff00]/70 p-6 sm:p-7 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_0_35px_rgba(204,255,0,0.2)] cursor-default overflow-hidden"
         data-reveal-delay={String(idx * 120)}
+        data-parallax-y={idx % 2 === 0 ? "0.08" : "-0.06"}
         data-tilt
       >
+        <!-- Giant Parallax Background Number Watermark -->
+        <div 
+          class="parallax-element absolute -right-2 -top-4 font-athletic text-7xl sm:text-8xl font-black text-stroke-white opacity-15 pointer-events-none select-none z-0 group-hover:text-stroke-volt group-hover:opacity-30 transition-all duration-500"
+          data-parallax-y={String((idx % 2 === 0 ? 0.12 : -0.1))}
+        >
+          {step.step}
+        </div>
+
         <!-- Dynamic Cursor Specular Shine Overlay -->
         <div class="specular-shine absolute inset-0 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 

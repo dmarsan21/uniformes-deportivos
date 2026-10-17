@@ -3,25 +3,33 @@
 const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20quiero%20cotizar%20uniformes%20deportivos%20para%20mi%20equipo";
 ---
 
-<section class="relative min-h-screen lg:h-screen lg:max-h-[1080px] flex flex-col justify-between items-center pt-20 sm:pt-24 pb-6 sm:pb-8 px-4 sm:px-6 overflow-hidden">
-  <!-- Cinematic Background Video (Nike-like High Impact Aesthetic) -->
+<section id="hero" class="relative min-h-screen lg:h-screen lg:max-h-[1080px] flex flex-col justify-between items-center pt-20 sm:pt-24 pb-6 sm:pb-8 px-4 sm:px-6 overflow-hidden">
+  <!-- Cinematic Background Video with Parallax Speed (Moves slower than scroll for extreme depth) -->
   <video 
     autoplay 
     loop 
     muted 
     playsinline 
     preload="metadata"
-    class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+    class="parallax-element absolute inset-0 w-full h-[125%] -top-[12%] object-cover z-0 pointer-events-none"
+    data-parallax-y="0.3"
   >
     <source src="/videos/hero-sports.mp4" type="video/mp4" />
     Tu navegador no soporta video HTML5.
   </video>
 
+  <!-- Kinetic Athletic Watermark Text (Drifts horizontally with scroll) -->
+  <div class="absolute top-1/2 left-0 -translate-y-1/2 w-full overflow-hidden pointer-events-none select-none z-10 opacity-15">
+    <div class="parallax-element whitespace-nowrap font-athletic text-[14vw] tracking-tighter uppercase text-stroke-volt leading-none" data-parallax-x="-0.28">
+      APEX ATHLETICS // HIGH PERFORMANCE // APEX ATHLETICS // HIGH PERFORMANCE //
+    </div>
+  </div>
+
   <!-- Capas de Contraste y Gradientes (Overlay) -->
   <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/75 to-[#0a0a0c]/40 z-10 pointer-events-none"></div>
 
-  <!-- Ambient Glow -->
-  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#ccff00]/10 rounded-full blur-[140px] pointer-events-none z-10"></div>
+  <!-- Ambient Glow with Parallax Floating -->
+  <div class="parallax-element absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#ccff00]/10 rounded-full blur-[140px] pointer-events-none z-10" data-parallax-y="-0.15"></div>
 
   <!-- Main Hero Body (Centered) with relative z-20 -->
   <div class="reveal-on-scroll relative z-20 max-w-5xl mx-auto text-center flex flex-col items-center justify-center my-auto w-full pt-4">
