@@ -11,6 +11,7 @@ interface SportCard {
   image: string;
   badge: string;
   waQuery: string;
+  detailUrl?: string;
 }
 
 const catalogItems: SportCard[] = [
@@ -23,7 +24,8 @@ const catalogItems: SportCard[] = [
     price: "$285.00",
     image: "/images/catalog/baseball.jpg",
     badge: "Kit Pro Diamante",
-    waQuery: "Béisbol & Sóftbol"
+    waQuery: "Béisbol & Sóftbol",
+    detailUrl: "/uniformes/beisbol"
   },
   {
     id: "basquetbol",
@@ -34,7 +36,8 @@ const catalogItems: SportCard[] = [
     price: "$265.00",
     image: "/images/catalog/basketball.jpg",
     badge: "Pro-Motion",
-    waQuery: "Básquetbol"
+    waQuery: "Básquetbol",
+    detailUrl: "/#laboratorio-ia"
   },
   {
     id: "futbol-americano",
@@ -45,7 +48,8 @@ const catalogItems: SportCard[] = [
     price: "$340.00",
     image: "/images/catalog/football.jpg",
     badge: "Armor Contact",
-    waQuery: "Fútbol Americano"
+    waQuery: "Fútbol Americano",
+    detailUrl: "/uniformes/futbol-americano"
   },
   {
     id: "mma-boxeo",
@@ -56,7 +60,8 @@ const catalogItems: SportCard[] = [
     price: "$295.00",
     image: "/images/catalog/mma.jpg",
     badge: "Combat Performance",
-    waQuery: "MMA & Boxeo"
+    waQuery: "MMA & Boxeo",
+    detailUrl: "/#laboratorio-ia"
   },
   {
     id: "futbol-soccer",
@@ -67,7 +72,8 @@ const catalogItems: SportCard[] = [
     price: "$245.00",
     image: "/images/catalog/soccer.jpg",
     badge: "Kit Completo 3 Pzas",
-    waQuery: "Fútbol Soccer"
+    waQuery: "Fútbol Soccer",
+    detailUrl: "/equipaciones#futbol-showcase"
   },
   {
     id: "ciclismo-running",
@@ -163,98 +169,115 @@ const catalogItems: SportCard[] = [
 
   <!-- Cards Grid with Staggered Scroll Reveal, 3D Tilt & Subtle Hover Gleam -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="catalog-cards-container">
-    {catalogItems.map((item, index) => (
-      <a
-        href={`https://wa.me/520000000000?text=${encodeURIComponent(`Hola, quiero cotizar uniformes de ${item.waQuery} para un equipo.`)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-category={item.id}
-        data-tilt
-        class="catalog-card reveal-on-scroll h-[480px] relative overflow-hidden group rounded-3xl border border-white/10 hover:border-[#ccff00]/80 shadow-2xl flex flex-col justify-between p-6 bg-[#0e0e12]"
-        data-reveal-delay={String(index * 100)}
-        aria-label={`Cotizar uniformes de ${item.name} por WhatsApp`}
-      >
-        <!-- Dynamic Cursor Specular Shine Overlay -->
-        <div class="specular-shine absolute inset-0 z-25 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    {catalogItems.map((item, index) => {
+      const cardTargetHref = item.detailUrl || `https://wa.me/520000000000?text=${encodeURIComponent(`Hola, quiero cotizar uniformes de ${item.waQuery} para un equipo.`)}`;
+      const isCardExternal = !item.detailUrl;
+      const waQuoteHref = `https://wa.me/520000000000?text=${encodeURIComponent(`Hola, quiero cotizar uniformes de ${item.waQuery} para un equipo.`)}`;
 
-        <!-- Subtle Animated Border Gleam (Destello sutil en el borde al hacer hover) -->
-        <div class="absolute inset-0 rounded-3xl p-[1.5px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#ccff00]/70 via-[#ccff00]/20 to-white/30 z-20"></div>
+      return (
+        <div
+          data-category={item.id}
+          data-tilt
+          class="catalog-card reveal-on-scroll h-[480px] relative overflow-hidden group rounded-3xl border border-white/10 hover:border-[#ccff00]/80 shadow-2xl flex flex-col justify-between p-6 bg-[#0e0e12]"
+          data-reveal-delay={String(index * 100)}
+        >
+          <!-- Dynamic Cursor Specular Shine Overlay -->
+          <div class="specular-shine absolute inset-0 z-25 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-        <!-- Subtle Diagonal Shimmer Sweep -->
-        <div class="absolute -inset-full top-0 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none z-15"></div>
+          <!-- Subtle Animated Border Gleam -->
+          <div class="absolute inset-0 rounded-3xl p-[1.5px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#ccff00]/70 via-[#ccff00]/20 to-white/30 z-20"></div>
 
-        <!-- Background Photography with smooth group-hover:scale-105 transition -->
-        <div class="absolute inset-0 z-0 overflow-hidden">
-          <img 
-            src={item.image} 
-            alt={`Uniforme deportivo de ${item.name}`}
-            class="w-full h-full object-cover object-[center_12%] group-hover:scale-105 transition-transform duration-500 ease-out filter contrast-110 brightness-95 group-hover:brightness-105"
-            loading="lazy"
-            decoding="async"
-          />
-          <!-- Multi-stop Dark Gradient Overlay for Maximum Readability -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20 pointer-events-none"></div>
-          <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20 pointer-events-none"></div>
-        </div>
+          <!-- Subtle Diagonal Shimmer Sweep -->
+          <div class="absolute -inset-full top-0 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none z-15"></div>
 
-        <!-- Top Row: Badge + Circular Arrow Button -->
-        <div class="relative z-10 flex items-center justify-between w-full">
-          <span class="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-neutral-200 group-hover:border-[#ccff00]/50 group-hover:text-[#ccff00] transition-colors">
-            {item.badge}
-          </span>
-
-          <div 
-            class="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/15 flex items-center justify-center text-white text-base group-hover:bg-[#ccff00] group-hover:text-black group-hover:border-[#ccff00] group-hover:scale-110 transition-all duration-300 shadow-lg"
+          <!-- Enlace de toda la imagen y superficie hacia la página del uniforme -->
+          <a
+            href={cardTargetHref}
+            target={isCardExternal ? "_blank" : undefined}
+            rel={isCardExternal ? "noopener noreferrer" : undefined}
+            class="absolute inset-0 z-10 cursor-pointer"
+            aria-label={`Ver detalles y vitrina del uniforme de ${item.name}`}
           >
-            ↗
-          </div>
-        </div>
+            <!-- Background Photography with smooth group-hover:scale-105 transition -->
+            <div class="absolute inset-0 z-0 overflow-hidden">
+              <img 
+                src={item.image} 
+                alt={`Uniforme deportivo de ${item.name}`}
+                class="w-full h-full object-cover object-[center_12%] group-hover:scale-105 transition-transform duration-500 ease-out filter contrast-110 brightness-95 group-hover:brightness-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <!-- Multi-stop Dark Gradient Overlay for Maximum Readability -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20 pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20 pointer-events-none"></div>
+            </div>
+          </a>
 
-        <!-- Bottom Content -->
-        <div class="relative z-10 flex flex-col justify-end pt-8">
-          <!-- Thematic Icon & Garment Note -->
-          <div class="flex items-center gap-2 mb-2">
-            <span class="text-xl" role="img" aria-label={item.name}>{item.icon}</span>
-            <span class="text-[11px] uppercase tracking-widest text-[#ccff00] font-bold">
-              Sublimación Pro
+          <!-- Top Row: Badge + Circular Arrow Button (Visual, clic navega a la página del uniforme) -->
+          <div class="relative z-20 pointer-events-none flex items-center justify-between w-full">
+            <span class="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-neutral-200 group-hover:border-[#ccff00]/50 group-hover:text-[#ccff00] transition-colors">
+              {item.badge}
             </span>
+
+            <div 
+              class="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/15 flex items-center justify-center text-white text-base group-hover:bg-[#ccff00] group-hover:text-black group-hover:border-[#ccff00] group-hover:scale-110 transition-all duration-300 shadow-lg"
+            >
+              ↗
+            </div>
           </div>
 
-          <!-- Discipline Name in Ultra-Condensed Uppercase -->
-          <h3 class="font-athletic text-3xl sm:text-4xl font-black uppercase tracking-tight text-white group-hover:text-[#ccff00] transition-colors leading-none mb-2">
-            {item.name}
-          </h3>
-
-          <!-- Garment Brief Description -->
-          <p class="text-xs text-neutral-300 font-medium line-clamp-1 mb-2">
-            {item.garment}
-          </p>
-
-          <!-- Included Garments Pill -->
-          <div class="inline-flex items-center gap-1.5 text-xs text-neutral-300 bg-white/10 backdrop-blur-md border border-white/10 rounded-lg px-2.5 py-1.5 mb-4 w-fit">
-            <span class="text-[#ccff00] font-bold">Incluye:</span>
-            <span>{item.includes}</span>
-          </div>
-
-          <!-- Price & WhatsApp Action Row -->
-          <div class="pt-3 border-t border-white/15 flex items-center justify-between">
-            <div class="flex flex-col">
-              <span class="text-[10px] text-neutral-400 uppercase tracking-wider font-semibold">Mayoreo garantizado</span>
-              <span class="text-sm sm:text-base text-neutral-200 font-medium">
-                Desde <strong class="text-[#ccff00] font-athletic text-xl sm:text-2xl font-black">{item.price}</strong> <span class="text-xs text-neutral-400">/ pza</span>
+          <!-- Bottom Content -->
+          <div class="relative z-20 flex flex-col justify-end pt-8 pointer-events-none">
+            <!-- Thematic Icon & Garment Note -->
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xl" role="img" aria-label={item.name}>{item.icon}</span>
+              <span class="text-[11px] uppercase tracking-widest text-[#ccff00] font-bold">
+                {item.detailUrl ? "Ver Vitrina & Videos" : "Sublimación Pro"}
               </span>
             </div>
 
-            <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black bg-[#ccff00] group-hover:bg-white px-3 py-1.5 rounded-full transition-colors">
-              <span>Cotizar</span>
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
-              </svg>
-            </span>
+            <!-- Discipline Name in Ultra-Condensed Uppercase -->
+            <h3 class="font-athletic text-3xl sm:text-4xl font-black uppercase tracking-tight text-white group-hover:text-[#ccff00] transition-colors leading-none mb-2">
+              {item.name}
+            </h3>
+
+            <!-- Garment Brief Description -->
+            <p class="text-xs text-neutral-300 font-medium line-clamp-1 mb-2">
+              {item.garment}
+            </p>
+
+            <!-- Included Garments Pill -->
+            <div class="inline-flex items-center gap-1.5 text-xs text-neutral-300 bg-white/10 backdrop-blur-md border border-white/10 rounded-lg px-2.5 py-1.5 mb-4 w-fit">
+              <span class="text-[#ccff00] font-bold">Incluye:</span>
+              <span>{item.includes}</span>
+            </div>
+
+            <!-- Price & WhatsApp Action Row (El botón Cotizar abre WhatsApp directamente) -->
+            <div class="pt-3 border-t border-white/15 flex items-center justify-between pointer-events-auto">
+              <div class="flex flex-col">
+                <span class="text-[10px] text-neutral-400 uppercase tracking-wider font-semibold">Mayoreo garantizado</span>
+                <span class="text-sm sm:text-base text-neutral-200 font-medium">
+                  Desde <strong class="text-[#ccff00] font-athletic text-xl sm:text-2xl font-black">{item.price}</strong> <span class="text-xs text-neutral-400">/ pza</span>
+                </span>
+              </div>
+
+              <a
+                href={waQuoteHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black bg-[#ccff00] hover:bg-white hover:shadow-[0_0_20px_rgba(204,255,0,0.8)] px-3.5 py-1.5 rounded-full transition-all duration-200 active:scale-95 shadow-md relative z-30 cursor-pointer"
+                title={`Cotizar uniformes de ${item.name} por WhatsApp`}
+              >
+                <span>Cotizar</span>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
-      </a>
-    ))}
+      );
+    })}
   </div>
 
   <!-- Interactive Dynamic Wholesale Calculator Strip -->

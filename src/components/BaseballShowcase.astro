@@ -1,0 +1,397 @@
+---
+// src/components/BaseballShowcase.astro
+const WHATSAPP_URL = "https://wa.me/520000000000?text=" + encodeURIComponent("Hola APEX PRO, quiero cotizar uniformes de Béisbol y Softbol Línea Diamante para mi equipo/liga.");
+
+interface SpecificationItem {
+  id: string;
+  title: string;
+  badge: string;
+  description: string;
+  icon: string;
+  features: string[];
+}
+
+// Especificaciones para Softbol
+const softbolSpecs: SpecificationItem[] = [
+  {
+    id: "camisola-pro",
+    title: "Camisola Pro 6 Botones",
+    badge: "Grado Competitivo",
+    description: "Apertura frontal completa tradicional de grado competitivo para torneos y circuitos semiprofesionales.",
+    icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
+    features: [
+      "Botonera doble reforzada anti-tirones",
+      "Tejido Micro-Spun transpirable 180g",
+      "Corte tradicional de juego profesional"
+    ]
+  },
+  {
+    id: "camisola-pullover",
+    title: "Camisola Pullover / 2 Botones",
+    badge: "Ajuste Ergonómico",
+    description: "Ligereza máxima y silueta anatómica diseñada para dar fluidez y velocidad en el swing de bateo.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+    features: [
+      "Cuello en V híbrido con tapeta de 2 botones",
+      "Malla Dry-Flex en costillas y axilas",
+      "Mayor libertad de movimiento en caja de bateo"
+    ]
+  },
+  {
+    id: "pullover-entrenamiento",
+    title: "Pullovers de Entrenamiento",
+    badge: "Versión Sleeveless",
+    description: "Versión sin mangas (sleeveless) con capucha técnica deportiva para prácticas intensas y bullpen.",
+    icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+    features: [
+      "Capucha deportiva ultra ligera",
+      "Sisas anatómicas de amplio rango de tiro",
+      "Tratamiento hidrofóbico de secado ultra rápido"
+    ]
+  },
+  {
+    id: "gorras-accesorios",
+    title: "Gorras & Accesorios",
+    badge: "Bordado 3D Relieve",
+    description: "Gorras personalizadas con bordado 3D de alto relieve, calcetas estribo de compresión y cinturones elásticos.",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+    features: [
+      "Bordado 3D táctil de alta densidad",
+      "Estructura 6 gajos con broche pro o snapback",
+      "Accesorios a juego: calcetas, cinturón y coderas"
+    ]
+  }
+];
+
+// Especificaciones para Béisbol (Edición Diamante Élite)
+const baseballSpecs: SpecificationItem[] = [
+  {
+    id: "jersey-pinstripe-pro",
+    title: "Jersey Major Pinstripe Pro",
+    badge: "Tradición Clásica",
+    description: "Líneas pinstripe continuas y botones contrastados con ajuste ceñido para movilidad y velocidad en bases.",
+    icon: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01",
+    features: [
+      "Costura invisible anti-fricción en hombros",
+      "Tejido Diamond-Knit 190g de alta densidad",
+      "Sublimación fotográfica de escudos y ribetes"
+    ]
+  },
+  {
+    id: "pantalon-slide-guard",
+    title: "Pantalón Slide-Guard Pro",
+    badge: "Refuerzo Doble",
+    description: "Rodilla doble articulada y entrepierna reforzada con tejido elástico resistente a barridas en tierra y arcilla.",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+    features: [
+      "Doble capa anti-abrasión en rodillas",
+      "Cintura con banda de silicona antideslizante",
+      "Corte cerrado knicker o largo tradicional"
+    ]
+  },
+  {
+    id: "chamarra-cages-hoodie",
+    title: "Chamarra Cage & Batting Hoodie",
+    badge: "Clima & Calentamiento",
+    description: "Prenda térmica hidrófuga para dugouts, calentamiento y bullpen con mangas articuladas para no limitar el brazo.",
+    icon: "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.001 4.001 0 003 15z",
+    features: [
+      "Exterior repelente al viento y rocío nocturno",
+      "Forro micropolar térmico ultra liviano",
+      "Bolsillo de canguro con salidas multimedia"
+    ]
+  },
+  {
+    id: "sublimacion-personalizada",
+    title: "Identidad & Parches 3D",
+    badge: "Personalización Total",
+    description: "Nombres individuales, dorsales oficiales de gran tamaño y parches conmemorativos sin límite de color.",
+    icon: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z",
+    features: [
+      "Tipografías auténticas de Grandes Ligas",
+      "Numeración frontal y dorsal sin costo extra",
+      "Logos de patrocinadores en alta resolución"
+    ]
+  }
+];
+---
+
+<section id="beisbol-showcase" class="relative py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto overflow-hidden">
+  <!-- Glow decorativo de fondo -->
+  <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#ccff00]/10 rounded-full blur-[140px] pointer-events-none"></div>
+  <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <!-- Header de disciplina general -->
+  <div class="reveal-on-scroll flex flex-col md:flex-row md:items-end justify-between mb-14 sm:mb-16 gap-6 relative z-10">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16161d] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_20px_rgba(204,255,0,0.15)]">
+        <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
+        <span>Especialidad Principal // Disciplina de Élite</span>
+      </div>
+      <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-tight">
+        Línea Diamante: <span class="text-[#ccff00] drop-shadow-[0_0_30px_rgba(204,255,0,0.4)]">Béisbol & Softbol</span>
+      </h2>
+      <p class="text-neutral-300 mt-4 text-sm sm:text-base lg:text-lg leading-relaxed">
+        Ingeniería textil diseñada para resistir el polvo del diamante, deslices constantes y el dinamismo explosivo de cada jugada.
+      </p>
+    </div>
+
+    <!-- Badge técnico lateral -->
+    <div class="hidden lg:flex items-center gap-2 text-xs font-mono text-neutral-400 bg-white/5 border border-white/10 px-4 py-2.5 rounded-2xl backdrop-blur-md">
+      <span class="w-2.5 h-2.5 rounded-full bg-[#ccff00] animate-ping"></span>
+      <span class="text-white font-bold uppercase tracking-wider">Confección Diamante Pro</span>
+    </div>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- BLOQUE 1: VITRINA DE SOFTBOL PRO (VIDEO 1: softbol.mp4) -->
+  <!-- ======================================================= -->
+  <div class="mb-20 sm:mb-28 relative z-10">
+    <!-- Sub-encabezado de sección 1 -->
+    <div class="flex items-center gap-3 mb-6">
+      <span class="w-8 h-8 rounded-xl bg-[#ccff00]/15 border border-[#ccff00]/40 flex items-center justify-center text-sm font-athletic text-[#ccff00]">01</span>
+      <span class="font-athletic text-xl sm:text-2xl uppercase tracking-wider text-white">Equipación Pro // Softbol Fastpitch & Slowpitch</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <!-- COLUMNA IZQUIERDA: VIDEO DE SOFTBOL (Limpio, sin filtros ni capas) -->
+      <div class="reveal-on-scroll lg:col-span-5 flex flex-col items-center">
+        <div 
+          class="w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] bg-zinc-950 border border-white/10 rounded-3xl relative overflow-hidden flex flex-col items-center justify-center shadow-2xl group hover:border-[#ccff00]/40 transition-all duration-500"
+          data-tilt
+        >
+          <video
+            id="showcase-video-softbol"
+            class="baseball-showcase-video absolute inset-0 w-full h-full object-cover object-center"
+            muted
+            autoplay
+            loop
+            playsinline
+            preload="metadata"
+          >
+            <source src="/videos/softbol.mp4" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+
+          <!-- Borde sutil inferior -->
+          <div class="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#ccff00]/50 to-transparent pointer-events-none z-20"></div>
+        </div>
+      </div>
+
+      <!-- COLUMNA DERECHA: Catálogo de Cortes Softbol -->
+      <div class="reveal-on-scroll lg:col-span-7 flex flex-col justify-between" data-reveal-delay="100">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-[#ccff00] uppercase tracking-widest mb-2 font-bold">
+            <span>// ESPECIFICACIONES TÉCNICAS & CONFECCIÓN</span>
+          </div>
+
+          <h3 class="font-athletic text-3xl sm:text-4xl lg:text-5xl uppercase text-white font-black tracking-tight leading-none mb-3">
+            EQUIPACIÓN OFICIAL: <span class="text-[#ccff00]">SOFTBOL PRO</span>
+          </h3>
+
+          <p class="text-sm sm:text-base text-neutral-300 leading-relaxed mb-8">
+            Confeccionamos equipaciones para ligas femeniles, varoniles y torneos libres. Telas elásticas con caída anatómica, gran movilidad en lanzamientos por molinete y estampados termofijados indestructibles.
+          </p>
+
+          <!-- Cuadrícula de Especificaciones Softbol -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            {softbolSpecs.map((spec) => (
+              <div class="group relative p-5 rounded-2xl bg-[#121216]/90 border border-white/10 hover:border-[#ccff00]/60 transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(204,255,0,0.15)] flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="inline-block px-2.5 py-1 rounded-lg bg-black/60 border border-white/10 text-[10px] font-mono text-[#ccff00] font-bold uppercase tracking-wider">
+                      {spec.badge}
+                    </span>
+                    <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#ccff00] group-hover:bg-[#ccff00] group-hover:text-black transition-colors">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={spec.icon} />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <h4 class="font-athletic text-base sm:text-lg text-white uppercase tracking-wider mb-2 font-bold group-hover:text-[#ccff00] transition-colors">
+                    {spec.title}
+                  </h4>
+
+                  <p class="text-xs text-neutral-400 leading-relaxed mb-3">
+                    {spec.description}
+                  </p>
+                </div>
+
+                <ul class="pt-3 border-t border-white/5 space-y-1 text-[11px] text-neutral-300 font-mono">
+                  {spec.features.map((feature) => (
+                    <li class="flex items-center gap-1.5">
+                      <span class="text-[#ccff00] font-bold">›</span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Botón Directo WhatsApp CTA Softbol -->
+        <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center gap-4">
+          <a 
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#ccff00] text-black font-athletic text-sm sm:text-base uppercase tracking-wider px-8 py-4 rounded-full font-bold hover:bg-white hover:shadow-[0_0_30px_rgba(204,255,0,0.7)] transition-all duration-300 active:scale-95 shadow-xl group"
+          >
+            <span>Cotizar Uniforme de Softbol</span>
+            <svg class="w-4 h-4 fill-current group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+
+          <div class="flex items-center gap-3 text-xs text-neutral-400 font-mono">
+            <span class="w-2 h-2 rounded-full bg-[#ccff00]"></span>
+            <span>Muestra digital 2D/3D gratis en 24h</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- BLOQUE 2: VITRINA DE BÉISBOL PRO (VIDEO 2: baseball.mp4) -->
+  <!-- ======================================================== -->
+  <div class="relative z-10 pt-12 border-t border-white/10">
+    <!-- Sub-encabezado de sección 2 -->
+    <div class="flex items-center gap-3 mb-6">
+      <span class="w-8 h-8 rounded-xl bg-cyan-400/15 border border-cyan-400/40 flex items-center justify-center text-sm font-athletic text-cyan-300">02</span>
+      <span class="font-athletic text-xl sm:text-2xl uppercase tracking-wider text-white">Equipación Pro // Béisbol Mayor & Academias</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <!-- COLUMNA IZQUIERDA: VIDEO DE BÉISBOL (Limpio, sin filtros ni capas) -->
+      <div class="reveal-on-scroll lg:col-span-5 flex flex-col items-center">
+        <div 
+          class="w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] bg-zinc-950 border border-white/10 rounded-3xl relative overflow-hidden flex flex-col items-center justify-center shadow-2xl group hover:border-cyan-400/50 transition-all duration-500"
+          data-tilt
+        >
+          <video
+            id="showcase-video-baseball"
+            class="baseball-showcase-video absolute inset-0 w-full h-full object-cover object-center"
+            muted
+            autoplay
+            loop
+            playsinline
+            preload="metadata"
+          >
+            <source src="/videos/baseball.mp4" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+
+          <!-- Borde sutil inferior con tono cian -->
+          <div class="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent pointer-events-none z-20"></div>
+        </div>
+      </div>
+
+      <!-- COLUMNA DERECHA: Catálogo de Cortes Béisbol -->
+      <div class="reveal-on-scroll lg:col-span-7 flex flex-col justify-between" data-reveal-delay="100">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-cyan-300 uppercase tracking-widest mb-2 font-bold">
+            <span>// LÍNEA DIAMANTE // PATRONAJE TRADICIONAL</span>
+          </div>
+
+          <h3 class="font-athletic text-3xl sm:text-4xl lg:text-5xl uppercase text-white font-black tracking-tight leading-none mb-3">
+            EQUIPACIÓN OFICIAL: <span class="text-cyan-300">BÉISBOL MAYOR</span>
+          </h3>
+
+          <p class="text-sm sm:text-base text-neutral-300 leading-relaxed mb-8">
+            Patronaje tradicional de Grandes Ligas para novenas, selecciones estatales y academias de prospectos. Telas pesadas con máxima resistencia al deslizamiento en arcilla, botoneras robustas y bordados 3D de alta densidad.
+          </p>
+
+          <!-- Cuadrícula de Especificaciones Béisbol -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            {baseballSpecs.map((spec) => (
+              <div class="group relative p-5 rounded-2xl bg-[#121216]/90 border border-white/10 hover:border-cyan-400/60 transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(6,182,212,0.15)] flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="inline-block px-2.5 py-1 rounded-lg bg-black/60 border border-white/10 text-[10px] font-mono text-cyan-300 font-bold uppercase tracking-wider">
+                      {spec.badge}
+                    </span>
+                    <div class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-cyan-300 group-hover:bg-cyan-400 group-hover:text-black transition-colors">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={spec.icon} />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <h4 class="font-athletic text-base sm:text-lg text-white uppercase tracking-wider mb-2 font-bold group-hover:text-cyan-300 transition-colors">
+                    {spec.title}
+                  </h4>
+
+                  <p class="text-xs text-neutral-400 leading-relaxed mb-3">
+                    {spec.description}
+                  </p>
+                </div>
+
+                <ul class="pt-3 border-t border-white/5 space-y-1 text-[11px] text-neutral-300 font-mono">
+                  {spec.features.map((feature) => (
+                    <li class="flex items-center gap-1.5">
+                      <span class="text-cyan-300 font-bold">›</span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Botón Directo WhatsApp CTA Béisbol -->
+        <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center gap-4">
+          <a 
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-cyan-400 text-black font-athletic text-sm sm:text-base uppercase tracking-wider px-8 py-4 rounded-full font-bold hover:bg-white hover:shadow-[0_0_30px_rgba(6,182,212,0.7)] transition-all duration-300 active:scale-95 shadow-xl group"
+          >
+            <span>Cotizar Uniforme de Béisbol</span>
+            <svg class="w-4 h-4 fill-current group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+
+          <div class="flex items-center gap-3 text-xs text-neutral-400 font-mono">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span>Incluye jersey, pantalón reforzado y gorra 3D</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function initShowcaseVideos() {
+    const videos = [
+      document.getElementById('showcase-video-softbol'),
+      document.getElementById('showcase-video-baseball')
+    ].filter(Boolean);
+
+    // Asegurar silencio en ambos videos
+    videos.forEach((video) => {
+      video.muted = true;
+    });
+
+    // Observer eficiente para pausar fuera de pantalla y ahorrar recursos
+    if ('IntersectionObserver' in window && videos.length > 0) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const vid = entry.target;
+          if (entry.isIntersecting) {
+            vid.play().catch(() => {});
+          } else {
+            vid.pause();
+          }
+        });
+      }, { threshold: 0.2 });
+
+      videos.forEach((vid) => videoObserver.observe(vid));
+    }
+  })();
+</script>

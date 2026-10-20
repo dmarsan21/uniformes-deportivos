@@ -1,0 +1,177 @@
+---
+// src/pages/uniformes/beisbol.astro
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import BaseballShowcase from '../../components/BaseballShowcase.astro';
+import Footer from '../../components/Footer.astro';
+
+const WHATSAPP_URL = "https://wa.me/520000000000?text=" + encodeURIComponent("Hola APEX PRO, quiero cotizar uniformes de Béisbol y Softbol Línea Diamante para mi equipo/liga.");
+
+const highlights = [
+  {
+    title: "Telas Diamond-Pro 180g",
+    desc: "Fibra técnica transpirable con microceldas de evaporación rápida y elasticidad multidireccional.",
+    icon: "⚡"
+  },
+  {
+    title: "Sublimación HD 4K a 205°C",
+    desc: "Los colores, degradados, logotipos y nombres quedan fusionados a nivel molecular. Cero deslavado.",
+    icon: "🔥"
+  },
+  {
+    title: "Refuerzo para Deslizamiento",
+    desc: "Costuras de cuádruple hilo de alta tenacidad en rodillas, mangas y tiros para soportar el juego rudo.",
+    icon: "🛡️"
+  },
+  {
+    title: "Diseño 3D y Renders Gratis",
+    desc: "Antes de confeccionar, te entregamos renders digitales con los colores exactos y patrocinadores de tu club.",
+    icon: "💎"
+  }
+];
+
+const gallery = [
+  {
+    title: "Jersey Diamante Pro Blanco / Volt",
+    badge: "Botonera 6B",
+    img: "/images/catalog/baseball.jpg",
+    specs: "Sublimación completa + botones de alta densidad"
+  },
+  {
+    title: "Modelo 360° Frente & Espalda",
+    badge: "Dorsal Indeleble",
+    img: "/images/models360/soccer_back.jpg",
+    specs: "Tipografía atlética condensada + dorsal de visibilidad lejana"
+  },
+  {
+    title: "Set Completo de Entrenamiento",
+    badge: "Pullover Sleeveless",
+    img: "/images/catalog/cycling.jpg",
+    specs: "Capucha integrada y ventilación activa en costillas"
+  }
+];
+---
+
+<Layout 
+  title="Béisbol & Softbol de Alto Rendimiento // APEX PRO" 
+  description="Uniformes de béisbol y softbol de grado profesional. Camisolas 6 botones, pullovers ergonómicos, gorras con bordado 3D y telas resistentes a deslices."
+>
+  <main class="bg-[#0a0a0c] text-white min-h-screen overflow-x-hidden selection:bg-[#ccff00] selection:text-black pt-20">
+    <Navbar />
+
+    <!-- HERO DE LA DISCIPLINA BÉISBOL -->
+    <section class="relative py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto overflow-hidden">
+      <!-- Glow ambiental de fondo -->
+      <div class="parallax-element absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#ccff00]/10 rounded-full blur-[170px] pointer-events-none" data-parallax-y="-0.2"></div>
+
+      <!-- Watermark Cinético de Fondo -->
+      <div class="absolute top-10 left-0 w-full overflow-hidden pointer-events-none select-none z-0 opacity-10">
+        <div class="parallax-element whitespace-nowrap font-athletic text-7xl sm:text-9xl uppercase tracking-wider text-stroke-volt" data-parallax-x="0.25">
+          BÉISBOL // SOFTBOL // LÍNEA DIAMANTE // CORTE PRO // SUB-4K
+        </div>
+      </div>
+
+      <div class="relative z-10 text-center max-w-4xl mx-auto">
+        <!-- Breadcrumb / Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#16161d] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-6 shadow-[0_0_20px_rgba(204,255,0,0.15)]">
+          <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
+          <span>Uniformes Deportivos // Béisbol & Softbol</span>
+        </div>
+
+        <h1 class="font-athletic text-4xl sm:text-6xl lg:text-7xl xl:text-8xl uppercase tracking-tight text-white leading-[0.92] mb-6">
+          Béisbol & Softbol de <span class="text-[#ccff00] drop-shadow-[0_0_35px_rgba(204,255,0,0.45)]">Alto Rendimiento</span>
+        </h1>
+
+        <p class="text-neutral-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+          Equipaciones oficiales de grado competitivo para ligas, academias y selectivos. Confeccionadas con tecnología anti-abrasión para deslices en tierra, cortes ergonómicos y bordados 3D de alta densidad.
+        </p>
+
+        <!-- CTA Rápido -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a 
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#ccff00] text-black font-athletic uppercase tracking-wider text-sm sm:text-base font-black hover:bg-white hover:shadow-[0_0_30px_rgba(204,255,0,0.7)] transition-all duration-300 active:scale-95 shadow-xl group"
+          >
+            <span>Cotizar Equipación Completa</span>
+            <svg class="w-4 h-4 fill-current group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+
+          <a 
+            href="#vitrina-diamante"
+            class="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white font-athletic uppercase tracking-wider text-sm font-bold border border-white/10 hover:border-white/20 transition-all duration-300"
+          >
+            <span>Ver Vitrina Interactiva ↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VENTAJAS TÉCNICAS RÁPIDAS -->
+    <section class="py-8 px-4 sm:px-6 max-w-7xl mx-auto relative z-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {highlights.map((item) => (
+          <div class="p-6 rounded-2xl bg-[#121216]/80 border border-white/10 hover:border-[#ccff00]/40 transition-colors shadow-lg">
+            <span class="text-2xl mb-3 block">{item.icon}</span>
+            <h3 class="font-athletic text-base sm:text-lg uppercase text-white tracking-wider mb-2 font-bold">
+              {item.title}
+            </h3>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              {item.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECCIÓN INTERACTIVA PRINCIPAL: VITRINA 360 / VIDEO Y OPCIONES DE CORTE -->
+    <div id="vitrina-diamante" class="scroll-mt-24">
+      <BaseballShowcase />
+    </div>
+
+    <!-- CALL TO ACTION FINAL DE DISCIPLINA -->
+    <section class="py-20 px-4 sm:px-6 max-w-7xl mx-auto relative overflow-hidden">
+      <div class="rounded-3xl bg-gradient-to-r from-[#121216] via-[#171720] to-[#121216] border border-white/10 p-8 sm:p-14 relative overflow-hidden text-center shadow-2xl">
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-[#ccff00]/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <span class="text-xs font-mono font-bold uppercase tracking-widest text-[#ccff00] block mb-3">
+            // PEDIDOS DESDE 10 EQUIPACIONES
+          </span>
+          <h2 class="font-athletic text-3xl sm:text-5xl uppercase tracking-tight text-white mb-4">
+            ¿Listo para Uniformar a Tu <span class="text-[#ccff00]">Novena o Academia</span>?
+          </h2>
+          <p class="text-neutral-300 text-sm sm:text-base leading-relaxed mb-8">
+            Envíanos los colores de tu club, escudo y lista de tallas. Te asignamos un diseñador técnico dedicado y te enviamos renders 3D para aprobación en menos de 24 horas.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a 
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#ccff00] text-black font-athletic text-sm sm:text-base uppercase tracking-wider px-8 py-4 rounded-full font-bold hover:bg-white hover:shadow-[0_0_30px_rgba(204,255,0,0.7)] transition-all duration-300 active:scale-95 shadow-xl"
+            >
+              <span>Solicitar Cotización Inmediata</span>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+
+            <a 
+              href="/#catalogo" 
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white font-athletic uppercase tracking-wider text-sm font-bold border border-white/10 transition-colors"
+            >
+              <span>Explorar Otras Disciplinas</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>
