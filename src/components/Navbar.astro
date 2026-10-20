@@ -19,6 +19,19 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
     <!-- Desktop Navigation Links: Streamlined & Clean Spacing -->
     <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-xs xl:text-sm font-bold tracking-wider uppercase text-neutral-300" aria-label="Navegación principal">
       
+      <!-- BOTÓN INICIO CON ICONO -->
+      <a 
+        href="/" 
+        class="flex items-center gap-1.5 hover:text-[#ccff00] transition-colors py-1 relative group whitespace-nowrap text-white font-bold"
+        aria-label="Ir a página de Inicio"
+      >
+        <svg class="w-4 h-4 text-[#ccff00]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        <span>Inicio</span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
+      </a>
+
       <!-- DROPDOWN: UNIFORMES CON SUBMENÚ DE DEPORTES -->
       <div class="relative group/nav-dropdown py-2">
         <button 
@@ -56,27 +69,30 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
               </div>
             </a>
 
+            <!-- Fútbol Americano -->
+            <a 
+              href="/uniformes/futbol-americano" 
+              class="flex items-center gap-3 p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/30 hover:bg-orange-500 text-white hover:text-black transition-all group/subitem mb-1"
+            >
+              <span class="text-lg">🏈</span>
+              <div class="flex-1">
+                <div class="flex items-center gap-2">
+                  <span class="font-athletic text-sm uppercase tracking-wide font-black">Fútbol Americano</span>
+                  <span class="text-[9px] px-1.5 py-0.2 rounded bg-orange-400 text-black font-extrabold group-hover/subitem:bg-black group-hover/subitem:text-orange-400">PRO</span>
+                </div>
+                <span class="text-[11px] text-neutral-300 group-hover/subitem:text-neutral-900 block font-normal leading-tight">Combat Armor & Galería 3D</span>
+              </div>
+            </a>
+
             <!-- Fútbol Soccer -->
             <a 
-              href="/equipaciones#futbol-showcase" 
+              href="/#catalogo" 
               class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/5 text-neutral-300 hover:text-white transition-colors group/subitem"
             >
               <span class="text-lg">⚽</span>
               <div>
                 <span class="font-athletic text-sm uppercase tracking-wide font-bold block">Fútbol Soccer</span>
                 <span class="text-[11px] text-neutral-400 group-hover/subitem:text-[#ccff00] block font-normal leading-tight">Kit 3 Piezas Dry-Tech</span>
-              </div>
-            </a>
-
-            <!-- Fútbol Americano -->
-            <a 
-              href="/uniformes/futbol-americano" 
-              class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/5 text-neutral-300 hover:text-white transition-colors group/subitem"
-            >
-              <span class="text-lg">🏈</span>
-              <div>
-                <span class="font-athletic text-sm uppercase tracking-wide font-bold block">Fútbol Americano</span>
-                <span class="text-[11px] text-neutral-400 group-hover/subitem:text-[#ccff00] block font-normal leading-tight">Armor Contact & Fundas</span>
               </div>
             </a>
 
@@ -120,12 +136,6 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
 
       <a href="/#catalogo" class="hover:text-[#ccff00] transition-colors py-1 relative group whitespace-nowrap">
         Catálogo
-        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
-      </a>
-
-      <a href="/equipaciones" class="hover:text-[#ccff00] transition-colors py-1 relative group flex items-center gap-1.5 whitespace-nowrap">
-        <span>Equipaciones</span>
-        <span class="text-[10px] px-1.5 py-0.5 rounded bg-[#ccff00]/15 text-[#ccff00] font-mono font-extrabold border border-[#ccff00]/30">VIDEOS</span>
         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#ccff00] transition-all duration-200 group-hover:w-full"></span>
       </a>
 
@@ -190,6 +200,17 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
     class="hidden lg:hidden w-full border-t border-white/10 bg-[#0a0a0c]/98 backdrop-blur-2xl px-6 py-6 max-h-[85vh] overflow-y-auto"
   >
     <div class="flex flex-col gap-3 text-left">
+      <!-- Enlace Inicio en Móvil -->
+      <a 
+        href="/" 
+        class="text-sm font-bold uppercase tracking-wider text-white hover:text-[#ccff00] py-2 border-b border-white/10 mobile-link flex items-center gap-2"
+      >
+        <svg class="w-4 h-4 text-[#ccff00]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        <span>Inicio</span>
+      </a>
+
       <!-- Sección Uniformes en Móvil -->
       <div class="pb-3 border-b border-white/10">
         <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#ccff00] block mb-2">
@@ -207,17 +228,20 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
           </a>
 
           <a 
-            href="/equipaciones#futbol-showcase" 
-            class="mobile-link flex items-center gap-2 text-sm font-semibold text-neutral-300 hover:text-white py-1.5"
+            href="/uniformes/futbol-americano" 
+            class="mobile-link flex items-center justify-between p-2.5 rounded-xl bg-orange-500/15 border border-orange-500/40 text-white"
           >
-            <span>⚽</span> Fútbol Soccer
+            <span class="font-athletic text-sm uppercase flex items-center gap-2">
+              <span>🏈</span> Fútbol Americano
+            </span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded bg-orange-400 text-black font-extrabold">PRO</span>
           </a>
 
           <a 
-            href="/uniformes/futbol-americano" 
+            href="/#catalogo" 
             class="mobile-link flex items-center gap-2 text-sm font-semibold text-neutral-300 hover:text-white py-1.5"
           >
-            <span>🏈</span> Fútbol Americano
+            <span>⚽</span> Fútbol Soccer
           </a>
 
           <a 
@@ -237,10 +261,6 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
       </div>
 
       <a href="/#catalogo" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Catálogo & Precios</a>
-      <a href="/equipaciones" class="text-sm font-bold uppercase tracking-wider text-[#ccff00] py-2 border-b border-white/5 mobile-link flex items-center justify-between">
-        <span>Equipaciones & Videos</span>
-        <span class="text-[10px] px-1.5 py-0.5 rounded bg-[#ccff00]/15 text-[#ccff00] font-mono font-extrabold border border-[#ccff00]/30">VIDEOS</span>
-      </a>
       <a href="/#parallax-lab" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">IA Parallax Lab</a>
       <a href="/#fabricacion" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Fabricación & Tecnología</a>
       <a href="/#laboratorio-ia" class="text-sm font-bold uppercase tracking-wider text-neutral-200 hover:text-[#ccff00] py-2 border-b border-white/5 mobile-link">Modelos 360°</a>
