@@ -3,6 +3,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import BaseballShowcase from '../../components/BaseballShowcase.astro';
+import JerseyGallerySection from '../../components/JerseyGallerySection.astro';
 import Footer from '../../components/Footer.astro';
 
 const WHATSAPP_URL = "https://wa.me/520000000000?text=" + encodeURIComponent("Hola APEX PRO, quiero cotizar uniformes de Béisbol y Softbol Línea Diamante para mi equipo/liga.");
@@ -131,6 +132,9 @@ const gallery = [
     <div id="vitrina-diamante" class="scroll-mt-24">
       <BaseballShowcase />
     </div>
+
+    <!-- SECCIONES DE GALERÍAS DE JERSEYS: 6 BOTONES & 2 BOTONES (ALPHA AUREA) -->
+    <JerseyGallerySection />
 
     <!-- CALL TO ACTION FINAL DE DISCIPLINA -->
     <section class="py-20 px-4 sm:px-6 max-w-7xl mx-auto relative overflow-hidden">

@@ -1,0 +1,480 @@
+---
+// src/components/JerseyGallerySection.astro
+import { Image } from 'astro:assets';
+
+// Importación estática de imágenes optimizadas con astro:assets
+// Sección 6 Botones (convención frente[categoria].jpg y atras[categoria].jpg)
+import frenteCaballero6B from '../assets/images/seisbotones/frentecaballero.jpg';
+import atrasCaballero6B from '../assets/images/seisbotones/atrascaballero.jpg';
+import frenteDama6B from '../assets/images/seisbotones/frentedama.jpg';
+import atrasDama6B from '../assets/images/seisbotones/atrasdama.jpg';
+import frenteInfantil6B from '../assets/images/seisbotones/frenteinfantil.jpg';
+import atrasInfantil6B from '../assets/images/seisbotones/atrasinfantil.jpg';
+
+// Sección 2 Botones (convención frente[categoria].jpg y atras[categoria].jpg)
+import frenteCaballero2B from '../assets/images/dosbotones/frentecaballero.jpg';
+import atrasCaballero2B from '../assets/images/dosbotones/atrascaballero.jpg';
+import frenteDama2B from '../assets/images/dosbotones/frentedama.jpg';
+import atrasDama2B from '../assets/images/dosbotones/atrasdama.jpg';
+import frenteInfantil2B from '../assets/images/dosbotones/frenteinfantil.jpg';
+import atrasInfantil2B from '../assets/images/dosbotones/atrasinfantil.jpg';
+
+interface ProductItem {
+  id: string;
+  name: string;
+  category: string;
+  targetAudience: string;
+  badge: string;
+  description: string;
+  features: string[];
+  frontImage: ImageMetadata;
+  backImage: ImageMetadata;
+  tagColor: string;
+}
+
+interface SectionData {
+  id: string;
+  title: string;
+  subtitle: string;
+  pillBadge: string;
+  description: string;
+  buttonCount: '6' | '2';
+  accentColor: 'volt' | 'cyan';
+  products: ProductItem[];
+}
+
+const WHATSAPP_BASE = "https://wa.me/520000000000?text=";
+
+const sections: SectionData[] = [
+  {
+    id: "jerseys-6-botones",
+    title: "Jerseys de 6 Botones",
+    subtitle: "Apertura Completa // Grado Competitivo Pro",
+    pillBadge: "Línea Diamante 6B",
+    buttonCount: "6",
+    accentColor: "volt",
+    description: "Diseño clásico de abotonadura completa reforzada. Confección en microfibra técnica de 180g con sublimación en alta definición e indeleble bajo la marca oficial Alpha Aurea.",
+    products: [
+      {
+        id: "6b-caballero",
+        name: "Jersey Alpha Aurea 6B Caballero",
+        category: "Corte Varonil Adulto",
+        targetAudience: "Caballero",
+        badge: "Corte Atlético",
+        description: "Silueta anatómica con apertura total de 6 botones, costuras de cuádruple remate y mangas con amplitud para swing y pitcheo.",
+        features: ["Botonera reforzada anti-tirones", "Micro-Spun Diamond 180g", "Dorsal y nombres indelebles"],
+        frontImage: frenteCaballero6B,
+        backImage: atrasCaballero6B,
+        tagColor: "border-[#ccff00]/40 text-[#ccff00]"
+      },
+      {
+        id: "6b-dama",
+        name: "Jersey Alpha Aurea 6B Dama",
+        category: "Corte Femenil Entallado",
+        targetAudience: "Dama",
+        badge: "Fastpitch Edition",
+        description: "Patronaje estilizado con cintura anatómica femenina, caída ligera y paneles laterales transpirables para máxima frescura en diamante.",
+        features: ["Ajuste anatómico femenino", "Tejido Dri-Cool evaporación rápida", "Sublimación 4K sin desvanecimiento"],
+        frontImage: frenteDama6B,
+        backImage: atrasDama6B,
+        tagColor: "border-pink-400/40 text-pink-300"
+      },
+      {
+        id: "6b-infantil",
+        name: "Jersey Alpha Aurea 6B Infantil",
+        category: "Corte Infantil & Juvenil",
+        targetAudience: "Infantil",
+        badge: "Junior Academy",
+        description: "Equipación diseñada para academias infantiles y ligas juveniles. Material suave al tacto con alta resistencia al lavado y deslices.",
+        features: ["Resistente a fricción y barridas", "Costuras planas anti-rozaduras", "Tallas 4 a 16 juveniles"],
+        frontImage: frenteInfantil6B,
+        backImage: atrasInfantil6B,
+        tagColor: "border-amber-400/40 text-amber-300"
+      }
+    ]
+  },
+  {
+    id: "jerseys-2-botones",
+    title: "Jerseys de 2 Botones",
+    subtitle: "Estilo Pullover // Ligereza y Velocidad",
+    pillBadge: "Línea Dynamic 2B",
+    buttonCount: "2",
+    accentColor: "cyan",
+    description: "Modelo tipo tapeta pullover con 2 botones de ajuste en el cuello. Sensación ultraligera para mayor cadencia, fluidez y soltura en cada turno al bate.",
+    products: [
+      {
+        id: "2b-caballero",
+        name: "Jersey Alpha Aurea 2B Caballero",
+        category: "Corte Varonil Adulto",
+        targetAudience: "Caballero",
+        badge: "Pullover Speed",
+        description: "Cuello híbrido con tapeta frontal de 2 botones contrastados. Máxima aerodinámica y libertad de movimiento en caja de bateo.",
+        features: ["Tapeta ergonómica 2 botones", "Malla lateral Dry-Flex", "Confección ultraligera 165g"],
+        frontImage: frenteCaballero2B,
+        backImage: atrasCaballero2B,
+        tagColor: "border-cyan-400/40 text-cyan-300"
+      },
+      {
+        id: "2b-dama",
+        name: "Jersey Alpha Aurea 2B Dama",
+        category: "Corte Femenil Entallado",
+        targetAudience: "Dama",
+        badge: "Fastpitch Fit",
+        description: "Corte pullover femenino de cuello en V con 2 botones discretos. Libertad absoluta de hombros para tiros dinámicos y sprints.",
+        features: ["Silueta femenina ergonómica", "Secado hiper-rápido en campo", "Costuras reforzadas de alta tensión"],
+        frontImage: frenteDama2B,
+        backImage: atrasDama2B,
+        tagColor: "border-purple-400/40 text-purple-300"
+      },
+      {
+        id: "2b-infantil",
+        name: "Jersey Alpha Aurea 2B Infantil",
+        category: "Corte Infantil & Juvenil",
+        targetAudience: "Infantil",
+        badge: "Little League Pro",
+        description: "Fácil de vestir, liviano y sumamente resistente para futuros bateadores. Colores vibrantes y tejido transpirable que los mantiene frescos.",
+        features: ["Puesta rápida tipo pullover", "Textura ultra suave hipoalergénica", "Patrón ergonómico para niños"],
+        frontImage: frenteInfantil2B,
+        backImage: atrasInfantil2B,
+        tagColor: "border-emerald-400/40 text-emerald-300"
+      }
+    ]
+  }
+];
+---
+
+<div id="galerias-catalogo" class="relative py-12 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-24">
+  
+  <!-- CABECERA GENERAL DEL CATÁLOGO DE JERSEYS -->
+  <div class="reveal-on-scroll text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#16161d] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_20px_rgba(204,255,0,0.15)]">
+      <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
+      <span>Catálogo Oficial Alpha Aurea // Línea Diamante</span>
+    </div>
+
+    <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-tight mb-4">
+      Galería de Jerseys: <span class="text-[#ccff00] drop-shadow-[0_0_30px_rgba(204,255,0,0.4)]">6 Botones & 2 Botones</span>
+    </h2>
+
+    <p class="text-neutral-300 text-sm sm:text-base lg:text-lg leading-relaxed">
+      Explora nuestras dos variantes de botonera en vistas <strong class="text-white">frontal y trasera</strong>. Cada prenda de <span class="text-[#ccff00] font-semibold">Alpha Aurea</span> se fabrica con sublimación técnica de alta definición, disponible en cortes para caballero, dama e infantil.
+    </p>
+
+    <!-- Pestañas de salto rápido -->
+    <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+      <a 
+        href="#jerseys-6-botones" 
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#14141c] hover:bg-[#ccff00] text-white hover:text-black font-athletic uppercase tracking-wider text-xs sm:text-sm font-bold border border-white/10 hover:border-[#ccff00] transition-all duration-300 shadow-lg"
+      >
+        <span>⚡ Jerseys de 6 Botones (Apertura Completa)</span>
+        <span>↓</span>
+      </a>
+      <a 
+        href="#jerseys-2-botones" 
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#14141c] hover:bg-cyan-400 text-white hover:text-black font-athletic uppercase tracking-wider text-xs sm:text-sm font-bold border border-white/10 hover:border-cyan-400 transition-all duration-300 shadow-lg"
+      >
+        <span>💎 Jerseys de 2 Botones (Pullover)</span>
+        <span>↓</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- BUCLE DE SECCIONES (6 BOTONES & 2 BOTONES) -->
+  <div class="space-y-24 sm:space-y-32">
+    {sections.map((section, sIndex) => {
+      const isVolt = section.accentColor === 'volt';
+      const accentBg = isVolt ? 'bg-[#ccff00]' : 'bg-cyan-400';
+      const accentText = isVolt ? 'text-[#ccff00]' : 'text-cyan-300';
+      const accentBorder = isVolt ? 'border-[#ccff00]/40' : 'border-cyan-400/40';
+      const accentShadow = isVolt ? 'shadow-[0_0_20px_rgba(204,255,0,0.2)]' : 'shadow-[0_0_20px_rgba(6,182,212,0.2)]';
+      const glowColor = isVolt ? 'bg-[#ccff00]/10' : 'bg-cyan-500/10';
+
+      return (
+        <section 
+          id={section.id} 
+          class="relative scroll-mt-28 p-6 sm:p-10 rounded-3xl bg-[#0c0c10]/90 border border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden"
+        >
+          <!-- Glow ambiental -->
+          <div class={`absolute -top-24 -right-24 w-96 h-96 ${glowColor} rounded-full blur-[140px] pointer-events-none`}></div>
+          <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-white/[0.02] rounded-full blur-[140px] pointer-events-none"></div>
+
+          <!-- ENCABEZADO DE LA SECCIÓN -->
+          <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 pb-8 border-b border-white/10">
+            <div class="max-w-3xl">
+              <div class="flex items-center gap-2 mb-3">
+                <span class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#16161d] border ${accentBorder} ${accentText} text-[11px] font-mono font-bold uppercase tracking-widest ${accentShadow}`}>
+                  <span class={`w-2 h-2 rounded-full ${accentBg} animate-pulse`}></span>
+                  <span>{section.pillBadge}</span>
+                </span>
+                <span class="text-xs font-mono text-neutral-400 tracking-wider">
+                  MARCA // ALPHA AUREA
+                </span>
+              </div>
+
+              <h3 class="font-athletic text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white font-black leading-tight">
+                {section.title}
+              </h3>
+              
+              <p class={`text-sm sm:text-base font-semibold ${accentText} font-athletic uppercase tracking-wider mt-1 mb-3`}>
+                {section.subtitle}
+              </p>
+
+              <p class="text-neutral-300 text-xs sm:text-sm sm:leading-relaxed max-w-2xl">
+                {section.description}
+              </p>
+            </div>
+
+            <!-- Resumen de especificaciones / Ayuda visual -->
+            <div class="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-2 text-xs font-mono text-neutral-400">
+              <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+                <span class={`w-2 h-2 rounded-full ${accentBg}`}></span>
+                <span class="text-white font-bold">Alternancia Frontal / Trasera Interactiva</span>
+              </div>
+              <span class="text-[11px] text-neutral-400">Pasa el cursor o haz clic en los botones de vista</span>
+            </div>
+          </div>
+
+          <!-- GRID RESPONSIVO: 1 Columna Móvil, 2 o 3 Columnas Desktop -->
+          <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {section.products.map((product) => {
+              const waQuote = `${WHATSAPP_BASE}${encodeURIComponent(`Hola Alpha Aurea, me interesa cotizar el ${product.name} (Línea ${section.buttonCount} Botones, Corte ${product.targetAudience}) para mi equipo.`)}`;
+              
+              return (
+                <article 
+                  class="jersey-card group relative flex flex-col justify-between rounded-2xl bg-[#121217] border border-white/10 hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl overflow-hidden"
+                  data-jersey-card
+                >
+                  <!-- TARJETA SUPERIOR: HEADER CON MARCA Y CATEGORÍA -->
+                  <div class="p-5 pb-3 flex items-center justify-between gap-2 border-b border-white/5 bg-gradient-to-b from-white/[0.03] to-transparent">
+                    <div>
+                      <span class="block text-[10px] font-mono tracking-widest text-neutral-400 uppercase font-semibold">
+                        Alpha Aurea // Oficial
+                      </span>
+                      <span class="font-athletic text-sm sm:text-base uppercase tracking-wide text-white font-black block">
+                        Corte {product.targetAudience}
+                      </span>
+                    </div>
+
+                    <span class={`text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border ${product.tagColor} bg-black/50 backdrop-blur-sm`}>
+                      {product.badge}
+                    </span>
+                  </div>
+
+                  <!-- CONTENEDOR DE IMAGEN CON PROPORCIONES ESTRICTAS (Aspect Ratio 3:4) -->
+                  <div class="relative w-full aspect-[3/4] bg-[#0a0a0d] overflow-hidden select-none">
+                    
+                    <!-- Capa Vista Frontal -->
+                    <div 
+                      class="jersey-view-front absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out opacity-100 z-10"
+                      data-view-front
+                    >
+                      <Image 
+                        src={product.frontImage} 
+                        alt={`${product.name} - Vista Frontal`}
+                        width={600}
+                        height={800}
+                        class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                        loading={sIndex === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                      />
+                    </div>
+
+                    <!-- Capa Vista Trasera (Efecto Hover y Toggle) -->
+                    <div 
+                      class="jersey-view-back absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out opacity-0 z-10 group-hover:opacity-100"
+                      data-view-back
+                    >
+                      <Image 
+                        src={product.backImage} 
+                        alt={`${product.name} - Vista Trasera`}
+                        width={600}
+                        height={800}
+                        class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+
+                    <!-- Gradiente sutil inferior para legibilidad de insignias sobre imagen -->
+                    <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#121217] to-transparent z-15 pointer-events-none"></div>
+
+                    <!-- Indicador visual de modo activo (Frente / Trasera) -->
+                    <div class="absolute top-3 left-3 z-20 pointer-events-none">
+                      <span 
+                        class="jersey-view-badge inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono text-white uppercase tracking-wider font-bold shadow-lg"
+                        data-view-badge
+                      >
+                        <span class={`w-1.5 h-1.5 rounded-full ${accentBg}`}></span>
+                        <span class="view-label">Vista: Frente</span>
+                      </span>
+                    </div>
+
+                    <!-- CONTROLES INTERACTIVOS DE ALTERNANCIA (FRENTE / ESPALDA) -->
+                    <div class="absolute bottom-3 inset-x-3 z-20 flex items-center justify-center">
+                      <div class="inline-flex p-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 shadow-xl gap-1">
+                        <button 
+                          type="button" 
+                          data-toggle-view="front"
+                          aria-label={`Ver vista frontal de ${product.name}`}
+                          class="toggle-btn-front px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/20 text-white hover:bg-white hover:text-black cursor-pointer shadow-sm active:scale-95"
+                        >
+                          Frente
+                        </button>
+                        <button 
+                          type="button" 
+                          data-toggle-view="back"
+                          aria-label={`Ver vista trasera de ${product.name}`}
+                          class="toggle-btn-back px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm active:scale-95"
+                        >
+                          Espalda
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- DETALLES DE PRODUCTO Y CARACTERÍSTICAS -->
+                  <div class="p-5 flex flex-col justify-between flex-1 gap-4">
+                    <div>
+                      <div class="flex items-center gap-2 text-xs text-neutral-400 mb-1">
+                        <span class="font-mono text-[11px] text-[#ccff00] font-semibold">// ALPHA AUREA</span>
+                        <span>•</span>
+                        <span class="text-neutral-400">{section.buttonCount} Botones</span>
+                      </div>
+
+                      <h4 class="font-athletic text-lg sm:text-xl uppercase font-black tracking-wide text-white mb-2 leading-tight">
+                        {product.name}
+                      </h4>
+
+                      <p class="text-xs text-neutral-300 leading-relaxed mb-4">
+                        {product.description}
+                      </p>
+
+                      <!-- Lista de especificaciones del corte -->
+                      <ul class="space-y-1 text-[11px] font-mono text-neutral-300 mb-4 pt-3 border-t border-white/5">
+                        {product.features.map((feat) => (
+                          <li class="flex items-center gap-2">
+                            <span class={accentText}>✓</span>
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <!-- BOTÓN DE ACCIÓN / COTIZACIÓN DIRECTA -->
+                    <div class="pt-3 border-t border-white/10">
+                      <a 
+                        href={waQuote}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-athletic text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 border border-white/15 bg-white/5 hover:bg-[#ccff00] hover:text-black hover:border-[#ccff00] hover:shadow-[0_0_20px_rgba(204,255,0,0.35)] group/btn text-white`}
+                      >
+                        <span>Cotizar {product.targetAudience}</span>
+                        <span class="transform group-hover/btn:translate-x-1 transition-transform">➔</span>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <!-- FOOTER INFORMATIVO DE CADA SECCIÓN -->
+          <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-400">
+            <div class="flex items-center gap-2">
+              <span class="text-white font-bold">Alpha Aurea Sportswear</span>
+              <span>— Sublimación Molecular a 205°C</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span>Mínimo 10 piezas por diseño</span>
+              <span>•</span>
+              <span class="text-neutral-300">Incluye numeración y nombres</span>
+            </div>
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</div>
+
+<!-- SCRIPT DE INTERACTIVIDAD PARA LA ALTERNANCIA FRONTAL / TRASERA -->
+<script is:inline>
+  (function initJerseyGalleries() {
+    function setupJerseyCards() {
+      const cards = document.querySelectorAll('[data-jersey-card]');
+      
+      cards.forEach((card) => {
+        const frontView = card.querySelector('[data-view-front]');
+        const backView = card.querySelector('[data-view-back]');
+        const badgeLabel = card.querySelector('[data-view-badge] .view-label');
+        const btnFront = card.querySelector('[data-toggle-view="front"]');
+        const btnBack = card.querySelector('[data-toggle-view="back"]');
+
+        if (!frontView || !backView) return;
+
+        let activeState = 'front'; // 'front' | 'back'
+
+        function setView(view) {
+          activeState = view;
+          if (view === 'front') {
+            frontView.classList.remove('opacity-0');
+            frontView.classList.add('opacity-100');
+            backView.classList.remove('opacity-100');
+            backView.classList.add('opacity-0');
+            if (badgeLabel) badgeLabel.textContent = 'Vista: Frente';
+
+            if (btnFront && btnBack) {
+              btnFront.className = 'toggle-btn-front px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white text-black cursor-pointer shadow-sm';
+              btnBack.className = 'toggle-btn-back px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm';
+            }
+          } else {
+            frontView.classList.remove('opacity-100');
+            frontView.classList.add('opacity-0');
+            backView.classList.remove('opacity-0');
+            backView.classList.add('opacity-100');
+            if (badgeLabel) badgeLabel.textContent = 'Vista: Espalda';
+
+            if (btnFront && btnBack) {
+              btnBack.className = 'toggle-btn-back px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white text-black cursor-pointer shadow-sm';
+              btnFront.className = 'toggle-btn-front px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm';
+            }
+          }
+        }
+
+        if (btnFront) {
+          btnFront.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setView('front');
+          });
+        }
+
+        if (btnBack) {
+          btnBack.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setView('back');
+          });
+        }
+
+        // Al entrar o salir del hover en computadoras de escritorio, actualizar etiqueta si no está fijada
+        card.addEventListener('mouseenter', () => {
+          if (badgeLabel && activeState === 'front') {
+            badgeLabel.textContent = 'Vista: Espalda';
+          }
+        });
+
+        card.addEventListener('mouseleave', () => {
+          if (badgeLabel && activeState === 'front') {
+            badgeLabel.textContent = 'Vista: Frente';
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupJerseyCards);
+    } else {
+      setupJerseyCards();
+    }
+  })();
+</script>

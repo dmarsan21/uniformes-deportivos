@@ -1,5 +1,6 @@
 ---
 // src/components/SportsCatalog.astro
+import JerseyGallerySection from './JerseyGallerySection.astro';
 
 interface SportCard {
   id: string;
@@ -343,6 +344,9 @@ const catalogItems: SportCard[] = [
       </div>
     </div>
   </div>
+
+  <!-- GALERÍAS DE JERSEYS ALPHA AUREA (6 BOTONES & 2 BOTONES) CON INTERACTIVIDAD FRENTE/ESPALDA -->
+  <JerseyGallerySection />
 </section>
 
 <!-- Filter and Calculator Logic -->
