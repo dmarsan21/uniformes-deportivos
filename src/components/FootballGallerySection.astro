@@ -1,0 +1,373 @@
+---
+// src/components/FootballGallerySection.astro
+import { Image } from 'astro:assets';
+
+// Importación estática de imágenes optimizadas con astro:assets desde src/assets/images/americano/
+import frenteCaballeroAmer from '../assets/images/americano/frentecaballero.jpg';
+import atrasCaballeroAmer from '../assets/images/americano/atrascaballero.jpg';
+import frenteDamaAmer from '../assets/images/americano/frentedama.jpg';
+import atrasDamaAmer from '../assets/images/americano/atrasdama.jpg';
+import frenteInfantilAmer from '../assets/images/americano/frenteinfantil.jpg';
+import atrasInfantilAmer from '../assets/images/americano/atrasinfantil.jpg';
+
+interface FootballProductItem {
+  id: string;
+  name: string;
+  model: string;
+  category: string;
+  targetAudience: string;
+  badge: string;
+  number: string;
+  description: string;
+  features: string[];
+  frontImage: ImageMetadata;
+  backImage: ImageMetadata;
+  tagColor: string;
+}
+
+const WHATSAPP_BASE = "https://wa.me/520000000000?text=";
+
+const products: FootballProductItem[] = [
+  {
+    id: "americano-caballero",
+    name: "Jersey Alpha Aurea // Modelo Relámpago",
+    model: "Modelo Relámpago",
+    category: "Corte Varonil Adulto",
+    targetAudience: "Caballero",
+    badge: "Combat Armor 400g",
+    number: "#99",
+    description: "Jersey blindado para coraza varonil. Tejido azul rey con hombreras en degradé rayado eléctrico gris/naranja y tipografía 'Relámpago' con costuras Flatlock reforzadas.",
+    features: [
+      "Ajuste ceñido anatómico sobre coraza",
+      "Malla Spandex Heavy 400g anti-tirones",
+      "Costura Flatlock grado militar en hombreras"
+    ],
+    frontImage: frenteCaballeroAmer,
+    backImage: atrasCaballeroAmer,
+    tagColor: "border-orange-400/40 text-orange-300"
+  },
+  {
+    id: "americano-dama",
+    name: "Jersey Alpha Aurea // Modelo Valquirias",
+    model: "Modelo Valquirias",
+    category: "Corte Femenil Entallado",
+    targetAudience: "Dama",
+    badge: "Valkyrie Edition",
+    number: "#25",
+    description: "Silueta anatómica femenina entallada para ligas equipadas o flag football de alto contacto. Tonalidad morado profundo con grecas nórdicas en relieve plata.",
+    features: [
+      "Patronaje femenino anatómico estilizado",
+      "Paneles laterales transpirables Dry-Flex",
+      "Dorsal #25 y tipografía indeleble a 205°C"
+    ],
+    frontImage: frenteDamaAmer,
+    backImage: atrasDamaAmer,
+    tagColor: "border-purple-400/40 text-purple-300"
+  },
+  {
+    id: "americano-infantil",
+    name: "Jersey Alpha Aurea // Modelo Dynos",
+    model: "Modelo Dynos",
+    category: "Corte Infantil & Juvenil",
+    targetAudience: "Infantil",
+    badge: "Junior Tackle",
+    number: "#88",
+    description: "Equipación diseñada para categorías infantiles y flag football juvenil. Color azul cielo con garras naranjas 'Dynos' en hombreras y cuello verde neón.",
+    features: [
+      "Tejido elástico de alta flexibilidad",
+      "Costuras suaves anti-rozaduras con hombreras",
+      "Dorsal #88 de alta visibilidad para arbitraje"
+    ],
+    frontImage: frenteInfantilAmer,
+    backImage: atrasInfantilAmer,
+    tagColor: "border-[#ccff00]/40 text-[#ccff00]"
+  }
+];
+---
+
+<div id="galeria-americano" class="relative py-12 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-24">
+  
+  <section class="relative p-6 sm:p-10 rounded-3xl bg-[#0c0c10]/90 border border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden">
+    <!-- Glow ambiental temático ámbar / volt -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-[#ccff00]/5 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <!-- ENCABEZADO DE LA SECCIÓN DE FÚTBOL AMERICANO -->
+    <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 pb-8 border-b border-white/10">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#16161d] border border-orange-400/40 text-orange-300 text-[11px] font-mono font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(251,146,60,0.2)]">
+            <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+            <span>Línea Combat Armor // Americano</span>
+          </span>
+          <span class="text-xs font-mono text-neutral-400 tracking-wider">
+            MARCA // ALPHA AUREA
+          </span>
+        </div>
+
+        <h3 class="font-athletic text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white font-black leading-tight">
+          Jerseys de Fútbol Americano
+        </h3>
+        
+        <p class="text-sm sm:text-base font-semibold text-orange-300 font-athletic uppercase tracking-wider mt-1 mb-3">
+          Máximo Impacto // Modelos Relámpago, Valquirias y Dynos
+        </p>
+
+        <p class="text-neutral-300 text-xs sm:text-sm sm:leading-relaxed max-w-2xl">
+          Confección de alta tenacidad con elastano de 400g y costuras cuádruples reforzadas para soportar la fricción de la coraza y el choque en la línea. Explora cada modelo oficial de <strong class="text-white">Alpha Aurea</strong> en sus vistas frontal y trasera con la misma proporción y escala de catálogo.
+        </p>
+      </div>
+
+      <!-- Resumen visual y controles -->
+      <div class="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-2 text-xs font-mono text-neutral-400">
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+          <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+          <span class="text-white font-bold">Alternancia Frontal / Trasera Interactiva</span>
+        </div>
+        <span class="text-[11px] text-neutral-400">Pasa el cursor o haz clic en Frente / Espalda</span>
+      </div>
+    </div>
+
+    <!-- GRID RESPONSIVO: 1 Columna Móvil, 2 o 3 Columnas Desktop -->
+    <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {products.map((product) => {
+        const waQuote = `${WHATSAPP_BASE}${encodeURIComponent(`Hola Alpha Aurea, deseo cotizar el Jersey de Fútbol Americano ${product.name} (Corte ${product.targetAudience}) para mi equipo.`)}`;
+        
+        return (
+          <article 
+            class="jersey-card group relative flex flex-col justify-between rounded-2xl bg-[#121217] border border-white/10 hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl overflow-hidden"
+            data-jersey-card
+          >
+            <!-- TARJETA SUPERIOR: HEADER CON MARCA, MODELO Y CATEGORÍA -->
+            <div class="p-5 pb-3 flex items-center justify-between gap-2 border-b border-white/5 bg-gradient-to-b from-white/[0.03] to-transparent">
+              <div>
+                <span class="block text-[10px] font-mono tracking-widest text-neutral-400 uppercase font-semibold">
+                  Alpha Aurea // Oficial
+                </span>
+                <span class="font-athletic text-sm sm:text-base uppercase tracking-wide text-white font-black block">
+                  {product.model} • {product.targetAudience}
+                </span>
+              </div>
+
+              <span class={`text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border ${product.tagColor} bg-black/50 backdrop-blur-sm`}>
+                {product.badge}
+              </span>
+            </div>
+
+            <!-- CONTENEDOR DE IMAGEN CON PROPORCIONES ESTRICTAS (Aspect Ratio 3:4) -->
+            <div class="relative w-full aspect-[3/4] bg-[#0a0a0d] overflow-hidden select-none">
+              
+              <!-- Capa Vista Frontal -->
+              <div 
+                class="jersey-view-front absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out opacity-100 z-10"
+                data-view-front
+              >
+                <Image 
+                  src={product.frontImage} 
+                  alt={`${product.name} - Vista Frontal`}
+                  width={600}
+                  height={800}
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <!-- Capa Vista Trasera (Efecto Hover y Toggle) -->
+              <div 
+                class="jersey-view-back absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out opacity-0 z-10 group-hover:opacity-100"
+                data-view-back
+              >
+                <Image 
+                  src={product.backImage} 
+                  alt={`${product.name} - Vista Trasera`}
+                  width={600}
+                  height={800}
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <!-- Gradiente sutil inferior para contraste -->
+              <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#121217] to-transparent z-15 pointer-events-none"></div>
+
+              <!-- Indicador visual de modo activo (Frente / Trasera) -->
+              <div class="absolute top-3 left-3 z-20 pointer-events-none">
+                <span 
+                  class="jersey-view-badge inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono text-white uppercase tracking-wider font-bold shadow-lg"
+                  data-view-badge
+                >
+                  <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+                  <span class="view-label">Vista: Frente</span>
+                </span>
+              </div>
+
+              <!-- CONTROLES INTERACTIVOS DE ALTERNANCIA (FRENTE / ESPALDA) -->
+              <div class="absolute bottom-3 inset-x-3 z-20 flex items-center justify-center">
+                <div class="inline-flex p-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 shadow-xl gap-1">
+                  <button 
+                    type="button" 
+                    data-toggle-view="front"
+                    aria-label={`Ver vista frontal de ${product.name}`}
+                    class="toggle-btn-front px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/20 text-white hover:bg-white hover:text-black cursor-pointer shadow-sm active:scale-95"
+                  >
+                    Frente
+                  </button>
+                  <button 
+                    type="button" 
+                    data-toggle-view="back"
+                    aria-label={`Ver vista trasera de ${product.name}`}
+                    class="toggle-btn-back px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm active:scale-95"
+                  >
+                    Espalda
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- DETALLES DE PRODUCTO Y CARACTERÍSTICAS -->
+            <div class="p-5 flex flex-col justify-between flex-1 gap-4">
+              <div>
+                <div class="flex items-center gap-2 text-xs text-neutral-400 mb-1">
+                  <span class="font-mono text-[11px] text-orange-400 font-semibold">// ALPHA AUREA</span>
+                  <span>•</span>
+                  <span class="text-neutral-400">Americano Pro</span>
+                </div>
+
+                <h4 class="font-athletic text-lg sm:text-xl uppercase font-black tracking-wide text-white mb-2 leading-tight">
+                  {product.name}
+                </h4>
+
+                <p class="text-xs text-neutral-300 leading-relaxed mb-4">
+                  {product.description}
+                </p>
+
+                <!-- Lista de especificaciones del corte -->
+                <ul class="space-y-1 text-[11px] font-mono text-neutral-300 mb-4 pt-3 border-t border-white/5">
+                  {product.features.map((feat) => (
+                    <li class="flex items-center gap-2">
+                      <span class="text-orange-400 font-bold">✓</span>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- BOTÓN DE ACCIÓN / COTIZACIÓN DIRECTA -->
+              <div class="pt-3 border-t border-white/10">
+                <a 
+                  href={waQuote}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-athletic text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 border border-white/15 bg-white/5 hover:bg-orange-400 hover:text-black hover:border-orange-400 hover:shadow-[0_0_20px_rgba(251,146,60,0.35)] group/btn text-white"
+                >
+                  <span>Cotizar {product.targetAudience}</span>
+                  <span class="transform group-hover/btn:translate-x-1 transition-transform">➔</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    <!-- FOOTER INFORMATIVO -->
+    <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-400">
+      <div class="flex items-center gap-2">
+        <span class="text-white font-bold">Alpha Aurea American Football</span>
+        <span>— Sublimación Térmica Molecular a 205°C</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span>Mínimo 10 jerseys completos</span>
+        <span>•</span>
+        <span class="text-neutral-300">Incluye números en pecho, espalda y hombreras</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SCRIPT DE INTERACTIVIDAD PARA LA ALTERNANCIA FRONTAL / TRASERA -->
+<script is:inline>
+  (function initFootballGalleries() {
+    function setupCards() {
+      const gallery = document.getElementById('galeria-americano');
+      if (!gallery) return;
+
+      const cards = gallery.querySelectorAll('[data-jersey-card]');
+      
+      cards.forEach((card) => {
+        const frontView = card.querySelector('[data-view-front]');
+        const backView = card.querySelector('[data-view-back]');
+        const badgeLabel = card.querySelector('[data-view-badge] .view-label');
+        const btnFront = card.querySelector('[data-toggle-view="front"]');
+        const btnBack = card.querySelector('[data-toggle-view="back"]');
+
+        if (!frontView || !backView) return;
+
+        let activeState = 'front';
+
+        function setView(view) {
+          activeState = view;
+          if (view === 'front') {
+            frontView.classList.remove('opacity-0');
+            frontView.classList.add('opacity-100');
+            backView.classList.remove('opacity-100');
+            backView.classList.add('opacity-0');
+            if (badgeLabel) badgeLabel.textContent = 'Vista: Frente';
+
+            if (btnFront && btnBack) {
+              btnFront.className = 'toggle-btn-front px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white text-black cursor-pointer shadow-sm';
+              btnBack.className = 'toggle-btn-back px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm';
+            }
+          } else {
+            frontView.classList.remove('opacity-100');
+            frontView.classList.add('opacity-0');
+            backView.classList.remove('opacity-0');
+            backView.classList.add('opacity-100');
+            if (badgeLabel) badgeLabel.textContent = 'Vista: Espalda';
+
+            if (btnFront && btnBack) {
+              btnBack.className = 'toggle-btn-back px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white text-black cursor-pointer shadow-sm';
+              btnFront.className = 'toggle-btn-front px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm';
+            }
+          }
+        }
+
+        if (btnFront) {
+          btnFront.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setView('front');
+          });
+        }
+
+        if (btnBack) {
+          btnBack.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setView('back');
+          });
+        }
+
+        card.addEventListener('mouseenter', () => {
+          if (badgeLabel && activeState === 'front') {
+            badgeLabel.textContent = 'Vista: Espalda';
+          }
+        });
+
+        card.addEventListener('mouseleave', () => {
+          if (badgeLabel && activeState === 'front') {
+            badgeLabel.textContent = 'Vista: Frente';
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupCards);
+    } else {
+      setupCards();
+    }
+  })();
+</script>
