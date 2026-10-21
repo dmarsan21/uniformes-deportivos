@@ -33,48 +33,7 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20Alpha%20Aurea%2C%20
   <!-- Ambient Glow with Parallax Floating (Oro 49ers + Rojo Escarlata) -->
   <div class="parallax-element absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#B30000]/25 via-[#D4AF37]/25 to-[#C0C0C8]/20 rounded-full blur-[140px] pointer-events-none z-10" data-parallax-y="-0.15"></div>
 
-  <!-- Control de Audio Tipo Switch Compacto & Elegante (Inferior Izquierda) -->
-  <div class="absolute bottom-6 left-6 z-30">
-    <button
-      id="hero-sound-toggle"
-      type="button"
-      class="group relative flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0a0a0c]/85 hover:bg-[#141419] border border-white/15 hover:border-amber-400/50 shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
-      aria-label="Activar o desactivar sonido del video"
-      title="Alternar Audio (Silencio / Activado)"
-    >
-      <!-- Switch Track -->
-      <div 
-        id="sound-switch-track" 
-        class="relative w-11 h-6 rounded-full bg-red-950/80 border border-red-500/60 p-0.5 transition-colors duration-300 flex items-center"
-      >
-        <!-- Knob deslizante con icono -->
-        <div 
-          id="sound-switch-knob" 
-          class="w-5 h-5 rounded-full bg-red-600 shadow-md flex items-center justify-center transform translate-x-0 transition-all duration-300"
-        >
-          <!-- Icono Bocina Mute -->
-          <svg id="knob-icon-muted" class="w-3 h-3 text-white fill-current transition-opacity duration-200" viewBox="0 0 24 24">
-            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-          </svg>
-          <!-- Icono Bocina Activa (oculto en mute) -->
-          <svg id="knob-icon-unmuted" class="w-3 h-3 text-white fill-current hidden transition-opacity duration-200" viewBox="0 0 24 24">
-            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-          </svg>
-        </div>
-      </div>
 
-      <!-- Texto sutil con indicador intermitente discreto -->
-      <div class="flex items-center gap-1.5 pr-1">
-        <span id="sound-status-dot" class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
-        <span 
-          id="sound-label" 
-          class="text-[11px] font-mono tracking-wider uppercase font-semibold text-neutral-300 group-hover:text-white transition-colors"
-        >
-          Audio Off
-        </span>
-      </div>
-    </button>
-  </div>
 
   <!-- Main Hero Body (Centered) with relative z-20 -->
   <div class="reveal-on-scroll relative z-20 max-w-5xl mx-auto text-center flex flex-col items-center justify-center my-auto w-full pt-4">
@@ -136,6 +95,49 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20Alpha%20Aurea%2C%20
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
         </svg>
       </a>
+    </div>
+
+    <!-- Control de Audio Tipo Switch Compacto & Elegante (Visible en móvil debajo del catálogo y en desktop) -->
+    <div class="mt-4 sm:mt-5 flex items-center justify-center">
+      <button
+        id="hero-sound-toggle"
+        type="button"
+        class="group relative flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0a0a0c]/90 hover:bg-[#141419] border border-white/20 hover:border-[#D4AF37]/60 shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer ring-1 ring-white/5"
+        aria-label="Activar o desactivar sonido del video"
+        title="Alternar Audio (Silencio / Activado)"
+      >
+        <!-- Switch Track -->
+        <div 
+          id="sound-switch-track" 
+          class="relative w-11 h-6 rounded-full bg-red-950/80 border border-red-500/60 p-0.5 transition-colors duration-300 flex items-center shrink-0"
+        >
+          <!-- Knob deslizante con icono -->
+          <div 
+            id="sound-switch-knob" 
+            class="w-5 h-5 rounded-full bg-red-600 shadow-md flex items-center justify-center transform translate-x-0 transition-all duration-300"
+          >
+            <!-- Icono Bocina Mute -->
+            <svg id="knob-icon-muted" class="w-3 h-3 text-white fill-current transition-opacity duration-200" viewBox="0 0 24 24">
+              <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+            </svg>
+            <!-- Icono Bocina Activa (oculto en mute) -->
+            <svg id="knob-icon-unmuted" class="w-3 h-3 text-white fill-current hidden transition-opacity duration-200" viewBox="0 0 24 24">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Texto sutil con indicador intermitente discreto -->
+        <div class="flex items-center gap-1.5 pr-1">
+          <span id="sound-status-dot" class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
+          <span 
+            id="sound-label" 
+            class="text-[11px] sm:text-xs font-mono tracking-wider uppercase font-semibold text-neutral-300 group-hover:text-white transition-colors"
+          >
+            Audio Off
+          </span>
+        </div>
+      </button>
     </div>
   </div>
 
