@@ -1,58 +1,115 @@
 ---
 // src/components/Hero.astro
-const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20quiero%20cotizar%20uniformes%20deportivos%20para%20mi%20equipo";
+const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20Alpha%20Aurea%2C%20quiero%20cotizar%20uniformes%20deportivos%20para%20mi%20equipo";
 ---
 
 <section id="hero" class="relative min-h-screen lg:h-screen lg:max-h-[1080px] flex flex-col justify-between items-center pt-20 sm:pt-24 pb-6 sm:pb-8 px-4 sm:px-6 overflow-hidden">
-  <!-- Cinematic Background Video with Parallax Speed (Moves slower than scroll for extreme depth) -->
+  <!-- Cinematic Background Video with Parallax Speed -->
   <video 
+    id="hero-bg-video"
     autoplay 
     loop 
     muted 
     playsinline 
-    preload="metadata"
+    preload="auto"
     class="parallax-element absolute inset-0 w-full h-[125%] -top-[12%] object-cover z-0 pointer-events-none"
     data-parallax-y="0.3"
   >
+    <source src="/videos/alphaaurea.mp4" type="video/mp4" />
     <source src="/videos/hero-sports.mp4" type="video/mp4" />
     Tu navegador no soporta video HTML5.
   </video>
 
   <!-- Kinetic Athletic Watermark Text (Drifts horizontally with scroll) -->
   <div class="absolute top-1/2 left-0 -translate-y-1/2 w-full overflow-hidden pointer-events-none select-none z-10 opacity-15">
-    <div class="parallax-element whitespace-nowrap font-athletic text-[14vw] tracking-tighter uppercase text-stroke-volt leading-none" data-parallax-x="-0.28">
-      APEX ATHLETICS // HIGH PERFORMANCE // APEX ATHLETICS // HIGH PERFORMANCE //
+    <div class="parallax-element whitespace-nowrap font-athletic text-[14vw] tracking-tighter uppercase text-stroke-gold leading-none" data-parallax-x="-0.28">
+      ALPHA AUREA // CHAMPIONS ARMOR // GOLD & RED // HIGH PERFORMANCE //
     </div>
   </div>
 
   <!-- Capas de Contraste y Gradientes (Overlay) -->
-  <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/75 to-[#0a0a0c]/40 z-10 pointer-events-none"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/80 to-[#0a0a0c]/45 z-10 pointer-events-none"></div>
 
-  <!-- Ambient Glow with Parallax Floating -->
-  <div class="parallax-element absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#ccff00]/10 rounded-full blur-[140px] pointer-events-none z-10" data-parallax-y="-0.15"></div>
+  <!-- Ambient Glow with Parallax Floating (Oro 49ers + Rojo Escarlata) -->
+  <div class="parallax-element absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#B30000]/25 via-[#D4AF37]/25 to-[#C0C0C8]/20 rounded-full blur-[140px] pointer-events-none z-10" data-parallax-y="-0.15"></div>
+
+  <!-- Control de Audio Tipo Switch Compacto & Elegante (Inferior Izquierda) -->
+  <div class="absolute bottom-6 left-6 z-30">
+    <button
+      id="hero-sound-toggle"
+      type="button"
+      class="group relative flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0a0a0c]/85 hover:bg-[#141419] border border-white/15 hover:border-amber-400/50 shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+      aria-label="Activar o desactivar sonido del video"
+      title="Alternar Audio (Silencio / Activado)"
+    >
+      <!-- Switch Track -->
+      <div 
+        id="sound-switch-track" 
+        class="relative w-11 h-6 rounded-full bg-red-950/80 border border-red-500/60 p-0.5 transition-colors duration-300 flex items-center"
+      >
+        <!-- Knob deslizante con icono -->
+        <div 
+          id="sound-switch-knob" 
+          class="w-5 h-5 rounded-full bg-red-600 shadow-md flex items-center justify-center transform translate-x-0 transition-all duration-300"
+        >
+          <!-- Icono Bocina Mute -->
+          <svg id="knob-icon-muted" class="w-3 h-3 text-white fill-current transition-opacity duration-200" viewBox="0 0 24 24">
+            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+          </svg>
+          <!-- Icono Bocina Activa (oculto en mute) -->
+          <svg id="knob-icon-unmuted" class="w-3 h-3 text-white fill-current hidden transition-opacity duration-200" viewBox="0 0 24 24">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Texto sutil con indicador intermitente discreto -->
+      <div class="flex items-center gap-1.5 pr-1">
+        <span id="sound-status-dot" class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
+        <span 
+          id="sound-label" 
+          class="text-[11px] font-mono tracking-wider uppercase font-semibold text-neutral-300 group-hover:text-white transition-colors"
+        >
+          Audio Off
+        </span>
+      </div>
+    </button>
+  </div>
 
   <!-- Main Hero Body (Centered) with relative z-20 -->
   <div class="reveal-on-scroll relative z-20 max-w-5xl mx-auto text-center flex flex-col items-center justify-center my-auto w-full pt-4">
     <!-- Top athletic badge -->
-    <div class="inline-flex items-center gap-2 px-3.5 py-1 sm:py-1.5 rounded-full bg-[#0a0a0c]/80 backdrop-blur-md border border-[#ccff00]/50 shadow-[0_0_20px_rgba(204,255,0,0.25)] mb-3 sm:mb-4">
-      <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
-      <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#ccff00]">
-        Fabricantes Directos // Temporada 2026
+    <div class="inline-flex items-center gap-2 px-4 py-1 sm:py-1.5 rounded-full bg-[#0a0a0c]/85 backdrop-blur-md border border-[#D4AF37]/50 shadow-[0_0_25px_rgba(212,175,55,0.35)] mb-3 sm:mb-4">
+      <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+      <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+        Alpha Aurea // Temporada 2026
       </span>
       <span class="text-neutral-500">•</span>
-      <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white">
-        Sublimación 4K Pro
+      <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#C0C0C8]">
+        Oro • Carmesí • Plata • Negro
       </span>
+    </div>
+
+    <!-- Rotador dinámico secuencial (Frases de especialidad) con diseño impactante 49ers -->
+    <div class="h-10 sm:h-11 flex items-center justify-center mb-3 sm:mb-4 overflow-hidden w-full px-2">
+      <div 
+        id="hero-rotator-badge" 
+        class="inline-flex items-center gap-2.5 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full bg-[#0a0a0c]/90 border border-[#D4AF37]/70 shadow-[0_0_20px_rgba(212,175,55,0.35)] text-white text-xs sm:text-sm md:text-base font-athletic uppercase tracking-wider transition-all duration-500 opacity-100 transform translate-y-0 backdrop-blur-md"
+      >
+        <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse shadow-[0_0_8px_#DC2626]"></span>
+        <span id="hero-rotator-text" class="text-white font-bold drop-shadow-md">Equipaciones que imponen respeto</span>
+        <span class="text-[#D4AF37] font-black text-xs hidden sm:inline">✦</span>
+      </div>
     </div>
 
     <!-- Main Title with high-contrast drop-shadow -->
     <h1 class="font-athletic text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.2rem] font-black uppercase tracking-tight text-white leading-[0.93] max-w-4xl mb-3 sm:mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
-      Uniformes Deportivos de <span class="text-[#ccff00] drop-shadow-[0_0_35px_rgba(204,255,0,0.5)]">Alto Rendimiento</span> Que Imponen Respeto
+      Uniformes Deportivos de <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#D4AF37] drop-shadow-[0_0_35px_rgba(212,175,55,0.5)]">Alto Rendimiento</span>
     </h1>
 
     <!-- Subtitle with readable backdrop -->
     <p class="text-neutral-200 text-xs sm:text-base lg:text-lg font-normal max-w-2xl mx-auto leading-relaxed mb-5 sm:mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-      Diseñamos y confeccionamos equipaciones de fútbol y deportes de élite 100% personalizadas. Telas inteligentes <strong class="text-white font-semibold">Dry-Tech</strong>, sublimación HD indestructible y acabados para máxima durabilidad.
+      Fabricación directa de equipaciones de combate y ligas profesionales. Sublimación digital <strong class="text-white font-semibold">Ultra HD</strong> a 205°C, telas elásticas transpirables e identidad cromática de campeonato.
     </p>
 
     <!-- CTAs -->
@@ -61,21 +118,21 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#ccff00] text-black font-athletic text-base sm:text-lg uppercase tracking-wider px-7 py-3 sm:py-3.5 rounded-full font-bold hover:bg-white hover:shadow-[0_0_35px_rgba(204,255,0,0.7)] active:scale-95 transition-all duration-300 group shadow-2xl shadow-black/80"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-red-600 hover:bg-red-500 text-white font-athletic text-base sm:text-lg uppercase tracking-wider px-8 py-3.5 sm:py-4 rounded-full font-black border border-red-400/40 hover:border-amber-400/60 hover:shadow-[0_0_35px_rgba(220,38,38,0.7)] active:scale-95 transition-all duration-300 group shadow-2xl shadow-black/80"
         id="hero-primary-cta"
       >
-        <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-white transition-transform group-hover:scale-110" viewBox="0 0 24 24">
           <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
         </svg>
         <span>Cotizar Mi Equipo por WhatsApp</span>
       </a>
 
       <a 
-        href="#catalogo"
-        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0a0a0c]/80 hover:bg-[#1f1f28] text-white border border-white/20 hover:border-[#ccff00]/60 font-athletic text-base sm:text-lg uppercase tracking-wider px-6 py-3 sm:py-3.5 rounded-full transition-all duration-300 backdrop-blur-md"
+        href="#catalogo" 
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0a0a0c]/80 hover:bg-[#1a1a24] text-white border border-[#D4AF37]/30 hover:border-[#D4AF37] font-athletic text-base sm:text-lg uppercase tracking-wider px-7 py-3.5 sm:py-4 rounded-full transition-all duration-300 backdrop-blur-md shadow-lg"
       >
         <span>Ver Catálogo</span>
-        <svg class="w-4 h-4 text-[#ccff00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-4 h-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
         </svg>
       </a>
@@ -86,34 +143,34 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
   <div class="relative z-20 w-full max-w-4xl pt-4 sm:pt-5 border-t border-white/15">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 w-full">
       <div 
-        class="stat-card reveal-on-scroll flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/60 transition-all cursor-default"
+        class="stat-card reveal-on-scroll flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#D4AF37]/60 transition-all cursor-default"
         data-reveal-delay="0"
         data-tilt
       >
-        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-[#ccff00] font-black" data-counter-target="50000" data-counter-prefix="+">+50,000</span>
+        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-[#D4AF37] font-black" data-counter-target="50000" data-counter-prefix="+">+50,000</span>
         <span class="text-[10px] sm:text-xs text-neutral-300 uppercase tracking-wider font-semibold text-center">Uniformes Creados</span>
       </div>
 
       <div 
-        class="stat-card reveal-on-scroll flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/60 transition-all cursor-default"
+        class="stat-card reveal-on-scroll flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#B30000]/60 transition-all cursor-default"
         data-reveal-delay="100"
         data-tilt
       >
-        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-white font-black">10-12 Días</span>
+        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-[#E61919] font-black">10-12 Días</span>
         <span class="text-[10px] sm:text-xs text-neutral-300 uppercase tracking-wider font-semibold text-center">Tiempos Récord</span>
       </div>
 
       <div 
-        class="stat-card reveal-on-scroll flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/60 transition-all cursor-default"
+        class="stat-card reveal-on-scroll flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#C0C0C8]/60 transition-all cursor-default"
         data-reveal-delay="200"
         data-tilt
       >
-        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-[#ccff00] font-black" data-counter-target="100" data-counter-suffix="%">100% HD</span>
+        <span class="font-athletic text-xl sm:text-2xl lg:text-3xl text-[#C0C0C8] font-black" data-counter-target="100" data-counter-suffix="%">100% HD</span>
         <span class="text-[10px] sm:text-xs text-neutral-300 uppercase tracking-wider font-semibold text-center">Sublimación Digital</span>
       </div>
 
       <div 
-        class="stat-card reveal-on-scroll flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#ccff00]/60 transition-all cursor-default"
+        class="stat-card reveal-on-scroll flex flex-col items-center p-2.5 sm:p-3 rounded-xl bg-[#0a0a0c]/70 backdrop-blur-md border border-white/10 hover:border-[#D4AF37]/60 transition-all cursor-default"
         data-reveal-delay="300"
         data-tilt
       >
@@ -123,3 +180,107 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20qui
     </div>
   </div>
 </section>
+
+<!-- Script para Audio Mute/Unmute y Texto Rotativo Dinámico -->
+<script is:inline>
+  (function initHeroInteractive() {
+    // 1. Audio Mute / Unmute Toggle
+    const video = document.getElementById('hero-bg-video');
+    const soundBtn = document.getElementById('hero-sound-toggle');
+    const switchTrack = document.getElementById('sound-switch-track');
+    const switchKnob = document.getElementById('sound-switch-knob');
+    const knobIconMuted = document.getElementById('knob-icon-muted');
+    const knobIconUnmuted = document.getElementById('knob-icon-unmuted');
+    const statusDot = document.getElementById('sound-status-dot');
+    const soundLabel = document.getElementById('sound-label');
+
+    if (video && soundBtn) {
+      soundBtn.addEventListener('click', () => {
+        video.muted = !video.muted;
+        if (!video.muted) {
+          // Sonido ACTIVADO (Verde / Derecha)
+          video.play().catch(() => {});
+          
+          // Switch animado hacia la derecha
+          if (switchKnob) {
+            switchKnob.classList.remove('translate-x-0', 'bg-red-600');
+            switchKnob.classList.add('translate-x-5', 'bg-emerald-500');
+          }
+          if (switchTrack) {
+            switchTrack.classList.remove('bg-red-950/80', 'border-red-500/60');
+            switchTrack.classList.add('bg-emerald-950/80', 'border-emerald-500/60');
+          }
+          if (knobIconMuted) knobIconMuted.classList.add('hidden');
+          if (knobIconUnmuted) knobIconUnmuted.classList.remove('hidden');
+
+          // Indicador y etiqueta
+          if (soundLabel) {
+            soundLabel.textContent = 'Audio On';
+            soundLabel.classList.add('text-emerald-400');
+            soundLabel.classList.remove('text-neutral-300');
+          }
+          if (statusDot) {
+            statusDot.classList.remove('bg-red-500', 'animate-ping');
+            statusDot.classList.add('bg-emerald-400');
+          }
+        } else {
+          // Sonido SILENCIADO (Rojo / Izquierda con punto sutil)
+          if (switchKnob) {
+            switchKnob.classList.remove('translate-x-5', 'bg-emerald-500');
+            switchKnob.classList.add('translate-x-0', 'bg-red-600');
+          }
+          if (switchTrack) {
+            switchTrack.classList.remove('bg-emerald-950/80', 'border-emerald-500/60');
+            switchTrack.classList.add('bg-red-950/80', 'border-red-500/60');
+          }
+          if (knobIconMuted) knobIconMuted.classList.remove('hidden');
+          if (knobIconUnmuted) knobIconUnmuted.classList.add('hidden');
+
+          if (soundLabel) {
+            soundLabel.textContent = 'Audio Off';
+            soundLabel.classList.remove('text-emerald-400');
+            soundLabel.classList.add('text-neutral-300');
+          }
+          if (statusDot) {
+            statusDot.classList.remove('bg-emerald-400');
+            statusDot.classList.add('bg-red-500', 'animate-ping');
+          }
+        }
+      });
+    }
+
+    // 2. Efecto de Texto Rotativo Secuencial
+    const rotatorBadge = document.getElementById('hero-rotator-badge');
+    const rotatorText = document.getElementById('hero-rotator-text');
+
+    const phrases = [
+      "Equipaciones que imponen respeto",
+      "Especialistas en Fútbol Americano y Béisbol",
+      "Diseños con identidad de campeonato"
+    ];
+
+    let currentIdx = 0;
+
+    if (rotatorBadge && rotatorText) {
+      setInterval(() => {
+        // Salida suave (fade out & shift up)
+        rotatorBadge.classList.add('opacity-0', '-translate-y-2');
+        rotatorBadge.classList.remove('opacity-100', 'translate-y-0');
+
+        setTimeout(() => {
+          currentIdx = (currentIdx + 1) % phrases.length;
+          rotatorText.textContent = phrases[currentIdx];
+
+          // Re-entrada suave (fade in & shift down into position)
+          rotatorBadge.classList.remove('-translate-y-2');
+          rotatorBadge.classList.add('translate-y-2');
+
+          setTimeout(() => {
+            rotatorBadge.classList.remove('opacity-0', 'translate-y-2');
+            rotatorBadge.classList.add('opacity-100', 'translate-y-0');
+          }, 30);
+        }, 350);
+      }, 3400);
+    }
+  })();
+</script>

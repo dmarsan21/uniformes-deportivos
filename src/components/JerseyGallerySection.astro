@@ -37,9 +37,9 @@ interface SectionData {
   title: string;
   subtitle: string;
   pillBadge: string;
-  description: string;
   buttonCount: '6' | '2';
-  accentColor: 'volt' | 'cyan';
+  accentColor: 'gold' | 'silver';
+  description: string;
   products: ProductItem[];
 }
 
@@ -49,10 +49,10 @@ const sections: SectionData[] = [
   {
     id: "jerseys-6-botones",
     title: "Jerseys de 6 Botones",
-    subtitle: "Apertura Completa // Grado Competitivo Pro",
+    subtitle: "Apertura Completa // Grado Competitivo Pro 49",
     pillBadge: "Línea Diamante 6B",
     buttonCount: "6",
-    accentColor: "volt",
+    accentColor: "gold",
     description: "Diseño clásico de abotonadura completa reforzada. Confección en microfibra técnica de 180g con sublimación en alta definición e indeleble bajo la marca oficial Alpha Aurea.",
     products: [
       {
@@ -65,7 +65,7 @@ const sections: SectionData[] = [
         features: ["Botonera reforzada anti-tirones", "Micro-Spun Diamond 180g", "Dorsal y nombres indelebles"],
         frontImage: frenteCaballero6B,
         backImage: atrasCaballero6B,
-        tagColor: "border-[#ccff00]/40 text-[#ccff00]"
+        tagColor: "border-[#D4AF37]/50 text-[#D4AF37]"
       },
       {
         id: "6b-dama",
@@ -77,7 +77,7 @@ const sections: SectionData[] = [
         features: ["Ajuste anatómico femenino", "Tejido Dri-Cool evaporación rápida", "Sublimación 4K sin desvanecimiento"],
         frontImage: frenteDama6B,
         backImage: atrasDama6B,
-        tagColor: "border-pink-400/40 text-pink-300"
+        tagColor: "border-[#B30000]/50 text-[#E61919]"
       },
       {
         id: "6b-infantil",
@@ -89,7 +89,7 @@ const sections: SectionData[] = [
         features: ["Resistente a fricción y barridas", "Costuras planas anti-rozaduras", "Tallas 4 a 16 juveniles"],
         frontImage: frenteInfantil6B,
         backImage: atrasInfantil6B,
-        tagColor: "border-amber-400/40 text-amber-300"
+        tagColor: "border-[#C0C0C8]/50 text-[#C0C0C8]"
       }
     ]
   },
@@ -99,7 +99,7 @@ const sections: SectionData[] = [
     subtitle: "Estilo Pullover // Ligereza y Velocidad",
     pillBadge: "Línea Dynamic 2B",
     buttonCount: "2",
-    accentColor: "cyan",
+    accentColor: "silver",
     description: "Modelo tipo tapeta pullover con 2 botones de ajuste en el cuello. Sensación ultraligera para mayor cadencia, fluidez y soltura en cada turno al bate.",
     products: [
       {
@@ -112,7 +112,7 @@ const sections: SectionData[] = [
         features: ["Tapeta ergonómica 2 botones", "Malla lateral Dry-Flex", "Confección ultraligera 165g"],
         frontImage: frenteCaballero2B,
         backImage: atrasCaballero2B,
-        tagColor: "border-cyan-400/40 text-cyan-300"
+        tagColor: "border-[#D4AF37]/50 text-[#D4AF37]"
       },
       {
         id: "2b-dama",
@@ -124,7 +124,7 @@ const sections: SectionData[] = [
         features: ["Silueta femenina ergonómica", "Secado hiper-rápido en campo", "Costuras reforzadas de alta tensión"],
         frontImage: frenteDama2B,
         backImage: atrasDama2B,
-        tagColor: "border-purple-400/40 text-purple-300"
+        tagColor: "border-[#B30000]/50 text-[#E61919]"
       },
       {
         id: "2b-infantil",
@@ -136,7 +136,7 @@ const sections: SectionData[] = [
         features: ["Puesta rápida tipo pullover", "Textura ultra suave hipoalergénica", "Patrón ergonómico para niños"],
         frontImage: frenteInfantil2B,
         backImage: atrasInfantil2B,
-        tagColor: "border-emerald-400/40 text-emerald-300"
+        tagColor: "border-[#C0C0C8]/50 text-[#C0C0C8]"
       }
     ]
   }
@@ -147,31 +147,31 @@ const sections: SectionData[] = [
   
   <!-- CABECERA GENERAL DEL CATÁLOGO DE JERSEYS -->
   <div class="reveal-on-scroll text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#16161d] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_20px_rgba(204,255,0,0.15)]">
-      <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
-      <span>Catálogo Oficial Alpha Aurea // Línea Diamante</span>
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#16161d] border border-[#D4AF37]/40 text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+      <span class="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
+      <span>Catálogo Oficial Alpha Aurea // Línea Diamante 49</span>
     </div>
 
     <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-tight mb-4">
-      Galería de Jerseys: <span class="text-[#ccff00] drop-shadow-[0_0_30px_rgba(204,255,0,0.4)]">6 Botones & 2 Botones</span>
+      Galería de Jerseys: <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#D4AF37] drop-shadow-[0_0_30px_rgba(212,175,55,0.4)]">6 Botones & 2 Botones</span>
     </h2>
 
     <p class="text-neutral-300 text-sm sm:text-base lg:text-lg leading-relaxed">
-      Explora nuestras dos variantes de botonera en vistas <strong class="text-white">frontal y trasera</strong>. Cada prenda de <span class="text-[#ccff00] font-semibold">Alpha Aurea</span> se fabrica con sublimación técnica de alta definición, disponible en cortes para caballero, dama e infantil.
+      Explora nuestras dos variantes de botonera en vistas <strong class="text-white">frontal y trasera</strong>. Cada prenda de <span class="text-[#D4AF37] font-semibold">Alpha Aurea</span> se fabrica con sublimación técnica de alta definición, disponible en cortes para caballero, dama e infantil.
     </p>
 
     <!-- Pestañas de salto rápido -->
     <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
       <a 
         href="#jerseys-6-botones" 
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#14141c] hover:bg-[#ccff00] text-white hover:text-black font-athletic uppercase tracking-wider text-xs sm:text-sm font-bold border border-white/10 hover:border-[#ccff00] transition-all duration-300 shadow-lg"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#14141c] hover:bg-[#D4AF37] text-white hover:text-black font-athletic uppercase tracking-wider text-xs sm:text-sm font-bold border border-white/10 hover:border-[#D4AF37] transition-all duration-300 shadow-lg"
       >
         <span>⚡ Jerseys de 6 Botones (Apertura Completa)</span>
         <span>↓</span>
       </a>
       <a 
         href="#jerseys-2-botones" 
-        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#14141c] hover:bg-cyan-400 text-white hover:text-black font-athletic uppercase tracking-wider text-xs sm:text-sm font-bold border border-white/10 hover:border-cyan-400 transition-all duration-300 shadow-lg"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#14141c] hover:bg-[#C0C0C8] text-white hover:text-black font-athletic uppercase tracking-wider text-xs sm:text-sm font-bold border border-white/10 hover:border-[#C0C0C8] transition-all duration-300 shadow-lg"
       >
         <span>💎 Jerseys de 2 Botones (Pullover)</span>
         <span>↓</span>
@@ -182,12 +182,12 @@ const sections: SectionData[] = [
   <!-- BUCLE DE SECCIONES (6 BOTONES & 2 BOTONES) -->
   <div class="space-y-24 sm:space-y-32">
     {sections.map((section, sIndex) => {
-      const isVolt = section.accentColor === 'volt';
-      const accentBg = isVolt ? 'bg-[#ccff00]' : 'bg-cyan-400';
-      const accentText = isVolt ? 'text-[#ccff00]' : 'text-cyan-300';
-      const accentBorder = isVolt ? 'border-[#ccff00]/40' : 'border-cyan-400/40';
-      const accentShadow = isVolt ? 'shadow-[0_0_20px_rgba(204,255,0,0.2)]' : 'shadow-[0_0_20px_rgba(6,182,212,0.2)]';
-      const glowColor = isVolt ? 'bg-[#ccff00]/10' : 'bg-cyan-500/10';
+      const isGold = section.accentColor === 'gold';
+      const accentBg = isGold ? 'bg-[#D4AF37]' : 'bg-[#C0C0C8]';
+      const accentText = isGold ? 'text-[#D4AF37]' : 'text-[#C0C0C8]';
+      const accentBorder = isGold ? 'border-[#D4AF37]/40' : 'border-[#C0C0C8]/40';
+      const accentShadow = isGold ? 'shadow-[0_0_20px_rgba(212,175,55,0.25)]' : 'shadow-[0_0_20px_rgba(192,192,200,0.25)]';
+      const glowColor = isGold ? 'bg-[#D4AF37]/10' : 'bg-[#C0C0C8]/10';
 
       return (
         <section 
@@ -241,13 +241,13 @@ const sections: SectionData[] = [
               
               return (
                 <article 
-                  class="jersey-card group relative flex flex-col justify-between rounded-2xl bg-[#121217] border border-white/10 hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl overflow-hidden"
+                  class="jersey-card group relative flex flex-col justify-between rounded-2xl bg-[#121217] border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(212,175,55,0.15)] overflow-hidden"
                   data-jersey-card
                 >
                   <!-- TARJETA SUPERIOR: HEADER CON MARCA Y CATEGORÍA -->
                   <div class="p-5 pb-3 flex items-center justify-between gap-2 border-b border-white/5 bg-gradient-to-b from-white/[0.03] to-transparent">
                     <div>
-                      <span class="block text-[10px] font-mono tracking-widest text-neutral-400 uppercase font-semibold">
+                      <span class="block text-[10px] font-mono tracking-widest text-[#D4AF37] uppercase font-semibold">
                         Alpha Aurea // Oficial
                       </span>
                       <span class="font-athletic text-sm sm:text-base uppercase tracking-wide text-white font-black block">
@@ -336,7 +336,7 @@ const sections: SectionData[] = [
                   <div class="p-5 flex flex-col justify-between flex-1 gap-4">
                     <div>
                       <div class="flex items-center gap-2 text-xs text-neutral-400 mb-1">
-                        <span class="font-mono text-[11px] text-[#ccff00] font-semibold">// ALPHA AUREA</span>
+                        <span class="font-mono text-[11px] text-[#D4AF37] font-semibold">// ALPHA AUREA</span>
                         <span>•</span>
                         <span class="text-neutral-400">{section.buttonCount} Botones</span>
                       </div>
@@ -366,7 +366,7 @@ const sections: SectionData[] = [
                         href={waQuote}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-athletic text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 border border-white/15 bg-white/5 hover:bg-[#ccff00] hover:text-black hover:border-[#ccff00] hover:shadow-[0_0_20px_rgba(204,255,0,0.35)] group/btn text-white`}
+                        class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-athletic text-xs sm:text-sm font-black uppercase tracking-wider transition-all duration-300 border border-[#D4AF37]/30 bg-white/5 hover:bg-[#D4AF37] hover:text-black hover:border-[#D4AF37] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] group/btn text-white"
                       >
                         <span>Cotizar {product.targetAudience}</span>
                         <span class="transform group-hover/btn:translate-x-1 transition-transform">➔</span>
@@ -381,13 +381,13 @@ const sections: SectionData[] = [
           <!-- FOOTER INFORMATIVO DE CADA SECCIÓN -->
           <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-400">
             <div class="flex items-center gap-2">
-              <span class="text-white font-bold">Alpha Aurea Sportswear</span>
-              <span>— Sublimación Molecular a 205°C</span>
+              <span class="text-white font-bold">Alpha Aurea Oficial 49</span>
+              <span>— Garantía de Sublimación Molecular a 205°C</span>
             </div>
             <div class="flex items-center gap-3">
-              <span>Mínimo 10 piezas por diseño</span>
+              <span>Mínimo 10 piezas</span>
               <span>•</span>
-              <span class="text-neutral-300">Incluye numeración y nombres</span>
+              <span class={accentText}>Escudos y Nombres Ilimitados</span>
             </div>
           </div>
         </section>
@@ -399,8 +399,11 @@ const sections: SectionData[] = [
 <!-- SCRIPT DE INTERACTIVIDAD PARA LA ALTERNANCIA FRONTAL / TRASERA -->
 <script is:inline>
   (function initJerseyGalleries() {
-    function setupJerseyCards() {
-      const cards = document.querySelectorAll('[data-jersey-card]');
+    function setupCards() {
+      const container = document.getElementById('galerias-catalogo');
+      if (!container) return;
+
+      const cards = container.querySelectorAll('[data-jersey-card]');
       
       cards.forEach((card) => {
         const frontView = card.querySelector('[data-view-front]');
@@ -411,7 +414,7 @@ const sections: SectionData[] = [
 
         if (!frontView || !backView) return;
 
-        let activeState = 'front'; // 'front' | 'back'
+        let activeState = 'front';
 
         function setView(view) {
           activeState = view;
@@ -456,7 +459,6 @@ const sections: SectionData[] = [
           });
         }
 
-        // Al entrar o salir del hover en computadoras de escritorio, actualizar etiqueta si no está fijada
         card.addEventListener('mouseenter', () => {
           if (badgeLabel && activeState === 'front') {
             badgeLabel.textContent = 'Vista: Espalda';
@@ -472,9 +474,9 @@ const sections: SectionData[] = [
     }
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', setupJerseyCards);
+      document.addEventListener('DOMContentLoaded', setupCards);
     } else {
-      setupJerseyCards();
+      setupCards();
     }
   })();
 </script>

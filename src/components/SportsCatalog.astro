@@ -19,7 +19,7 @@ const catalogItems: SportCard[] = [
     id: "beisbol",
     name: "Béisbol & Sóftbol",
     icon: "⚾",
-    garment: "Jersey botonera tradicional sublimado en degradados oscuros.",
+    garment: "Jersey botonera tradicional sublimado en cortes pro y bordado 3D.",
     includes: "Jersey pro + pantalón reforzado",
     price: "$285.00",
     image: "/images/catalog/baseball.jpg",
@@ -43,11 +43,11 @@ const catalogItems: SportCard[] = [
     id: "futbol-americano",
     name: "Fútbol Americano",
     icon: "🏈",
-    garment: "Jersey elástico de alto contacto con paneles de ventilación.",
-    includes: "Jersey de juego + funda de compresión",
+    garment: "Jersey elástico de alto contacto con paneles de ventilación y coraza.",
+    includes: "Jersey de combate + funda de compresión",
     price: "$340.00",
     image: "/images/catalog/football.jpg",
-    badge: "Armor Contact",
+    badge: "Combat Armor Pro",
     waQuery: "Fútbol Americano",
     detailUrl: "/uniformes/futbol-americano"
   },
@@ -93,24 +93,24 @@ const catalogItems: SportCard[] = [
   <!-- Section Header with Scroll Reveal -->
   <div class="reveal-on-scroll flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
     <div class="max-w-2xl">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16161d] border border-[#ccff00]/40 text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#16161d] border border-[#D4AF37]/40 text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-4 shadow-[0_0_20px_rgba(212,175,55,0.15)]">
         <span>⚡ Catálogo de Uniformes & Paquetes</span>
       </div>
       <h2 class="font-athletic text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-tight">
-        Equipaciones Completas <span class="text-[#ccff00]">// Listas Para Competir</span>
+        Equipaciones Completas <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#D4AF37]">// Listas Para Competir</span>
       </h2>
-      <p class="text-neutral-400 mt-4 text-sm sm:text-base lg:text-lg leading-relaxed">
+      <p class="text-neutral-300 mt-4 text-sm sm:text-base lg:text-lg leading-relaxed">
         Precios directos de fábrica por paquete completo. Personalización total con nombres, números y logotipos de patrocinadores sin costo adicional en pedidos desde 10 piezas.
       </p>
     </div>
 
     <!-- Right Side Badges / Info -->
     <div class="hidden md:flex flex-col items-end gap-2 text-right">
-      <div class="inline-flex items-center gap-2 text-xs font-semibold px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-neutral-300">
-        <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse"></span>
+      <div class="inline-flex items-center gap-2 text-xs font-semibold px-3.5 py-2 rounded-xl bg-white/5 border border-[#D4AF37]/30 text-neutral-300">
+        <span class="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
         <span>Muestra Virtual 3D Incluida Gratis</span>
       </div>
-      <span class="text-xs text-neutral-500 font-mono">Tallas Infantiles, Juveniles y Adultos</span>
+      <span class="text-xs text-neutral-400 font-mono">Tallas Infantiles, Juveniles y Adultos</span>
     </div>
   </div>
 
@@ -119,49 +119,49 @@ const catalogItems: SportCard[] = [
     <button 
       type="button" 
       data-filter="all" 
-      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#ccff00] text-black shadow-[0_0_20px_rgba(204,255,0,0.35)] cursor-pointer"
+      class="catalog-filter-btn px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider font-extrabold transition-all duration-300 bg-red-600 text-white shadow-[0_0_20px_rgba(220,38,38,0.4)] border border-red-500/60 cursor-pointer"
     >
       Todas las Disciplinas (6)
     </button>
     <button 
       type="button" 
       data-filter="beisbol" 
-      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+      class="catalog-filter-btn px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-amber-400/50 cursor-pointer"
     >
       ⚾ Béisbol & Sóftbol
     </button>
     <button 
       type="button" 
       data-filter="basquetbol" 
-      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+      class="catalog-filter-btn px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-amber-400/50 cursor-pointer"
     >
       🏀 Básquetbol
     </button>
     <button 
       type="button" 
       data-filter="futbol-americano" 
-      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+      class="catalog-filter-btn px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-red-500/50 cursor-pointer"
     >
       🏈 Fútbol Americano
     </button>
     <button 
       type="button" 
       data-filter="mma-boxeo" 
-      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+      class="catalog-filter-btn px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-amber-400/50 cursor-pointer"
     >
       🥊 MMA & Boxeo
     </button>
     <button 
       type="button" 
       data-filter="futbol-soccer" 
-      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+      class="catalog-filter-btn px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-amber-400/50 cursor-pointer"
     >
       ⚽ Fútbol Soccer
     </button>
     <button 
       type="button" 
       data-filter="ciclismo-running" 
-      class="catalog-filter-btn px-4 py-2 rounded-xl text-xs font-athletic uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-[#ccff00]/50 cursor-pointer"
+      class="catalog-filter-btn px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider font-bold transition-all duration-300 bg-[#14141a] text-neutral-300 hover:text-white border border-white/10 hover:border-amber-400/50 cursor-pointer"
     >
       🚴 Ciclismo & Running
     </button>
@@ -178,14 +178,14 @@ const catalogItems: SportCard[] = [
         <div
           data-category={item.id}
           data-tilt
-          class="catalog-card reveal-on-scroll h-[480px] relative overflow-hidden group rounded-3xl border border-white/10 hover:border-[#ccff00]/80 shadow-2xl flex flex-col justify-between p-6 bg-[#0e0e12]"
+          class="catalog-card reveal-on-scroll h-[480px] relative overflow-hidden group rounded-3xl border border-white/10 hover:border-[#D4AF37]/80 shadow-2xl flex flex-col justify-between p-6 bg-[#0e0e12]"
           data-reveal-delay={String(index * 100)}
         >
           <!-- Dynamic Cursor Specular Shine Overlay -->
           <div class="specular-shine absolute inset-0 z-25 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
           <!-- Subtle Animated Border Gleam -->
-          <div class="absolute inset-0 rounded-3xl p-[1.5px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#ccff00]/70 via-[#ccff00]/20 to-white/30 z-20"></div>
+          <div class="absolute inset-0 rounded-3xl p-[1.5px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#D4AF37]/70 via-[#B30000]/40 to-[#C0C0C8]/40 z-20"></div>
 
           <!-- Subtle Diagonal Shimmer Sweep -->
           <div class="absolute -inset-full top-0 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none z-15"></div>
@@ -213,14 +213,14 @@ const catalogItems: SportCard[] = [
             </div>
           </a>
 
-          <!-- Top Row: Badge + Circular Arrow Button (Visual, clic navega a la página del uniforme) -->
+          <!-- Top Row: Badge + Circular Arrow Button -->
           <div class="relative z-20 pointer-events-none flex items-center justify-between w-full">
-            <span class="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-neutral-200 group-hover:border-[#ccff00]/50 group-hover:text-[#ccff00] transition-colors">
+            <span class="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-neutral-200 group-hover:border-[#D4AF37]/50 group-hover:text-[#D4AF37] transition-colors">
               {item.badge}
             </span>
 
             <div 
-              class="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/15 flex items-center justify-center text-white text-base group-hover:bg-[#ccff00] group-hover:text-black group-hover:border-[#ccff00] group-hover:scale-110 transition-all duration-300 shadow-lg"
+              class="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/15 flex items-center justify-center text-white text-base group-hover:bg-[#D4AF37] group-hover:text-black group-hover:border-[#D4AF37] group-hover:scale-110 transition-all duration-300 shadow-lg"
             >
               ↗
             </div>
@@ -231,13 +231,13 @@ const catalogItems: SportCard[] = [
             <!-- Thematic Icon & Garment Note -->
             <div class="flex items-center gap-2 mb-2">
               <span class="text-xl" role="img" aria-label={item.name}>{item.icon}</span>
-              <span class="text-[11px] uppercase tracking-widest text-[#ccff00] font-bold">
+              <span class="text-[11px] uppercase tracking-widest text-[#D4AF37] font-bold">
                 {item.detailUrl ? "Ver Vitrina & Videos" : "Sublimación Pro"}
               </span>
             </div>
 
             <!-- Discipline Name in Ultra-Condensed Uppercase -->
-            <h3 class="font-athletic text-3xl sm:text-4xl font-black uppercase tracking-tight text-white group-hover:text-[#ccff00] transition-colors leading-none mb-2">
+            <h3 class="font-athletic text-3xl sm:text-4xl font-black uppercase tracking-tight text-white group-hover:text-[#D4AF37] transition-colors leading-none mb-2">
               {item.name}
             </h3>
 
@@ -248,16 +248,16 @@ const catalogItems: SportCard[] = [
 
             <!-- Included Garments Pill -->
             <div class="inline-flex items-center gap-1.5 text-xs text-neutral-300 bg-white/10 backdrop-blur-md border border-white/10 rounded-lg px-2.5 py-1.5 mb-4 w-fit">
-              <span class="text-[#ccff00] font-bold">Incluye:</span>
+              <span class="text-[#D4AF37] font-bold">Incluye:</span>
               <span>{item.includes}</span>
             </div>
 
-            <!-- Price & WhatsApp Action Row (El botón Cotizar abre WhatsApp directamente) -->
+            <!-- Price & WhatsApp Action Row -->
             <div class="pt-3 border-t border-white/15 flex items-center justify-between pointer-events-auto">
               <div class="flex flex-col">
                 <span class="text-[10px] text-neutral-400 uppercase tracking-wider font-semibold">Mayoreo garantizado</span>
                 <span class="text-sm sm:text-base text-neutral-200 font-medium">
-                  Desde <strong class="text-[#ccff00] font-athletic text-xl sm:text-2xl font-black">{item.price}</strong> <span class="text-xs text-neutral-400">/ pza</span>
+                  Desde <strong class="text-[#D4AF37] font-athletic text-xl sm:text-2xl font-black">{item.price}</strong> <span class="text-xs text-neutral-400">/ pza</span>
                 </span>
               </div>
 
@@ -265,11 +265,11 @@ const catalogItems: SportCard[] = [
                 href={waQuoteHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black bg-[#ccff00] hover:bg-white hover:shadow-[0_0_20px_rgba(204,255,0,0.8)] px-3.5 py-1.5 rounded-full transition-all duration-200 active:scale-95 shadow-md relative z-30 cursor-pointer"
+                class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wide text-white bg-red-600 hover:bg-red-500 border border-red-400/40 hover:border-amber-400/60 hover:shadow-[0_0_18px_rgba(220,38,38,0.55)] px-4 py-2 rounded-full transition-all duration-200 active:scale-95 shadow-md shadow-black/40 relative z-30 cursor-pointer"
                 title={`Cotizar uniformes de ${item.name} por WhatsApp`}
               >
                 <span>Cotizar</span>
-                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <svg class="w-3.5 h-3.5 fill-white shrink-0" viewBox="0 0 24 24">
                   <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
                 </svg>
               </a>
@@ -281,13 +281,13 @@ const catalogItems: SportCard[] = [
   </div>
 
   <!-- Interactive Dynamic Wholesale Calculator Strip -->
-  <div class="reveal-on-scroll mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#14141c] via-[#0f0f15] to-[#14141c] border border-white/10 shadow-2xl relative overflow-hidden" data-tilt>
-    <div class="absolute -top-20 -right-20 w-60 h-60 bg-[#ccff00]/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="reveal-on-scroll mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#14141c] via-[#0f0f15] to-[#14141c] border border-[#D4AF37]/30 shadow-2xl relative overflow-hidden" data-tilt>
+    <div class="absolute -top-20 -right-20 w-60 h-60 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
       <!-- Calculator Controls -->
       <div class="w-full lg:max-w-xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ccff00]/10 border border-[#ccff00]/30 text-[#ccff00] text-xs font-bold uppercase tracking-wider mb-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-bold uppercase tracking-wider mb-3">
           <span>⚡ Calculador Dinámico de Mayoreo</span>
         </div>
         <h4 class="font-athletic text-2xl sm:text-3xl uppercase tracking-tight text-white font-black mb-2">
@@ -301,7 +301,7 @@ const catalogItems: SportCard[] = [
         <div class="space-y-3">
           <div class="flex justify-between items-center text-xs font-mono">
             <span class="text-neutral-400">Cantidad Seleccionada:</span>
-            <span class="text-[#ccff00] font-athletic text-xl font-black" id="calc-qty-display">25 Uniformes</span>
+            <span class="text-[#D4AF37] font-athletic text-xl font-black" id="calc-qty-display">25 Uniformes</span>
           </div>
           <input 
             type="range" 
@@ -310,7 +310,7 @@ const catalogItems: SportCard[] = [
             max="120" 
             step="5" 
             value="25"
-            class="w-full accent-[#ccff00] cursor-pointer h-2 bg-white/10 rounded-lg appearance-none"
+            class="w-full accent-[#D4AF37] cursor-pointer h-2 bg-white/10 rounded-lg appearance-none"
           />
           <div class="flex justify-between text-[10px] text-neutral-500 font-mono">
             <span>Min. 10 pzas</span>
@@ -322,9 +322,9 @@ const catalogItems: SportCard[] = [
       </div>
 
       <!-- Live Calculation Result Card -->
-      <div class="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row items-center gap-6 p-6 rounded-2xl bg-black/60 border border-white/10 backdrop-blur-md">
+      <div class="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row items-center gap-6 p-6 rounded-2xl bg-black/60 border border-[#D4AF37]/20 backdrop-blur-md">
         <div class="text-center sm:text-left">
-          <span class="text-[10px] uppercase font-mono tracking-widest text-[#ccff00] block mb-1" id="calc-tier-badge">
+          <span class="text-[10px] uppercase font-mono tracking-widest text-[#D4AF37] block mb-1" id="calc-tier-badge">
             Nivel: Escala Club (-8%)
           </span>
           <div class="text-neutral-300 text-xs font-medium">Beneficios incluidos:</div>
@@ -332,11 +332,11 @@ const catalogItems: SportCard[] = [
         </div>
 
         <a 
-          href="https://wa.me/520000000000?text=Hola%20APEX%20PRO%2C%20quiero%20cotizar%20un%20pedido%20de%2025%20uniformes%20con%20descuento%20de%20mayoreo."
+          href="https://wa.me/520000000000?text=Hola%20Alpha%20Aurea%2C%20quiero%20cotizar%20un%20pedido%20de%2025%20uniformes%20con%20descuento%20de%20mayoreo."
           id="calc-whatsapp-btn"
           target="_blank" 
           rel="noopener noreferrer"
-          class="w-full sm:w-auto shrink-0 text-xs sm:text-sm font-athletic font-bold uppercase tracking-wider px-7 py-3.5 rounded-full bg-[#ccff00] text-black hover:bg-white transition-all shadow-[0_0_25px_rgba(204,255,0,0.4)] text-center"
+          class="w-full sm:w-auto shrink-0 text-xs sm:text-sm font-extrabold uppercase tracking-wide px-7 py-3.5 rounded-full bg-red-600 hover:bg-red-500 text-white transition-all shadow-[0_0_20px_rgba(220,38,38,0.55)] border border-red-400/40 hover:border-amber-400/60 text-center"
         >
           Cotizar Este Pedido
         </a>
@@ -358,13 +358,13 @@ const catalogItems: SportCard[] = [
 
         // Reset button states
         filterButtons.forEach((b) => {
-          b.classList.remove('bg-[#ccff00]', 'text-black', 'shadow-[0_0_20px_rgba(204,255,0,0.35)]');
-          b.classList.add('bg-[#14141a]', 'text-neutral-300', 'border', 'border-white/10');
+          b.classList.remove('bg-red-600', 'text-white', 'shadow-[0_0_20px_rgba(220,38,38,0.4)]', 'border-red-500/60');
+          b.classList.add('bg-[#14141a]', 'text-neutral-300', 'border-white/10');
         });
 
         // Activate button
-        btn.classList.add('bg-[#ccff00]', 'text-black', 'shadow-[0_0_20px_rgba(204,255,0,0.35)]');
-        btn.classList.remove('bg-[#14141a]', 'text-neutral-300', 'border', 'border-white/10');
+        btn.classList.add('bg-red-600', 'text-white', 'shadow-[0_0_20px_rgba(220,38,38,0.4)]', 'border-red-500/60');
+        btn.classList.remove('bg-[#14141a]', 'text-neutral-300', 'border-white/10');
 
         // Filter cards with smooth opacity/scale
         cards.forEach((card) => {

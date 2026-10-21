@@ -1,0 +1,207 @@
+---
+// src/components/IntroStoryboard.astro
+// Intro dinámica e interactiva de impacto institucional 49ers (Negro, Dorado, Rojo, Plata)
+// "Desde que lo veas digas: esto se ve con madre"
+---
+
+<div id="intro-storyboard-overlay" class="fixed inset-0 z-50 bg-[#0A0A0C] flex flex-col items-center justify-center overflow-hidden transition-all duration-700 select-none">
+  <!-- Glowing Background Atmosphere: 49ers Gold & Ruby Crimson Orbs -->
+  <div class="absolute -top-32 -left-32 w-[600px] h-[600px] bg-[#B30000]/25 rounded-full blur-[140px] pointer-events-none animate-pulse"></div>
+  <div class="absolute -bottom-32 -right-32 w-[600px] h-[600px] bg-[#D4AF37]/20 rounded-full blur-[160px] pointer-events-none"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#0A0A0C]/80 to-[#0A0A0C] pointer-events-none"></div>
+
+  <!-- Scanline / Kinetic Grid Overlay -->
+  <div class="absolute inset-0 opacity-15 bg-[linear-gradient(rgba(212,175,55,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.08)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
+
+  <!-- Top Brand Navigation / Skip Header -->
+  <div class="absolute top-6 left-6 right-6 flex items-center justify-between z-30">
+    <div class="flex items-center gap-3">
+      <span class="w-2.5 h-2.5 rounded-full bg-[#D4AF37] animate-ping"></span>
+      <span class="font-mono text-xs uppercase tracking-[0.25em] text-[#C0C0C8]">APEX PRO // 49 EDITION</span>
+    </div>
+    
+    <button 
+      id="intro-skip-btn" 
+      class="group flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#14141c]/90 hover:bg-[#D4AF37] border border-[#D4AF37]/40 text-[#C0C0C8] hover:text-black font-athletic uppercase text-xs tracking-wider font-bold transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.15)] hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] cursor-pointer"
+    >
+      <span>Saltar Intro</span>
+      <span class="text-xs group-hover:translate-x-1 transition-transform">→</span>
+    </button>
+  </div>
+
+  <!-- STORYBOARD STAGE: Dynamic Photo & Cut Sequence -->
+  <div class="relative z-10 w-full max-w-5xl px-4 flex flex-col items-center justify-center text-center">
+    
+    <!-- Central Cinematic Card Carousel Preview -->
+    <div class="relative w-full max-w-2xl h-64 sm:h-80 md:h-96 mb-6 flex items-center justify-center">
+      
+      <!-- Frame 1: Americano (Red & Gold) -->
+      <div class="story-frame absolute inset-0 rounded-3xl overflow-hidden border-2 border-[#D4AF37]/40 shadow-[0_0_50px_rgba(179,0,0,0.4)] transition-all duration-700 opacity-100 scale-100" data-frame="0">
+        <img 
+          src="/images/catalog/football.jpg" 
+          alt="Uniforme Fútbol Americano Pro" 
+          class="w-full h-full object-cover object-center filter brightness-90 contrast-110"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 text-left">
+          <span class="inline-block px-3 py-1 rounded bg-[#B30000] text-white text-[11px] font-mono font-black uppercase tracking-wider mb-1">
+            ARMADURA PRO // AMERICANO
+          </span>
+          <h3 class="font-athletic text-2xl sm:text-4xl text-white uppercase font-black leading-none drop-shadow-md">
+            Malla Spandex 400g & Calandra 205°C
+          </h3>
+        </div>
+      </div>
+
+      <!-- Frame 2: Béisbol & Sóftbol -->
+      <div class="story-frame absolute inset-0 rounded-3xl overflow-hidden border-2 border-[#D4AF37]/40 shadow-[0_0_50px_rgba(212,175,55,0.4)] transition-all duration-700 opacity-0 scale-95 pointer-events-none" data-frame="1">
+        <img 
+          src="/images/catalog/baseball.jpg" 
+          alt="Jersey Béisbol & Sóftbol" 
+          class="w-full h-full object-cover object-center filter brightness-90 contrast-110"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 text-left">
+          <span class="inline-block px-3 py-1 rounded bg-[#D4AF37] text-black text-[11px] font-mono font-black uppercase tracking-wider mb-1">
+            DIAMANTES DE GLORIA // BÉISBOL
+          </span>
+          <h3 class="font-athletic text-2xl sm:text-4xl text-white uppercase font-black leading-none drop-shadow-md">
+            Jersey 2B & 6B Botones con Ribetes
+          </h3>
+        </div>
+      </div>
+
+      <!-- Frame 3: Fútbol Soccer Pro -->
+      <div class="story-frame absolute inset-0 rounded-3xl overflow-hidden border-2 border-white/20 shadow-[0_0_50px_rgba(192,192,200,0.3)] transition-all duration-700 opacity-0 scale-95 pointer-events-none" data-frame="2">
+        <img 
+          src="/images/catalog/soccer.jpg" 
+          alt="Uniforme Fútbol Soccer Pro" 
+          class="w-full h-full object-cover object-center filter brightness-90 contrast-110"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 text-left">
+          <span class="inline-block px-3 py-1 rounded bg-[#C0C0C8] text-black text-[11px] font-mono font-black uppercase tracking-wider mb-1">
+            VELOCIDAD PURA // SOCCER
+          </span>
+          <h3 class="font-athletic text-2xl sm:text-4xl text-white uppercase font-black leading-none drop-shadow-md">
+            Dry-Tech 145g con Paneles Aerodinámicos
+          </h3>
+        </div>
+      </div>
+
+      <!-- Frame 4: Master Brand Reveal -->
+      <div class="story-frame absolute inset-0 rounded-3xl overflow-hidden border-2 border-[#D4AF37] bg-gradient-to-br from-[#16161f] via-[#0E0E14] to-black shadow-[0_0_60px_rgba(212,175,55,0.5)] transition-all duration-700 opacity-0 scale-95 flex flex-col items-center justify-center p-6 text-center pointer-events-none" data-frame="3">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#B30000] via-[#E61919] to-[#800000] border-2 border-[#D4AF37] flex items-center justify-center shadow-[0_0_35px_rgba(212,175,55,0.6)] mb-4 animate-bounce">
+          <span class="font-athletic text-3xl font-black text-[#D4AF37]">49</span>
+        </div>
+        <h2 class="font-athletic text-4xl sm:text-6xl uppercase tracking-tight text-white font-black leading-none mb-2">
+          APEX PRO <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#D4AF37]">UNIFORMES</span>
+        </h2>
+        <p class="text-[#C0C0C8] font-mono text-xs sm:text-sm tracking-widest uppercase">
+          DISEÑADOS PARA CAMPEONES // CONFECCIÓN DE ÉLITE
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Impact Subtitle & Progress Bars -->
+    <div class="w-full max-w-md mx-auto">
+      <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-2">
+        <span id="story-label" class="text-[#D4AF37] font-bold">CARGANDO ESENCIA // 01</span>
+        <span id="story-countdown" class="text-neutral-500">2.8s</span>
+      </div>
+
+      <!-- Segments Progress Bar -->
+      <div class="grid grid-cols-4 gap-2 h-1.5 w-full bg-white/10 rounded-full overflow-hidden p-0.5">
+        <div class="story-seg-bar h-full rounded-full bg-[#D4AF37] transition-all duration-300 w-full" data-seg="0"></div>
+        <div class="story-seg-bar h-full rounded-full bg-white/20 transition-all duration-300 w-full" data-seg="1"></div>
+        <div class="story-seg-bar h-full rounded-full bg-white/20 transition-all duration-300 w-full" data-seg="2"></div>
+        <div class="story-seg-bar h-full rounded-full bg-white/20 transition-all duration-300 w-full" data-seg="3"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Audio / Haptic Toggle Notice (Lightweight multimedia experience) -->
+  <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between z-30 text-[11px] text-neutral-500 font-mono">
+    <span>EDICIÓN INSTITUCIONAL 49ERS</span>
+    <span class="text-[#D4AF37]">NEGRO • DORADO • ROJO • PLATA</span>
+  </div>
+</div>
+
+<script is:inline>
+  (function initStoryboard() {
+    const overlay = document.getElementById('intro-storyboard-overlay');
+    if (!overlay) return;
+
+    // Check if user already saw the intro in this session to maintain rapid subsequent page loads
+    const hasSeenIntro = sessionStorage.getItem('apex_intro_seen');
+    if (hasSeenIntro === 'true') {
+      overlay.style.display = 'none';
+      return;
+    }
+
+    const frames = overlay.querySelectorAll('.story-frame');
+    const segBars = overlay.querySelectorAll('.story-seg-bar');
+    const label = document.getElementById('story-label');
+    const skipBtn = document.getElementById('intro-skip-btn');
+
+    let currentFrame = 0;
+    const totalFrames = frames.length;
+    const labels = [
+      "FÚTBOL AMERICANO // COLISIÓN PESADA",
+      "BÉISBOL & SÓFTBOL // CORTE CLÁSICO 6B",
+      "FÚTBOL SOCCER // DRY-TECH ULTRALIGERO",
+      "BIENVENIDO A APEX PRO 49"
+    ];
+
+    function showFrame(index) {
+      frames.forEach((f, i) => {
+        if (i === index) {
+          f.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+          f.classList.add('opacity-100', 'scale-100');
+        } else {
+          f.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+          f.classList.remove('opacity-100', 'scale-100');
+        }
+      });
+
+      segBars.forEach((bar, i) => {
+        if (i <= index) {
+          bar.classList.remove('bg-white/20');
+          bar.classList.add('bg-[#D4AF37]');
+        } else {
+          bar.classList.remove('bg-[#D4AF37]');
+          bar.classList.add('bg-white/20');
+        }
+      });
+
+      if (label && labels[index]) {
+        label.textContent = labels[index];
+      }
+    }
+
+    function dismissIntro() {
+      sessionStorage.setItem('apex_intro_seen', 'true');
+      overlay.classList.add('opacity-0', 'pointer-events-none', 'scale-105');
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 700);
+    }
+
+    if (skipBtn) {
+      skipBtn.addEventListener('click', dismissIntro);
+    }
+
+    // Storyboard sequence ticker: step through frames rapidly for dynamic punch
+    const interval = setInterval(() => {
+      currentFrame++;
+      if (currentFrame < totalFrames) {
+        showFrame(currentFrame);
+      } else {
+        clearInterval(interval);
+        setTimeout(dismissIntro, 600);
+      }
+    }, 700);
+  })();
+</script>

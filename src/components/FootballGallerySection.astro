@@ -36,7 +36,7 @@ const products: FootballProductItem[] = [
     targetAudience: "Caballero",
     badge: "Combat Armor 400g",
     number: "#99",
-    description: "Jersey blindado para coraza varonil. Tejido azul rey con hombreras en degradé rayado eléctrico gris/naranja y tipografía 'Relámpago' con costuras Flatlock reforzadas.",
+    description: "Jersey blindado para coraza varonil. Tejido de alta resistencia con detalles en oro metálico y rojo carmesí, hombreras reforzadas y costuras Flatlock grado militar.",
     features: [
       "Ajuste ceñido anatómico sobre coraza",
       "Malla Spandex Heavy 400g anti-tirones",
@@ -44,7 +44,7 @@ const products: FootballProductItem[] = [
     ],
     frontImage: frenteCaballeroAmer,
     backImage: atrasCaballeroAmer,
-    tagColor: "border-orange-400/40 text-orange-300"
+    tagColor: "border-[#D4AF37]/50 text-[#D4AF37]"
   },
   {
     id: "americano-dama",
@@ -54,7 +54,7 @@ const products: FootballProductItem[] = [
     targetAudience: "Dama",
     badge: "Valkyrie Edition",
     number: "#25",
-    description: "Silueta anatómica femenina entallada para ligas equipadas o flag football de alto contacto. Tonalidad morado profundo con grecas nórdicas en relieve plata.",
+    description: "Silueta anatómica femenina entallada para ligas equipadas o flag football de alto contacto. Acentos en plata deportiva y rojo con relieves sublimados.",
     features: [
       "Patronaje femenino anatómico estilizado",
       "Paneles laterales transpirables Dry-Flex",
@@ -62,7 +62,7 @@ const products: FootballProductItem[] = [
     ],
     frontImage: frenteDamaAmer,
     backImage: atrasDamaAmer,
-    tagColor: "border-purple-400/40 text-purple-300"
+    tagColor: "border-[#C0C0C8]/50 text-[#C0C0C8]"
   },
   {
     id: "americano-infantil",
@@ -72,7 +72,7 @@ const products: FootballProductItem[] = [
     targetAudience: "Infantil",
     badge: "Junior Tackle",
     number: "#88",
-    description: "Equipación diseñada para categorías infantiles y flag football juvenil. Color azul cielo con garras naranjas 'Dynos' en hombreras y cuello verde neón.",
+    description: "Equipación diseñada para categorías infantiles y flag football juvenil. Colores de alto impacto con vivos en oro y rojo y cuello anti-rozaduras.",
     features: [
       "Tejido elástico de alta flexibilidad",
       "Costuras suaves anti-rozaduras con hombreras",
@@ -80,25 +80,25 @@ const products: FootballProductItem[] = [
     ],
     frontImage: frenteInfantilAmer,
     backImage: atrasInfantilAmer,
-    tagColor: "border-[#ccff00]/40 text-[#ccff00]"
+    tagColor: "border-[#B30000]/60 text-[#E61919]"
   }
 ];
 ---
 
 <div id="galeria-americano" class="relative py-12 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto scroll-mt-24">
   
-  <section class="relative p-6 sm:p-10 rounded-3xl bg-[#0c0c10]/90 border border-white/10 backdrop-blur-xl shadow-2xl overflow-hidden">
-    <!-- Glow ambiental temático ámbar / volt -->
-    <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-[#ccff00]/5 rounded-full blur-[140px] pointer-events-none"></div>
+  <section class="relative p-6 sm:p-10 rounded-3xl bg-[#0c0c10]/90 border border-[#D4AF37]/25 backdrop-blur-xl shadow-2xl overflow-hidden">
+    <!-- Glow ambiental temático oro / rojo 49ers -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-[#B30000]/15 rounded-full blur-[140px] pointer-events-none"></div>
 
     <!-- ENCABEZADO DE LA SECCIÓN DE FÚTBOL AMERICANO -->
     <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 pb-8 border-b border-white/10">
       <div class="max-w-3xl">
         <div class="flex items-center gap-2 mb-3">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#16161d] border border-orange-400/40 text-orange-300 text-[11px] font-mono font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(251,146,60,0.2)]">
-            <span class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
-            <span>Línea Combat Armor // Americano</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#16161d] border border-[#D4AF37]/40 text-[#D4AF37] text-[11px] font-mono font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+            <span class="w-2 h-2 rounded-full bg-[#B30000] animate-pulse"></span>
+            <span>Línea Combat Armor // 49ers Edition</span>
           </span>
           <span class="text-xs font-mono text-neutral-400 tracking-wider">
             MARCA // ALPHA AUREA
@@ -109,7 +109,7 @@ const products: FootballProductItem[] = [
           Jerseys de Fútbol Americano
         </h3>
         
-        <p class="text-sm sm:text-base font-semibold text-orange-300 font-athletic uppercase tracking-wider mt-1 mb-3">
+        <p class="text-sm sm:text-base font-semibold text-[#D4AF37] font-athletic uppercase tracking-wider mt-1 mb-3">
           Máximo Impacto // Modelos Relámpago, Valquirias y Dynos
         </p>
 
@@ -120,8 +120,8 @@ const products: FootballProductItem[] = [
 
       <!-- Resumen visual y controles -->
       <div class="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-2 text-xs font-mono text-neutral-400">
-        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
-          <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-[#D4AF37]/30">
+          <span class="w-2 h-2 rounded-full bg-[#D4AF37]"></span>
           <span class="text-white font-bold">Alternancia Frontal / Trasera Interactiva</span>
         </div>
         <span class="text-[11px] text-neutral-400">Pasa el cursor o haz clic en Frente / Espalda</span>
@@ -135,13 +135,13 @@ const products: FootballProductItem[] = [
         
         return (
           <article 
-            class="jersey-card group relative flex flex-col justify-between rounded-2xl bg-[#121217] border border-white/10 hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl overflow-hidden"
+            class="jersey-card group relative flex flex-col justify-between rounded-2xl bg-[#121217] border border-white/10 hover:border-[#D4AF37]/60 transition-all duration-300 shadow-xl hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] overflow-hidden"
             data-jersey-card
           >
             <!-- TARJETA SUPERIOR: HEADER CON MARCA, MODELO Y CATEGORÍA -->
             <div class="p-5 pb-3 flex items-center justify-between gap-2 border-b border-white/5 bg-gradient-to-b from-white/[0.03] to-transparent">
               <div>
-                <span class="block text-[10px] font-mono tracking-widest text-neutral-400 uppercase font-semibold">
+                <span class="block text-[10px] font-mono tracking-widest text-[#D4AF37] uppercase font-semibold">
                   Alpha Aurea // Oficial
                 </span>
                 <span class="font-athletic text-sm sm:text-base uppercase tracking-wide text-white font-black block">
@@ -198,19 +198,19 @@ const products: FootballProductItem[] = [
                   class="jersey-view-badge inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono text-white uppercase tracking-wider font-bold shadow-lg"
                   data-view-badge
                 >
-                  <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>
                   <span class="view-label">Vista: Frente</span>
                 </span>
               </div>
 
               <!-- CONTROLES INTERACTIVOS DE ALTERNANCIA (FRENTE / ESPALDA) -->
               <div class="absolute bottom-3 inset-x-3 z-20 flex items-center justify-center">
-                <div class="inline-flex p-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 shadow-xl gap-1">
+                <div class="inline-flex p-1 rounded-full bg-black/85 backdrop-blur-md border border-white/15 shadow-xl gap-1">
                   <button 
                     type="button" 
                     data-toggle-view="front"
                     aria-label={`Ver vista frontal de ${product.name}`}
-                    class="toggle-btn-front px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/20 text-white hover:bg-white hover:text-black cursor-pointer shadow-sm active:scale-95"
+                    class="toggle-btn-front px-3 py-1 rounded-full text-[11px] uppercase tracking-wider font-extrabold transition-all duration-200 bg-red-600 text-white cursor-pointer shadow-sm active:scale-95 border border-red-500/60"
                   >
                     Frente
                   </button>
@@ -218,7 +218,7 @@ const products: FootballProductItem[] = [
                     type="button" 
                     data-toggle-view="back"
                     aria-label={`Ver vista trasera de ${product.name}`}
-                    class="toggle-btn-back px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm active:scale-95"
+                    class="toggle-btn-back px-3 py-1 rounded-full text-[11px] uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm active:scale-95"
                   >
                     Espalda
                   </button>
@@ -230,7 +230,7 @@ const products: FootballProductItem[] = [
             <div class="p-5 flex flex-col justify-between flex-1 gap-4">
               <div>
                 <div class="flex items-center gap-2 text-xs text-neutral-400 mb-1">
-                  <span class="font-mono text-[11px] text-orange-400 font-semibold">// ALPHA AUREA</span>
+                  <span class="font-mono text-[11px] text-[#D4AF37] font-semibold">// ALPHA AUREA</span>
                   <span>•</span>
                   <span class="text-neutral-400">Americano Pro</span>
                 </div>
@@ -247,7 +247,7 @@ const products: FootballProductItem[] = [
                 <ul class="space-y-1 text-[11px] font-mono text-neutral-300 mb-4 pt-3 border-t border-white/5">
                   {product.features.map((feat) => (
                     <li class="flex items-center gap-2">
-                      <span class="text-orange-400 font-bold">✓</span>
+                      <span class="text-[#D4AF37] font-bold">✓</span>
                       <span>{feat}</span>
                     </li>
                   ))}
@@ -260,7 +260,7 @@ const products: FootballProductItem[] = [
                   href={waQuote}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-athletic text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 border border-white/15 bg-white/5 hover:bg-orange-400 hover:text-black hover:border-orange-400 hover:shadow-[0_0_20px_rgba(251,146,60,0.35)] group/btn text-white"
+                  class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-wide transition-all duration-300 border border-red-400/40 bg-red-600 hover:bg-red-500 hover:shadow-[0_0_20px_rgba(220,38,38,0.55)] group/btn text-white shadow-md shadow-black/40"
                 >
                   <span>Cotizar {product.targetAudience}</span>
                   <span class="transform group-hover/btn:translate-x-1 transition-transform">➔</span>
@@ -281,7 +281,7 @@ const products: FootballProductItem[] = [
       <div class="flex items-center gap-3">
         <span>Mínimo 10 jerseys completos</span>
         <span>•</span>
-        <span class="text-neutral-300">Incluye números en pecho, espalda y hombreras</span>
+        <span class="text-[#D4AF37]">Incluye números en pecho, espalda y hombreras</span>
       </div>
     </div>
   </section>
@@ -317,8 +317,8 @@ const products: FootballProductItem[] = [
             if (badgeLabel) badgeLabel.textContent = 'Vista: Frente';
 
             if (btnFront && btnBack) {
-              btnFront.className = 'toggle-btn-front px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white text-black cursor-pointer shadow-sm';
-              btnBack.className = 'toggle-btn-back px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm';
+              btnFront.className = 'toggle-btn-front px-3 py-1 rounded-full text-[11px] uppercase tracking-wider font-extrabold transition-all duration-200 bg-red-600 text-white cursor-pointer shadow-sm border border-red-500/60';
+              btnBack.className = 'toggle-btn-back px-3 py-1 rounded-full text-[11px] uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm';
             }
           } else {
             frontView.classList.remove('opacity-100');
@@ -328,8 +328,8 @@ const products: FootballProductItem[] = [
             if (badgeLabel) badgeLabel.textContent = 'Vista: Espalda';
 
             if (btnFront && btnBack) {
-              btnBack.className = 'toggle-btn-back px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white text-black cursor-pointer shadow-sm';
-              btnFront.className = 'toggle-btn-front px-3 py-1 rounded-full text-[11px] font-athletic uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm';
+              btnBack.className = 'toggle-btn-back px-3 py-1 rounded-full text-[11px] uppercase tracking-wider font-extrabold transition-all duration-200 bg-red-600 text-white cursor-pointer shadow-sm border border-red-500/60';
+              btnFront.className = 'toggle-btn-front px-3 py-1 rounded-full text-[11px] uppercase tracking-wider font-bold transition-all duration-200 bg-white/5 text-neutral-300 hover:bg-white hover:text-black cursor-pointer shadow-sm';
             }
           }
         }

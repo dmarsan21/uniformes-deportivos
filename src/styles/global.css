@@ -1,7 +1,29 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #D4AF37;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F3E5AB;
+  --color-gold-dark: #AA7C11;
+  --color-red: #B30000;
+  --color-red-bright: #E61919;
+  --color-red-dark: #800000;
+  --color-silver: #C0C0C8;
+  --color-silver-light: #E2E2E8;
+  --color-silver-dark: #8A8A93;
+  --color-dark: #0A0A0C;
+  --color-card: #121216;
+}
+
 :root {
-  --color-primary: #ccff00;
+  --color-primary: #D4AF37;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F3E5AB;
+  --color-gold-dark: #AA7C11;
+  --color-red: #B30000;
+  --color-red-bright: #E61919;
+  --color-silver: #C0C0C8;
+  --color-silver-light: #E2E2E8;
   --color-bg-dark: #0a0a0c;
   --color-card-dark: #121216;
 }
@@ -37,17 +59,46 @@ html {
   animation-play-state: paused;
 }
 
-/* Custom glow utility */
+/* Custom glow utilities - 49ers Palette: Oro, Rojo y Plata */
+.glow-gold {
+  box-shadow: 0 0 30px -5px rgba(212, 175, 55, 0.45);
+}
+
+.glow-gold-sm {
+  box-shadow: 0 0 15px -3px rgba(212, 175, 55, 0.35);
+}
+
+.glow-red {
+  box-shadow: 0 0 30px -5px rgba(179, 0, 0, 0.55);
+}
+
+.glow-red-sm {
+  box-shadow: 0 0 15px -3px rgba(179, 0, 0, 0.4);
+}
+
+.glow-silver {
+  box-shadow: 0 0 25px -5px rgba(192, 192, 200, 0.35);
+}
+
+/* Backward compatibility aliases */
 .glow-volt {
-  box-shadow: 0 0 30px -5px rgba(204, 255, 0, 0.4);
+  box-shadow: 0 0 30px -5px rgba(212, 175, 55, 0.45);
 }
 
 .glow-volt-sm {
-  box-shadow: 0 0 15px -3px rgba(204, 255, 0, 0.35);
+  box-shadow: 0 0 15px -3px rgba(212, 175, 55, 0.35);
 }
 
 .text-glow {
-  text-shadow: 0 0 20px rgba(204, 255, 0, 0.5);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 20px rgba(179, 0, 0, 0.7);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
 }
 
 /* Lenis Smooth Scroll Configuration */
@@ -96,14 +147,14 @@ html.lenis, html.lenis body {
   transform-origin: center bottom;
 }
 
-/* Subtle mobile entrance neon glow pulse */
+/* Subtle mobile entrance gold/red glow pulse */
 @keyframes cardSubtleGleam {
   0% {
     border-color: rgba(255, 255, 255, 0.1);
   }
   45% {
-    border-color: rgba(204, 255, 0, 0.4);
-    box-shadow: 0 10px 25px -8px rgba(204, 255, 0, 0.18);
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 10px 25px -8px rgba(212, 175, 55, 0.25);
   }
   100% {
     border-color: rgba(255, 255, 255, 0.1);
@@ -112,8 +163,6 @@ html.lenis, html.lenis body {
 }
 
 @media (max-width: 768px) {
-  /* On mobile: subtle 16px vertical travel + 0.98 scale-in with 0.75s fluid ease.
-     Clearly visible as you scroll down, but soft and elegant—never popping in abruptly */
   .reveal-on-scroll {
     transform: translateY(16px) scale(0.98);
     transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
@@ -126,7 +175,6 @@ html.lenis, html.lenis body {
     transform: translateY(0) scale(1) !important;
   }
 
-  /* Gentle accent gleam when a card appears on mobile */
   .catalog-card.is-revealed,
   .process-card.is-revealed,
   .bento-card.is-revealed,
@@ -134,7 +182,6 @@ html.lenis, html.lenis body {
     animation: cardSubtleGleam 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.1s 1 normal forwards;
   }
 
-  /* Tactile spring feedback for mobile touch presses */
   .catalog-card:active,
   .process-card:active,
   .bento-card:active,
@@ -152,41 +199,41 @@ html.lenis, html.lenis body {
 }
 
 .tilt-card:hover {
-  box-shadow: 0 20px 40px -15px rgba(204, 255, 0, 0.22);
+  box-shadow: 0 20px 40px -15px rgba(212, 175, 55, 0.3);
 }
 
 /* Dynamic Cursor Specular Shine Overlay */
 .specular-shine {
   background: radial-gradient(
     circle 320px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(204, 255, 0, 0.16),
+    rgba(212, 175, 55, 0.18),
     transparent 70%
   );
   pointer-events: none;
 }
 
-/* Scroll Progress Bar */
+/* Scroll Progress Bar (Oro Champán a Rojo Rubí) */
 #scroll-progress-bar {
   position: fixed;
   top: 0;
   left: 0;
   height: 3px;
   width: 0%;
-  background: linear-gradient(90deg, #ccff00 0%, #00f5ff 50%, #ccff00 100%);
+  background: linear-gradient(90deg, #D4AF37 0%, #B30000 50%, #C0C0C8 80%, #D4AF37 100%);
   background-size: 200% 100%;
   animation: borderGleam 3s linear infinite;
   z-index: 100;
   pointer-events: none;
-  box-shadow: 0 0 14px rgba(204, 255, 0, 0.8);
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.8);
 }
 
-/* Ambient Neon Cursor Follower */
+/* Ambient Neon Cursor Follower (Oro y Rubí Suave) */
 #ambient-glow-follower {
   position: fixed;
   width: 480px;
   height: 480px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(204, 255, 0, 0.05) 0%, rgba(0, 245, 255, 0.025) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, rgba(179, 0, 0, 0.03) 45%, transparent 70%);
   pointer-events: none;
   z-index: 1;
   transform: translate(-50%, -50%);
@@ -208,7 +255,7 @@ html.lenis, html.lenis body {
   animation: floatSlow 6s ease-in-out infinite;
 }
 
-/* Border Shimmer & Futuristic Utilities */
+/* Border Shimmer & Metallic Utilities */
 @keyframes borderGleam {
   0% {
     background-position: 0% 50%;
@@ -267,8 +314,24 @@ html.lenis, html.lenis body {
 }
 
 /* Kinetic Athletic Outline Text Stroke */
+.text-stroke-gold {
+  -webkit-text-stroke: 1.5px rgba(212, 175, 55, 0.5);
+  color: transparent;
+}
+
+.text-stroke-red {
+  -webkit-text-stroke: 1.5px rgba(179, 0, 0, 0.5);
+  color: transparent;
+}
+
+.text-stroke-silver {
+  -webkit-text-stroke: 1.5px rgba(192, 192, 200, 0.4);
+  color: transparent;
+}
+
+/* Backward compatibility */
 .text-stroke-volt {
-  -webkit-text-stroke: 1.5px rgba(204, 255, 0, 0.45);
+  -webkit-text-stroke: 1.5px rgba(212, 175, 55, 0.5);
   color: transparent;
 }
 
@@ -282,7 +345,7 @@ html.lenis, html.lenis body {
   color: transparent;
 }
 
-/* Hologram AI Laser Scanline Effect */
+/* Gold Laser Scanline Effect */
 @keyframes scanlineAnim {
   0% {
     transform: translateY(-100%);
@@ -302,14 +365,14 @@ html.lenis, html.lenis body {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, transparent 0%, #ccff00 50%, transparent 100%);
-  box-shadow: 0 0 18px #ccff00;
+  background: linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%);
+  box-shadow: 0 0 18px #D4AF37;
   animation: scanlineAnim 3.5s linear infinite;
   pointer-events: none;
   z-index: 25;
 }
 
-/* Side HUD Navigation Dots (Strictly Desktop XL+ Only, Never on Mobile/Tablet) */
+/* Side HUD Navigation Dots (Strictly Desktop XL+ Only) */
 .side-hud-nav {
   display: none !important;
 }
@@ -350,13 +413,13 @@ html.lenis, html.lenis body {
 }
 
 .side-hud-item.is-active .side-hud-dot {
-  background-color: #ccff00;
-  box-shadow: 0 0 16px #ccff00;
+  background-color: #D4AF37;
+  box-shadow: 0 0 16px #D4AF37;
   transform: scale(1.4);
 }
 
 .side-hud-item.is-active .side-hud-label {
-  color: #ccff00;
+  color: #D4AF37;
   opacity: 1;
   transform: translateX(0);
 }
