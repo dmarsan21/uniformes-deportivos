@@ -4,15 +4,15 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20Alpha%20Aurea%2C%20
 ---
 
 <header class="fixed top-0 left-0 right-0 w-full z-50 bg-[#0a0a0c]/90 backdrop-blur-xl border-b border-[#D4AF37]/20 shadow-xl shadow-black/60 transition-all duration-300">
-  <div class="w-full px-4 sm:px-8 xl:px-12 py-3 sm:py-3.5 flex items-center justify-between gap-4">
+  <div class="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
     <!-- Logo Alpha Aurea -->
-    <a href="/" class="flex items-center gap-2.5 group shrink-0" aria-label="Alpha Aurea Inicio">
-      <div class="w-8 h-8 rounded-lg bg-red-600 border border-red-500/80 shadow-md shadow-red-950/60 flex items-center justify-center font-athletic text-white text-lg font-black group-hover:scale-105 group-hover:shadow-[0_0_18px_rgba(220,38,38,0.7)] transition-all">
+    <a href="/" class="flex items-center gap-1.5 sm:gap-2.5 group shrink-0" aria-label="Alpha Aurea Inicio">
+      <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-red-600 border border-red-500/80 shadow-md shadow-red-950/60 flex items-center justify-center font-athletic text-white text-base sm:text-lg font-black group-hover:scale-105 group-hover:shadow-[0_0_18px_rgba(220,38,38,0.7)] transition-all">
         Α
       </div>
-      <div class="flex items-center gap-2">
-        <span class="font-athletic text-2xl tracking-wider text-white font-black uppercase">ALPHA</span>
-        <span class="text-sm font-black tracking-widest text-white uppercase border-l border-white/20 pl-2">AUREA</span>
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        <span class="font-athletic text-lg sm:text-2xl tracking-wider text-white font-black uppercase">ALPHA</span>
+        <span class="text-xs sm:text-sm font-black tracking-widest text-white uppercase border-l border-white/20 pl-1.5 sm:pl-2">AUREA</span>
       </div>
     </a>
 
@@ -166,24 +166,24 @@ const WHATSAPP_URL = "https://wa.me/520000000000?text=Hola%20Alpha%20Aurea%2C%20
     </nav>
 
     <!-- CTA & Mobile Button -->
-    <div class="flex items-center gap-3 shrink-0">
+    <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
       <a 
         href={WHATSAPP_URL} 
         target="_blank" 
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2.5 bg-red-600 hover:bg-red-500 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wide px-5 py-2.5 rounded-full border border-red-400/40 hover:border-amber-400/60 hover:shadow-[0_0_20px_rgba(220,38,38,0.55)] active:scale-95 transition-all duration-200 shadow-lg shadow-black/40"
+        class="inline-flex items-center gap-1.5 sm:gap-2.5 bg-red-600 hover:bg-red-500 text-white font-extrabold text-[11px] sm:text-sm uppercase tracking-wide px-3 sm:px-5 py-2 sm:py-2.5 rounded-full border border-red-400/40 hover:border-amber-400/60 hover:shadow-[0_0_20px_rgba(220,38,38,0.55)] active:scale-95 transition-all duration-200 shadow-md shadow-black/40"
         id="nav-cta-btn"
       >
-        <svg class="w-4 h-4 fill-white shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.63c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.42 1.01 2.59c.13.17 1.75 2.67 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.14.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
         </svg>
         <span class="tracking-wider font-bold">Cotizar</span>
       </a>
 
-      <!-- Mobile Toggle Button -->
+      <!-- Mobile Toggle Button (Hamburguesa 100% visible) -->
       <button 
         id="mobile-menu-toggle"
-        class="lg:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-[#D4AF37] hover:border-[#D4AF37]/40 transition-colors"
+        class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white hover:text-[#D4AF37] hover:border-[#D4AF37]/50 transition-colors shrink-0"
         aria-label="Abrir menú móvil"
         aria-expanded="false"
       >
